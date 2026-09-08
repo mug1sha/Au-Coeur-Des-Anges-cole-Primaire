@@ -85,7 +85,7 @@ export default function OurVision() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="relative aspect-[4/3] rounded-3xl bg-gradient-to-br from-navy via-[#032840] to-[#041e30] overflow-hidden">
+            <div className="relative aspect-[4/3] rounded-[5px] bg-gradient-to-br from-navy via-[#032840] to-[#041e30] overflow-hidden">
               {/* Abstract visual */}
               <svg viewBox="0 0 400 300" className="w-full h-full" aria-hidden="true">
                 {/* Background blobs */}
@@ -112,7 +112,7 @@ export default function OurVision() {
               </svg>
 
               {/* Floating badge */}
-              <div className="absolute bottom-4 left-4 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10">
+              <div className="absolute bottom-4 left-4 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-[5px] border border-white/10">
                 <span className="font-heading font-bold text-white text-sm">Notre vision</span>
               </div>
             </div>

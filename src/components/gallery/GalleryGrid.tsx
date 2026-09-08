@@ -88,7 +88,7 @@ export default function GalleryGrid({ activeCategory }: GalleryGridProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] }}
-              className={`group relative cursor-pointer rounded-2xl overflow-hidden ${
+              className={`group relative cursor-pointer rounded-[5px] overflow-hidden ${
                 image.span === "tall" ? "row-span-2" : ""
               } ${image.span === "wide" ? "sm:col-span-2" : ""}`}
               onClick={() => openLightbox(i)}
@@ -127,7 +127,7 @@ export default function GalleryGrid({ activeCategory }: GalleryGridProps) {
               {/* Icon placeholder */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg icon-spin-hover"
+                  className="w-16 h-16 rounded-[5px] flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg icon-spin-hover"
                   style={{ backgroundColor: `${image.color}15` }}
                 >
                   <svg
@@ -226,14 +226,14 @@ export default function GalleryGrid({ activeCategory }: GalleryGridProps) {
               >
                 {/* Image placeholder */}
                 <div
-                  className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden flex items-center justify-center"
+                  className="relative w-full aspect-[4/3] rounded-[5px] overflow-hidden flex items-center justify-center"
                   style={{
                     background: `linear-gradient(135deg, ${galleryImages[lightboxIndex].color}20, ${galleryImages[lightboxIndex].color}08)`,
                   }}
                 >
                   <div className="text-center">
                     <div
-                      className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4"
+                      className="w-20 h-20 rounded-[5px] flex items-center justify-center mx-auto mb-4"
                       style={{ backgroundColor: `${galleryImages[lightboxIndex].color}15` }}
                     >
                       <svg

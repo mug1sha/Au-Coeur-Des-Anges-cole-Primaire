@@ -155,11 +155,11 @@ export default function EducationalValues() {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + i * 0.08 }}
-              className="group relative flex items-start gap-4 p-6 rounded-2xl bg-white/[0.04] border border-white/[0.06] backdrop-blur-sm hover:bg-white/[0.07] hover:border-white/[0.1] transition-all duration-300"
+              className="group relative flex items-start gap-4 p-6 rounded-[5px] bg-white/[0.04] border border-white/[0.06] backdrop-blur-sm hover:bg-white/[0.07] hover:border-white/[0.1] transition-all duration-300"
             >
               {/* Icon */}
               <div
-                className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                className="flex-shrink-0 w-12 h-12 rounded-[5px] flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
                 style={{ backgroundColor: `${value.color}15` }}
               >
                 {value.icon}

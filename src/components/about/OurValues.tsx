@@ -137,11 +137,11 @@ export default function OurValues() {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 + i * 0.07 }}
-              className="group relative p-6 rounded-2xl bg-white/[0.04] border border-white/[0.06] backdrop-blur-sm hover:bg-white/[0.07] hover:border-white/[0.1] transition-all duration-300"
+              className="group relative p-6 rounded-[5px] bg-white/[0.04] border border-white/[0.06] backdrop-blur-sm hover:bg-white/[0.07] hover:border-white/[0.1] transition-all duration-300"
             >
               {/* Icon */}
               <div
-                className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
+                className="w-14 h-14 rounded-[5px] flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
                 style={{ backgroundColor: `${value.color}15` }}
               >
                 {value.icon}

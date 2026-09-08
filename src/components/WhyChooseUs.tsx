@@ -99,11 +99,11 @@ export default function WhyChooseUs() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-                className="group relative flex gap-5 p-6 rounded-2xl bg-offwhite/60 hover:bg-offwhite transition-all duration-300"
+                className="group relative flex gap-5 p-6 rounded-[5px] bg-offwhite/60 hover:bg-offwhite transition-all duration-300"
               >
                 {/* Number */}
                 <div
-                  className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-heading font-bold text-lg transition-colors duration-300"
+                  className="flex-shrink-0 w-12 h-12 rounded-[5px] flex items-center justify-center font-heading font-bold text-lg transition-colors duration-300"
                   style={{
                     backgroundColor: `${reason.color}10`,
                     color: reason.color,

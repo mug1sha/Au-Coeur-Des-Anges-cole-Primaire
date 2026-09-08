@@ -128,7 +128,7 @@ export default function Hero() {
                 <div className="absolute inset-0 rounded-full border border-white/[0.06]" />
                 <div className="absolute inset-6 rounded-full border border-white/[0.04]" />
 
-                <div className="absolute inset-12 rounded-3xl bg-gradient-to-br from-blue/20 to-orange/10 backdrop-blur-sm border border-white/[0.08] overflow-hidden flex items-center justify-center">
+                <div className="absolute inset-12 rounded-[5px] bg-gradient-to-br from-blue/20 to-orange/10 backdrop-blur-sm border border-white/[0.08] overflow-hidden flex items-center justify-center">
                   <svg viewBox="0 0 200 200" className="w-full h-full opacity-60" aria-hidden="true">
                     <circle cx="100" cy="70" r="18" fill="#FF7800" opacity="0.7" />
                     <circle cx="70" cy="90" r="14" fill="#0783BD" opacity="0.6" />
@@ -147,7 +147,7 @@ export default function Hero() {
                 <motion.div
                   animate={{ y: [0, -6, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-2 right-8 px-4 py-2 bg-white rounded-xl shadow-lg shadow-navy/10"
+                  className="absolute -top-2 right-8 px-4 py-2 bg-white rounded-[5px] shadow-lg shadow-navy/10"
                 >
                   <span className="font-heading font-bold text-navy text-sm">280+</span>
                   <span className="text-navy/50 text-xs ml-1">élèves</span>
@@ -156,7 +156,7 @@ export default function Hero() {
                 <motion.div
                   animate={{ y: [0, 6, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="absolute bottom-8 -left-4 px-4 py-2 bg-white rounded-xl shadow-lg shadow-navy/10"
+                  className="absolute bottom-8 -left-4 px-4 py-2 bg-white rounded-[5px] shadow-lg shadow-navy/10"
                 >
                   <span className="font-heading font-bold text-orange text-sm">15</span>
                   <span className="text-navy/50 text-xs ml-1">ans</span>

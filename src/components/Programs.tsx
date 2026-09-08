@@ -107,7 +107,7 @@ export default function Programs() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.12 }}
-              className="group relative bg-white rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-navy/5 transition-all duration-500"
+              className="group relative bg-white rounded-[5px] overflow-hidden hover:shadow-xl hover:shadow-navy/5 transition-all duration-500"
             >
               <div className="flex flex-col lg:flex-row">
                 {/* Color accent */}

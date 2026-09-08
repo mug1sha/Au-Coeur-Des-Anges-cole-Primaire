@@ -108,7 +108,7 @@ export default function Service() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.12 }}
-              className="group relative bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-card-hover"
+              className="group relative bg-white rounded-[5px] overflow-hidden transition-all duration-300 hover:shadow-card-hover"
             >
               <div className="flex flex-col lg:flex-row">
                 {/* Color accent */}

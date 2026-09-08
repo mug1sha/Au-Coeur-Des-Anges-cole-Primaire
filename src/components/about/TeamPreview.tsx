@@ -112,12 +112,12 @@ export default function TeamPreview() {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 + i * 0.07 }}
-              className="group relative p-6 rounded-2xl bg-offwhite/50 hover:bg-offwhite transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
+              className="group relative p-6 rounded-[5px] bg-offwhite/50 hover:bg-offwhite transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
             >
               {/* Avatar placeholder */}
               <div className="flex items-start gap-4 mb-4">
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+                  className="w-14 h-14 rounded-[5px] flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
                   style={{ backgroundColor: `${member.color}15` }}
                 >
                   <span

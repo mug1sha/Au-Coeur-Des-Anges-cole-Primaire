@@ -144,7 +144,7 @@ export default function Features() {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 + i * 0.08 }}
-              className="group relative p-7 rounded-2xl bg-white transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
+              className="group relative p-7 rounded-[5px] bg-white transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
             >
               {/* Icon */}
               <div className="mb-5 transition-transform duration-300 group-hover:scale-110">

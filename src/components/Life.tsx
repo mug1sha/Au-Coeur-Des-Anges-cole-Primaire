@@ -122,7 +122,7 @@ export default function Life() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 + i * 0.1 }}
-              className="group relative p-6 lg:p-8 rounded-2xl bg-white/[0.04] border border-white/[0.06] backdrop-blur-sm hover:bg-white/[0.08] hover:border-white/[0.12] transition-all duration-300"
+              className="group relative p-6 lg:p-8 rounded-[5px] bg-white/[0.04] border border-white/[0.06] backdrop-blur-sm hover:bg-white/[0.08] hover:border-white/[0.12] transition-all duration-300"
             >
               <div className="flex items-start justify-between mb-4">
                 <span
@@ -135,7 +135,7 @@ export default function Life() {
                   {activity.tag}
                 </span>
                 <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                  className="w-10 h-10 rounded-[5px] flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
                   style={{ backgroundColor: `${activity.color}15` }}
                   aria-hidden="true"
                 >

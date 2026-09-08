@@ -163,7 +163,7 @@ export default function Gallery() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 + i * 0.07 }}
-              className={`group relative rounded-2xl bg-offwhite overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 ${item.span}`}
+              className={`group relative rounded-[5px] bg-offwhite overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 ${item.span}`}
             >
               {/* Pattern background */}
               <div className="absolute inset-0">

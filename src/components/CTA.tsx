@@ -37,7 +37,7 @@ export default function CTA() {
 
       <div ref={ref}>
         <Container>
-        <div className="relative bg-navy rounded-3xl overflow-hidden">
+        <div className="relative bg-navy rounded-[5px] overflow-hidden">
           {/* Inner decorative elements */}
           <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
             <svg

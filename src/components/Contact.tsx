@@ -110,7 +110,7 @@ export default function Contact() {
                 },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center text-navy flex-shrink-0">
+                  <div className="w-10 h-10 rounded-[5px] bg-navy/5 flex items-center justify-center text-navy flex-shrink-0">
                     {item.icon}
                   </div>
                   <div>
@@ -133,7 +133,7 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="relative"
           >
-            <div className="bg-navy rounded-3xl p-8 lg:p-10 overflow-hidden relative">
+            <div className="bg-navy rounded-[5px] p-8 lg:p-10 overflow-hidden relative">
               {/* Decorative blob */}
               <div className="absolute -bottom-10 -right-10 w-40 h-40 opacity-20 pointer-events-none" aria-hidden="true">
                 <svg viewBox="0 0 200 200" className="w-full h-full">
@@ -160,30 +160,30 @@ export default function Contact() {
                       type="text"
                       placeholder="Prénom"
                       aria-label="Prénom"
-                      className="w-full px-4 py-3 bg-white/[0.07] border border-white/10 rounded-xl text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-orange/50 focus:bg-white/[0.1] transition-all duration-200"
+                      className="w-full px-4 py-3 bg-white/[0.07] border border-white/10 rounded-[5px] text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-orange/50 focus:bg-white/[0.1] transition-all duration-200"
                     />
                     <input
                       type="text"
                       placeholder="Nom"
                       aria-label="Nom"
-                      className="w-full px-4 py-3 bg-white/[0.07] border border-white/10 rounded-xl text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-orange/50 focus:bg-white/[0.1] transition-all duration-200"
+                      className="w-full px-4 py-3 bg-white/[0.07] border border-white/10 rounded-[5px] text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-orange/50 focus:bg-white/[0.1] transition-all duration-200"
                     />
                   </div>
                   <input
                     type="email"
                     placeholder="Email"
                     aria-label="Adresse e-mail"
-                    className="w-full px-4 py-3 bg-white/[0.07] border border-white/10 rounded-xl text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-orange/50 focus:bg-white/[0.1] transition-all duration-200"
+                    className="w-full px-4 py-3 bg-white/[0.07] border border-white/10 rounded-[5px] text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-orange/50 focus:bg-white/[0.1] transition-all duration-200"
                   />
                   <input
                     type="tel"
                     placeholder="Téléphone"
                     aria-label="Numéro de téléphone"
-                    className="w-full px-4 py-3 bg-white/[0.07] border border-white/10 rounded-xl text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-orange/50 focus:bg-white/[0.1] transition-all duration-200"
+                    className="w-full px-4 py-3 bg-white/[0.07] border border-white/10 rounded-[5px] text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-orange/50 focus:bg-white/[0.1] transition-all duration-200"
                   />
                   <select
                     aria-label="Niveau souhaité"
-                    className="w-full px-4 py-3 bg-white/[0.07] border border-white/10 rounded-xl text-white/50 text-sm focus:outline-none focus:border-orange/50 focus:bg-white/[0.1] transition-all duration-200 appearance-none"
+                    className="w-full px-4 py-3 bg-white/[0.07] border border-white/10 rounded-[5px] text-white/50 text-sm focus:outline-none focus:border-orange/50 focus:bg-white/[0.1] transition-all duration-200 appearance-none"
                     defaultValue=""
                   >
                     <option value="" disabled>Niveau souhaité</option>
@@ -200,7 +200,7 @@ export default function Contact() {
                     placeholder="Message (facultatif)"
                     aria-label="Message"
                     rows={3}
-                    className="w-full px-4 py-3 bg-white/[0.07] border border-white/10 rounded-xl text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-orange/50 focus:bg-white/[0.1] transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 bg-white/[0.07] border border-white/10 rounded-[5px] text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-orange/50 focus:bg-white/[0.1] transition-all duration-200 resize-none"
                   />
                   <Button type="submit" variant="primary" size="lg" className="w-full">Envoyer la demande</Button>
                 </form>

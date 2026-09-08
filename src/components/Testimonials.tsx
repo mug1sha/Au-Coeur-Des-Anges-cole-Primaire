@@ -32,7 +32,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-2 relative bg-navy rounded-3xl p-8 lg:p-12 overflow-hidden"
+            className="lg:col-span-2 relative bg-navy rounded-[5px] p-8 lg:p-12 overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-40 h-40 opacity-10 pointer-events-none" aria-hidden="true">
               <svg viewBox="0 0 100 100" className="w-full h-full">
@@ -80,7 +80,7 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="flex-1 bg-offwhite rounded-3xl p-6 lg:p-8"
+              className="flex-1 bg-offwhite rounded-[5px] p-6 lg:p-8"
             >
               <div className="flex items-center gap-1 mb-4" aria-label="5 étoiles sur 5">
                 {[...Array(5)].map((_, i) => (
@@ -109,9 +109,9 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex-1 bg-offwhite rounded-3xl p-6 lg:p-8"
+              className="flex-1 bg-offwhite rounded-[5px] p-6 lg:p-8"
             >
-              <div className="w-12 h-12 rounded-2xl bg-blue/10 flex items-center justify-center mb-4" aria-hidden="true">
+              <div className="w-12 h-12 rounded-[5px] bg-blue/10 flex items-center justify-center mb-4" aria-hidden="true">
                 <svg className="w-6 h-6 text-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>

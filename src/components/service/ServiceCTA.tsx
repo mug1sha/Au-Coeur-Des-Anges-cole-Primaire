@@ -27,7 +27,7 @@ export default function ServiceCTA() {
 
       <Container>
       <div ref={ref} className="relative z-10">
-        <div className="relative bg-navy rounded-3xl overflow-hidden">
+        <div className="relative bg-navy rounded-[5px] overflow-hidden">
           {/* Inner decorative elements */}
           <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
               <svg

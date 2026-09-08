@@ -169,7 +169,7 @@ export default function ServicesGrid() {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative p-6 rounded-2xl bg-offwhite/50 hover:bg-white transition-colors duration-300 card-hover"
+              className="group relative p-6 rounded-[5px] bg-offwhite/50 hover:bg-white transition-colors duration-300 card-hover"
             >
               {/* Icon */}
               <div className="mb-4 icon-spin-hover">

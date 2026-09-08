@@ -120,7 +120,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-              className="group relative p-6 rounded-2xl bg-offwhite/50 hover:bg-offwhite transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
+              className="group relative p-6 rounded-[5px] bg-offwhite/50 hover:bg-offwhite transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
             >
               <div className="mb-4">{value.icon}</div>
               <h3 className="font-heading text-lg font-bold text-navy mb-2">
