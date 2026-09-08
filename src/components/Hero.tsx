@@ -70,18 +70,7 @@ export default function Hero() {
         <div className="relative z-10 w-full pt-32 pb-20 lg:pt-40 lg:pb-28">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Text */}
-            <div className="max-w-xl lg:pl-4">
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white/80 text-sm font-heading font-medium mb-6">
-                  <span className="w-2 h-2 rounded-full bg-orange animate-pulse" aria-hidden="true" />
-                  Inscriptions ouvertes — Année 2026-2027
-                </span>
-              </motion.div>
-
+            <div className="max-w-xl">
               <motion.h1
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -125,7 +114,7 @@ export default function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </Button>
-                <Button href="#contact" variant="secondary" size="lg" className="border-white/30 text-white hover:bg-white hover:text-navy">
+                <Button href="#contact" variant="secondary" size="lg" className="!border-white/30 !text-white hover:!bg-white hover:!text-navy">
                   Nous contacter
                 </Button>
               </motion.div>

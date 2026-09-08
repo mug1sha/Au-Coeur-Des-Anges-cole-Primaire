@@ -13,7 +13,7 @@ export default function Container({
 }: ContainerProps) {
   return (
     <Tag
-      className={`mx-auto w-full px-5 sm:px-6 lg:px-8 ${
+      className={`mx-auto w-full px-6 sm:px-8 lg:px-12 ${
         narrow ? "max-w-3xl" : "max-w-7xl"
       } ${className}`}
     >
