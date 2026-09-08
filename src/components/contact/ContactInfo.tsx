@@ -12,7 +12,7 @@ const contactDetails = [
       </svg>
     ),
     label: "Téléphone",
-    value: "+221 XX XXX XX XX",
+    value: "+250 788 123 456",
     note: "Du lundi au vendredi",
     color: "#0783BD",
   },
@@ -35,8 +35,8 @@ const contactDetails = [
       </svg>
     ),
     label: "Adresse",
-    value: "XX Rue de l'Éducation, Dakar",
-    note: "Sénégal",
+    value: "Kn41, 25, Nyarugenge",
+    note: "Kigali, Rwanda",
     color: "#023250",
   },
   {

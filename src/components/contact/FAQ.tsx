@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "Quels niveaux accueillez-vous ?",
     answer:
-      "Nous accueillons les enfants de la maternelle (PS, MS, GS) jusqu'au CM2, soit de 3 à 11 ans. Nos classes sont organisées par niveaux avec des effectifs réduits pour un suivi personnalisé de chaque élève.",
+      "Nous accueillons les enfants de 9 mois à 6 ans, de la crèche à l'école maternelle. Nos classes sont organisées par niveaux avec des effectifs réduits pour un suivi personnalisé de chaque enfant.",
   },
   {
     question: "Quels sont vos horaires ?",

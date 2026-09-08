@@ -120,7 +120,7 @@ export default function Introduction() {
               className="mt-6 space-y-4"
             >
               <p className="text-navy/60 leading-relaxed">
-                Au Coeur Des Anges est une école primaire qui place l&apos;enfant
+                Au Coeur Des Anges est une crèche et école maternelle qui place l&apos;enfant
                 au centre de son projet éducatif. Depuis notre création, nous
                 cultivons un environnement où la bienveillance, la rigueur et la
                 créativité se rejoignent pour éveiller les potentiels de chacun.
@@ -130,7 +130,7 @@ export default function Introduction() {
                 possède un talent unique. Notre rôle est de le révéler, de le
                 nourrir et de l&apos;accompagner avec passion et expertise. Les parents
                 nous font confiance parce que nous traitons chaque élève comme
-                notre propre enfant.
+                notre propre enfant. Nous accueillons les enfants de 9 mois à 6 ans.
               </p>
             </motion.div>
 

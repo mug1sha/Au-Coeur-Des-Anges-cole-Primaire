@@ -88,8 +88,8 @@ export default function Hero() {
                 transition={{ duration: 0.7, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="mt-6 text-lg text-white/65 leading-relaxed max-w-lg"
               >
-                Un environnement sûr, bienveillant et inspirant où chaque enfant
-                développe ses talents, sa confiance et sa créativité.
+                  Un environnement sûr, bienveillant et inspirant où chaque enfant
+                  développe ses talents, sa confiance et sa créativité. De la crèche à l&apos;école maternelle.
               </motion.p>
 
               <motion.div

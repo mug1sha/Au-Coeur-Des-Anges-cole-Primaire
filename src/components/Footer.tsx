@@ -58,7 +58,7 @@ export default function Footer() {
             </div>
             <p className="text-sm text-white/40 leading-relaxed mt-3">
               Former les citoyens de demain avec bienveillance, excellence et
-              innovation depuis 2011. Un lieu d&apos;éducation et d&apos;épanouissement pour les enfants de 3 à 11 ans.
+              innovation depuis 2011. Un lieu d&apos;éducation et d&apos;épanouissement pour les enfants de 9 mois à 6 ans.
             </p>
           </div>
 
@@ -106,16 +106,16 @@ export default function Footer() {
               Contact
             </h4>
             <div className="space-y-2.5 text-sm text-white/40">
-              <p>27, Rue des Lilas</p>
-              <p>75015 Paris, France</p>
+              <p>Kn41, 25, Nyarugenge</p>
+              <p>Kigali, Rwanda</p>
               <p className="mt-3">
                 <a href="tel:+33142501234" className="hover:text-orange transition-colors duration-200">
-                  01 42 50 12 34
+                  +250 788 123 456
                 </a>
               </p>
               <p>
-                <a href="mailto:contact@aucoeurdesanges.fr" className="hover:text-orange transition-colors duration-200">
-                  contact@aucoeurdesanges.fr
+                <a href="mailto:info@aucoeurdesanges.rw" className="hover:text-orange transition-colors duration-200">
+                  info@aucoeurdesanges.rw
                 </a>
               </p>
             </div>

@@ -79,7 +79,7 @@ export default function Contact() {
                     </svg>
                   ),
                   label: "Adresse",
-                  value: "27, Rue des Lilas, 75015 Paris",
+                  value: "Kn41, 25, Nyarugenge, Kigali, Rwanda",
                 },
                 {
                   icon: (
@@ -88,7 +88,7 @@ export default function Contact() {
                     </svg>
                   ),
                   label: "Téléphone",
-                  value: "01 42 50 12 34",
+                  value: "+250 788 123 456",
                 },
                 {
                   icon: (
@@ -97,7 +97,7 @@ export default function Contact() {
                     </svg>
                   ),
                   label: "Email",
-                  value: "contact@aucoeurdesanges.fr",
+                  value: "info@aucoeurdesanges.rw",
                 },
                 {
                   icon: (

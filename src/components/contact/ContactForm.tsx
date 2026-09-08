@@ -152,7 +152,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <p className="text-sm font-heading font-semibold text-navy">Appelez-nous</p>
-                  <p className="text-sm text-navy/50">+221 XX XXX XX XX</p>
+                  <p className="text-sm text-navy/50">+250 788 123 456</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 p-4 rounded-xl bg-white shadow-sm">
@@ -261,7 +261,7 @@ export default function ContactForm() {
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
-                  placeholder="+221 XX XXX XX XX"
+                  placeholder="+250 788 123 456"
                   className={`w-full px-4 py-3 rounded-xl bg-white border text-navy placeholder-navy/30 text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue/30 focus:border-blue ${
                     errors.phone ? "border-red-400" : "border-lightgray"
                   }`}

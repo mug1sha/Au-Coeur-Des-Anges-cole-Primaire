@@ -15,9 +15,11 @@ export const metadata: Metadata = {
     template: "%s | Au Coeur Des Anges",
   },
   description:
-    "Au Coeur Des Anges offre une éducation bienveillante et d'excellence aux enfants de 3 à 11 ans. Découvrez notre approche pédagogique et notre engagement.",
+    "Au Coeur Des Anges offre une éducation bienveillante et d'excellence aux enfants de 9 mois à 6 ans. Découvrez notre approche pédagogique et notre engagement.",
   keywords: [
     "école primaire",
+    "crèche",
+    "école maternelle",
     "éducation",
     "enfants",
     "pédagogie",
@@ -25,8 +27,8 @@ export const metadata: Metadata = {
     "excellence",
     "maternelle",
     "CM2",
-    "Dakar",
-    "Sénégal",
+    "Kigali",
+    "Rwanda",
   ],
   authors: [{ name: "Au Coeur Des Anges" }],
   openGraph: {
