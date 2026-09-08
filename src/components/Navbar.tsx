@@ -102,22 +102,13 @@ export default function Navbar() {
               aria-label="Au Coeur Des Anges — Accueil"
             >
               <div className="relative">
-                <svg
-                  viewBox="0 0 44 44"
-                  fill="none"
-                  className={`transition-all duration-500 ${
+                <img
+                  src="/logo.jpg"
+                  alt="Au Coeur Des Anges"
+                  className={`rounded-xl object-cover transition-all duration-500 ${
                     scrolled ? "w-9 h-9" : "w-10 h-10 lg:w-11 lg:h-11"
                   }`}
-                  aria-hidden="true"
-                >
-                  <circle cx="22" cy="22" r="20" fill="#023250" />
-                  <path
-                    d="M14 28 L22 12 L30 28 Z"
-                    fill="#FF7800"
-                    opacity="0.9"
-                  />
-                  <circle cx="22" cy="22" r="6" fill="#0783BD" />
-                </svg>
+                />
               </div>
               <div className="flex flex-col min-w-0">
                 <span

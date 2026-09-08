@@ -37,11 +37,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <svg width="36" height="36" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-                <circle cx="22" cy="22" r="20" fill="white" opacity="0.1" />
-                <path d="M14 28 L22 12 L30 28 Z" fill="#FF7800" opacity="0.9" />
-                <circle cx="22" cy="22" r="6" fill="#0783BD" />
-              </svg>
+              <img
+                src="/logo.jpg"
+                alt="Au Coeur Des Anges"
+                className="w-9 h-9 rounded-lg object-cover"
+              />
               <div>
                 <div className="font-heading font-bold text-white text-base">
                   Au Coeur Des Anges
