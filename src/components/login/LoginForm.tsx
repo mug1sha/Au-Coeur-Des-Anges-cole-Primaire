@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { login, storeAuthData, type AuthResponse } from "@/lib/auth";
 
@@ -134,10 +135,13 @@ export default function LoginForm() {
         <div className="bg-white rounded-3xl shadow-xl p-8 md:p-10">
           {/* Logo / branding */}
           <div className="text-center mb-8">
-            <img
+            <Image
               src="/logo.jpg"
               alt="Au Coeur Des Anges"
-              className="w-16 h-16 rounded-2xl object-cover mx-auto mb-4"
+              width={112}
+              height={112}
+              priority
+              className="w-24 h-24 lg:w-28 lg:h-28 rounded-full object-contain mx-auto mb-4"
             />
             <h1 className="font-heading text-2xl font-bold text-navy">
               Au Coeur Des Anges

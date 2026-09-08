@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -92,21 +93,24 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div
             className={`flex items-center justify-between transition-all duration-500 ${
-              scrolled ? "h-16" : "h-20 lg:h-24"
+              scrolled ? "h-20" : "h-24 lg:h-28"
             }`}
           >
             {/* ── Logo ─────────────────────────────── */}
             <Link
               href="/"
-              className="flex items-center gap-3 group shrink-0"
+              className="flex items-center gap-4 group shrink-0"
               aria-label="Au Coeur Des Anges — Accueil"
             >
               <div className="relative">
-                <img
+                <Image
                   src="/logo.jpg"
                   alt="Au Coeur Des Anges"
-                  className={`rounded-xl object-cover transition-all duration-500 ${
-                    scrolled ? "w-9 h-9" : "w-10 h-10 lg:w-11 lg:h-11"
+                  width={80}
+                  height={80}
+                  priority
+                  className={`rounded-full object-contain transition-all duration-500 ${
+                    scrolled ? "w-12 h-12 lg:w-14 lg:h-14" : "w-14 h-14 lg:w-20 lg:h-20"
                   }`}
                 />
               </div>

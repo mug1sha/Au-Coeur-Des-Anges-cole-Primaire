@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const footerNavLinks = [
   { label: "Home", href: "/" },
   { label: "Service", href: "/service" },
@@ -36,11 +38,13 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <img
+            <div className="flex items-center gap-4 mb-4">
+              <Image
                 src="/logo.jpg"
                 alt="Au Coeur Des Anges"
-                className="w-9 h-9 rounded-lg object-cover"
+                width={64}
+                height={64}
+                className="w-14 h-14 lg:w-16 lg:h-16 rounded-full object-contain"
               />
               <div>
                 <div className="font-heading font-bold text-white text-base">
