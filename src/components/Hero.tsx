@@ -70,7 +70,7 @@ export default function Hero() {
         <div className="relative z-10 w-full pt-32 pb-20 lg:pt-40 lg:pb-28">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Text */}
-            <div className="max-w-xl">
+            <div className="max-w-xl lg:pl-4">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -112,7 +112,7 @@ export default function Hero() {
                 transition={{ duration: 0.7, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 className="mt-9 flex flex-wrap gap-4"
               >
-                <Button href="#about" variant="primary" size="lg">
+                <Button href="#about" variant="primary" size="lg" className="px-10">
                   Découvrir notre école
                   <svg
                     className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
@@ -125,7 +125,7 @@ export default function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </Button>
-                <Button href="#contact" variant="secondary" size="lg">
+                <Button href="#contact" variant="secondary" size="lg" className="border-white/30 text-white hover:bg-white hover:text-navy">
                   Nous contacter
                 </Button>
               </motion.div>
