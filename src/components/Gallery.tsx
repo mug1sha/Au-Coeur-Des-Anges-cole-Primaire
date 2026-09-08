@@ -115,8 +115,8 @@ export default function Gallery() {
 
   return (
     <section id="gallery" className="relative py-20 lg:py-28 bg-white overflow-hidden">
-      <div ref={ref}>
-        <Container>
+      <Container>
+        <div ref={ref}>
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 lg:mb-16">
           <div className="max-w-2xl">
@@ -156,7 +156,7 @@ export default function Gallery() {
         </div>
 
         {/* Gallery grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[180px] md:auto-rows-[200px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 auto-rows-[180px] md:auto-rows-[200px]">
           {galleryItems.map((item, i) => (
             <motion.div
               key={i}
@@ -199,8 +199,8 @@ export default function Gallery() {
             </motion.div>
           ))}
         </div>
-        </Container>
-      </div>
+        </div>
+      </Container>
     </section>
   );
 }

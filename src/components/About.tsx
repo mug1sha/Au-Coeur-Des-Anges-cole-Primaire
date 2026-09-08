@@ -76,8 +76,8 @@ export default function About() {
         </svg>
       </div>
 
-      <div ref={ref}>
-        <Container>
+      <Container>
+        <div ref={ref}>
         {/* Header */}
         <div className="max-w-2xl mb-16 lg:mb-20">
           <motion.span
@@ -141,8 +141,8 @@ export default function About() {
           className="mt-16 lg:mt-20 h-1 w-full rounded-full bg-gradient-to-r from-navy via-blue to-orange origin-left"
           aria-hidden="true"
         />
-        </Container>
-      </div>
+        </div>
+      </Container>
     </section>
   );
 }

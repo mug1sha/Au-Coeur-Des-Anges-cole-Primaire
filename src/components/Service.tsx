@@ -62,8 +62,8 @@ export default function Service() {
         </svg>
       </div>
 
-      <div ref={ref}>
-        <Container>
+      <Container>
+        <div ref={ref}>
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 lg:mb-20">
           <div className="max-w-2xl">
@@ -101,7 +101,7 @@ export default function Service() {
         </div>
 
         {/* Service cards */}
-        <div className="space-y-4">
+        <div className="space-y-5">
           {services.map((service, i) => (
             <motion.article
               key={i}
@@ -157,8 +157,8 @@ export default function Service() {
             </motion.article>
           ))}
         </div>
-        </Container>
-      </div>
+        </div>
+      </Container>
     </section>
   );
 }

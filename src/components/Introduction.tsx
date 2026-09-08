@@ -25,9 +25,8 @@ export default function Introduction() {
         </svg>
       </div>
 
-      <div ref={ref}>
-        <Container>
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <Container>
+        <div ref={ref} className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Visual block */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -160,8 +159,7 @@ export default function Introduction() {
             </motion.div>
           </div>
         </div>
-        </Container>
-      </div>
+      </Container>
     </section>
   );
 }

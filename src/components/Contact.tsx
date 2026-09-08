@@ -28,9 +28,8 @@ export default function Contact() {
         </svg>
       </div>
 
-      <div ref={ref}>
-        <Container>
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+      <Container>
+        <div ref={ref} className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left: Info */}
           <div>
             <motion.span
@@ -209,8 +208,7 @@ export default function Contact() {
             </div>
           </motion.div>
         </div>
-        </Container>
-      </div>
+      </Container>
     </section>
   );
 }

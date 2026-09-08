@@ -78,8 +78,8 @@ export default function Life() {
         />
       </div>
 
-      <div ref={ref}>
-        <Container>
+      <Container>
+        <div ref={ref}>
         {/* Header */}
         <div className="max-w-2xl mb-16 lg:mb-20">
           <motion.span
@@ -115,7 +115,7 @@ export default function Life() {
         </div>
 
         {/* Activities grid */}
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-5">
           {activities.map((activity, i) => (
             <motion.article
               key={i}
@@ -154,8 +154,8 @@ export default function Life() {
             </motion.article>
           ))}
         </div>
-        </Container>
-      </div>
+        </div>
+      </Container>
     </section>
   );
 }

@@ -108,10 +108,11 @@ export default function Features() {
         </svg>
       </div>
 
-      <div ref={ref}>
-        <Container>
+      <Container>
+        <div ref={ref}>
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
+
           <motion.span
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -166,8 +167,8 @@ export default function Features() {
             </motion.article>
           ))}
         </div>
-        </Container>
-      </div>
+        </div>
+      </Container>
     </section>
   );
 }

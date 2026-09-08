@@ -146,7 +146,7 @@ export default function Approach() {
         </div>
 
         {/* Pillars grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {pillars.map((pillar, i) => (
             <motion.div
               key={i}
