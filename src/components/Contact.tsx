@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Container from "@/components/Container";
-import Button from "@/components/Button";
 
 const contactItems = [
   {
@@ -50,22 +49,11 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy via-[#032840] to-navy" />
-
-      {/* Decorative dots */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-20 left-[15%] w-1.5 h-1.5 rounded-full bg-orange/20" />
-        <div className="absolute top-40 right-[20%] w-1 h-1 rounded-full bg-white/10" />
-        <div className="absolute bottom-32 left-[25%] w-1 h-1 rounded-full bg-blue/20" />
-        <div className="absolute bottom-20 right-[30%] w-1.5 h-1.5 rounded-full bg-orange/15" />
-      </div>
-
+    <section id="contact" className="relative py-24 lg:py-32 bg-offwhite overflow-hidden">
       <Container>
-        <div ref={ref}>
-          {/* Header */}
-          <div className="text-center max-w-xl mx-auto mb-16 lg:mb-20">
+        <div ref={ref} className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Left: Info */}
+          <div>
             <motion.span
               initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -78,62 +66,68 @@ export default function Contact() {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight text-balance"
+              className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-navy leading-tight mb-6 text-balance"
             >
               Parlons de{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 text-orange">l&apos;avenir</span>
+                <span className="relative z-10">l&apos;avenir</span>
                 <span className="absolute bottom-1 left-0 right-0 h-3 bg-orange/15 -rotate-1 rounded-full" />
               </span>{" "}
               de votre enfant
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="mt-5 text-white/45 leading-relaxed"
+              className="text-navy/50 leading-relaxed mb-8"
             >
               Nous accueillons les familles qui souhaitent offrir à leurs
-              enfants une éducation de qualité dans un cadre chaleureux.
+              enfants une éducation de qualité dans un cadre chaleureux et
+              stimulant.
             </motion.p>
+
+            <div className="space-y-4">
+              {contactItems.map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.25 + i * 0.08 }}
+                  className="flex items-center gap-4 p-4 rounded-[5px] bg-white border border-navy/[0.04] hover:border-navy/[0.08] transition-colors"
+                >
+                  <div className="w-10 h-10 rounded-[5px] bg-navy/5 flex items-center justify-center text-navy flex-shrink-0">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <div className="text-[10px] text-navy/35 font-heading font-semibold uppercase tracking-widest">
+                      {item.label}
+                    </div>
+                    <div className="text-navy text-sm font-medium mt-0.5">
+                      {item.value}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
-          {/* Contact cards grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-            {contactItems.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.2 + i * 0.08 }}
-                className="bg-white/[0.04] border border-white/[0.06] rounded-[5px] p-5 hover:bg-white/[0.07] hover:border-white/[0.1] transition-all duration-300 group"
-              >
-                <div className="w-9 h-9 rounded-[5px] bg-orange/10 flex items-center justify-center text-orange mb-3 group-hover:bg-orange/20 transition-colors">
-                  {item.icon}
-                </div>
-                <div className="text-[10px] text-white/30 font-heading font-semibold uppercase tracking-widest mb-1">
-                  {item.label}
-                </div>
-                <div className="text-white/70 text-sm font-medium">
-                  {item.value}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* CTA */}
+          {/* Right: Map placeholder */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-center"
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="relative"
           >
-            <Button href="/contact" variant="primary" size="lg">
-              Envoyer un message
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </Button>
+            <div className="bg-navy/[0.03] border border-navy/[0.06] rounded-[5px] aspect-[4/3] flex items-center justify-center overflow-hidden">
+              <div className="text-center px-6">
+                <svg className="w-12 h-12 mx-auto text-navy/20 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <p className="text-navy/30 text-sm font-medium">Kn41, 25, Nyarugenge</p>
+                <p className="text-navy/25 text-xs mt-1">Kigali, Rwanda</p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </Container>
