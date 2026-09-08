@@ -2,14 +2,16 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Container from "@/components/Container";
 
 export default function MapPlaceholder() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="relative py-20 lg:py-28 bg-white overflow-hidden">
+      <div ref={ref} className="relative z-10">
+        <Container>
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <motion.span
@@ -76,6 +78,7 @@ export default function MapPlaceholder() {
             <div className="absolute bottom-1/3 left-1/2 w-4 h-4 rounded-full bg-navy/10" aria-hidden="true" />
           </div>
         </motion.div>
+        </Container>
       </div>
     </section>
   );

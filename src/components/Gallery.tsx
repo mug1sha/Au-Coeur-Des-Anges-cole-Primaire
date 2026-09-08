@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Container from "@/components/Container";
 
 const galleryItems = [
   {
@@ -113,8 +114,9 @@ export default function Gallery() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="gallery" className="relative py-24 lg:py-32 bg-white overflow-hidden">
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="gallery" className="relative py-20 lg:py-28 bg-white overflow-hidden">
+      <div ref={ref}>
+        <Container>
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 lg:mb-16">
           <div className="max-w-2xl">
@@ -197,6 +199,7 @@ export default function Gallery() {
             </motion.div>
           ))}
         </div>
+        </Container>
       </div>
     </section>
   );

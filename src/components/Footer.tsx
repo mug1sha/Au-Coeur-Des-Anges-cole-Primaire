@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Container from "@/components/Container";
 
 const footerNavLinks = [
   { label: "Home", href: "/" },
@@ -18,7 +19,7 @@ const ressources = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-navy pt-16 pb-8 overflow-hidden">
+    <footer className="relative bg-navy pt-20 pb-8 overflow-hidden">
       {/* Decorative top wave */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none" aria-hidden="true">
         <svg
@@ -34,7 +35,7 @@ export default function Footer() {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-1">
@@ -180,7 +181,7 @@ export default function Footer() {
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Container from "@/components/Container";
 
 const team = [
   {
@@ -53,13 +54,12 @@ export default function TeamPreview() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
+    <section className="relative py-20 lg:py-28 bg-white overflow-hidden">
       {/* Decorative shape */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <svg
-          className="absolute -top-20 -left-20 w-[350px] h-[350px] opacity-[0.03]"
+          className="absolute -top-20 -left-20 w-[350px] h-[350px] opacity-[0.015]"
           viewBox="0 0 200 200"
-          style={{ animation: "blob-float 22s ease-in-out infinite" }}
         >
           <path
             d="M44.4,-65.2C57.6,-58.8,68.8,-47.6,75.2,-34.2C81.6,-20.8,83.2,-5.2,79.2,8.8C75.2,22.8,65.6,36.2,54.4,46.4C43.2,56.6,30.4,63.6,16.4,68.8C2.4,74,-12.8,77.4,-27.2,74.2C-41.6,71,-55.2,61.2,-64,48C-72.8,34.8,-76.8,18.2,-76.4,1.8C-76,-14.6,-71.2,-30.8,-62,-43.2C-52.8,-55.6,-39.2,-64.2,-25.2,-70C-11.2,-75.8,3.2,-78.8,17.2,-76.8C31.2,-74.8,31.2,-71.6,44.4,-65.2Z"
@@ -69,7 +69,8 @@ export default function TeamPreview() {
         </svg>
       </div>
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+      <Container className="relative z-10">
+        <div ref={ref}>
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
           <motion.span
@@ -152,7 +153,8 @@ export default function TeamPreview() {
             </motion.div>
           ))}
         </div>
-      </div>
+        </div>
+      </Container>
     </section>
   );
 }

@@ -94,9 +94,8 @@ export default function LoginForm() {
       <div className="absolute inset-0 bg-navy" aria-hidden="true">
         {/* Decorative blobs */}
         <svg
-          className="absolute -top-32 -right-32 w-[600px] h-[600px] opacity-[0.06]"
+          className="absolute -top-32 -right-32 w-[600px] h-[600px] opacity-[0.03]"
           viewBox="0 0 200 200"
-          style={{ animation: "blob-float 22s ease-in-out infinite" }}
         >
           <path
             d="M45.3,-73.4C58.4,-66.1,68.9,-53.3,75.8,-39.1C82.7,-24.9,86,-9.3,83.7,5.8C81.4,20.9,73.5,35.5,63.4,47.2C53.3,58.9,41,67.7,27.2,73.3C13.4,78.9,-1.9,81.3,-16.8,78.5C-31.7,75.7,-46.2,67.7,-57.7,56.1C-69.2,44.5,-77.7,29.3,-80.3,13.3C-82.9,-2.7,-79.6,-19.4,-71.8,-33.2C-64,-47,-51.7,-57.9,-38.2,-65.1C-24.7,-72.3,-10,-75.8,3.4,-80.3C16.8,-84.8,32.2,-80.7,45.3,-73.4Z"
@@ -105,9 +104,8 @@ export default function LoginForm() {
           />
         </svg>
         <svg
-          className="absolute -bottom-40 -left-40 w-[500px] h-[500px] opacity-[0.04]"
+          className="absolute -bottom-40 -left-40 w-[500px] h-[500px] opacity-[0.02]"
           viewBox="0 0 200 200"
-          style={{ animation: "blob-float-reverse 26s ease-in-out infinite" }}
         >
           <path
             d="M44.4,-65.2C57.6,-58.8,68.8,-47.6,75.2,-34.2C81.6,-20.8,83.2,-5.2,79.2,8.8C75.2,22.8,65.6,36.2,54.4,46.4C43.2,56.6,30.4,63.6,16.4,68.8C2.4,74,-12.8,77.4,-27.2,74.2C-41.6,71,-55.2,61.2,-64,48C-72.8,34.8,-76.8,18.2,-76.4,1.8C-76,-14.6,-71.2,-30.8,-62,-43.2C-52.8,-55.6,-39.2,-64.2,-25.2,-70C-11.2,-75.8,3.2,-78.8,17.2,-76.8C31.2,-74.8,31.2,-71.6,44.4,-65.2Z"

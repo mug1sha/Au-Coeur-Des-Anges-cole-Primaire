@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Container from "./Container";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -18,36 +19,27 @@ export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
   const prevPathname = useRef(pathname);
 
-  // Scroll detection
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
-      // Focus the close button when menu opens
       setTimeout(() => closeButtonRef.current?.focus(), 100);
     } else {
       document.body.style.overflow = "";
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  // Close on Escape key
   useEffect(() => {
     if (!mobileOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -60,7 +52,6 @@ export default function Navbar() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [mobileOpen]);
 
-  // Close mobile menu on route change
   useEffect(() => {
     if (prevPathname.current !== pathname) {
       prevPathname.current = pathname;
@@ -90,30 +81,28 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <Container>
           <div
             className={`flex items-center justify-between transition-all duration-500 ${
-              scrolled ? "h-20" : "h-24 lg:h-28"
+              scrolled ? "h-18" : "h-22 lg:h-26"
             }`}
           >
-            {/* ── Logo ─────────────────────────────── */}
+            {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-4 group shrink-0"
+              className="flex items-center gap-3 group shrink-0"
               aria-label="Au Coeur Des Anges — Accueil"
             >
-              <div className="relative">
-                <Image
-                  src="/logo.jpg"
-                  alt="Au Coeur Des Anges"
-                  width={80}
-                  height={80}
-                  priority
-                  className={`rounded-full object-contain transition-all duration-500 ${
-                    scrolled ? "w-12 h-12 lg:w-14 lg:h-14" : "w-14 h-14 lg:w-20 lg:h-20"
-                  }`}
-                />
-              </div>
+              <Image
+                src="/logo.jpg"
+                alt="Au Coeur Des Anges"
+                width={80}
+                height={80}
+                priority
+                className={`rounded-full object-contain transition-all duration-500 ${
+                  scrolled ? "w-11 h-11 lg:w-13 lg:h-13" : "w-13 h-13 lg:w-[4.5rem] lg:h-[4.5rem]"
+                }`}
+              />
               <div className="flex flex-col min-w-0">
                 <span
                   className={`font-heading font-bold leading-tight transition-all duration-500 truncate ${
@@ -134,7 +123,7 @@ export default function Navbar() {
               </div>
             </Link>
 
-            {/* ── Desktop Nav ───────────────────────── */}
+            {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => {
                 const active = isActive(link.href);
@@ -168,7 +157,7 @@ export default function Navbar() {
               })}
             </div>
 
-            {/* ── Desktop Login Button ───────────────── */}
+            {/* Desktop Login */}
             <div className="hidden lg:flex items-center">
               <Link
                 href="/login"
@@ -185,7 +174,7 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* ── Mobile Hamburger ───────────────────── */}
+            {/* Mobile Hamburger */}
             <button
               ref={hamburgerRef}
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -217,15 +206,14 @@ export default function Navbar() {
               </div>
             </button>
           </div>
-        </div>
+        </Container>
       </motion.nav>
 
-      {/* ── Mobile Menu ─────────────────────────── */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             id="mobile-menu"
-            ref={mobileMenuRef}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -235,7 +223,6 @@ export default function Navbar() {
             aria-modal="true"
             aria-label="Menu mobile"
           >
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -244,8 +231,6 @@ export default function Navbar() {
               onClick={closeMobile}
               aria-hidden="true"
             />
-
-            {/* Menu panel */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -253,15 +238,12 @@ export default function Navbar() {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className="absolute inset-y-0 right-0 w-full max-w-sm bg-navy-light/95 backdrop-blur-xl shadow-2xl flex flex-col"
             >
-              {/* Close button */}
               <div className="flex items-center justify-between px-6 h-16">
-                <span className="font-heading text-sm font-semibold text-white/50">
-                  Menu
-                </span>
+                <span className="font-heading text-sm font-semibold text-white/50">Menu</span>
                 <button
                   ref={closeButtonRef}
                   onClick={closeMobile}
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange focus-visible:outline-offset-2"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors duration-200"
                   aria-label="Fermer le menu"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
@@ -270,7 +252,6 @@ export default function Navbar() {
                 </button>
               </div>
 
-              {/* Navigation links */}
               <nav className="flex-1 flex flex-col justify-center px-6 py-8" aria-label="Navigation mobile">
                 <div className="space-y-1">
                   {navLinks.map((link, i) => {
@@ -292,9 +273,7 @@ export default function Navbar() {
                           }`}
                           aria-current={active ? "page" : undefined}
                         >
-                          {active && (
-                            <span className="w-1 h-6 rounded-full bg-orange" />
-                          )}
+                          {active && <span className="w-1 h-6 rounded-full bg-orange" />}
                           {link.label}
                         </Link>
                       </motion.div>
@@ -303,7 +282,6 @@ export default function Navbar() {
                 </div>
               </nav>
 
-              {/* Login action at bottom */}
               <div className="px-6 pb-8">
                 <motion.div
                   initial={{ opacity: 0, y: 16 }}
@@ -321,17 +299,6 @@ export default function Navbar() {
                     Login
                   </Link>
                 </motion.div>
-              </div>
-
-              {/* Decorative blob */}
-              <div className="absolute bottom-0 left-0 w-48 h-48 opacity-[0.06] pointer-events-none" aria-hidden="true">
-                <svg viewBox="0 0 200 200" className="w-full h-full" style={{ animation: "blob-float-reverse 20s ease-in-out infinite" }}>
-                  <path
-                    d="M44.4,-65.2C57.6,-58.8,68.8,-47.6,75.2,-34.2C81.6,-20.8,83.2,-5.2,79.2,8.8C75.2,22.8,65.6,36.2,54.4,46.4C43.2,56.6,30.4,63.6,16.4,68.8C2.4,74,-12.8,77.4,-27.2,74.2C-41.6,71,-55.2,61.2,-64,48C-72.8,34.8,-76.8,18.2,-76.4,1.8C-76,-14.6,-71.2,-30.8,-62,-43.2C-52.8,-55.6,-39.2,-64.2,-25.2,-70C-11.2,-75.8,3.2,-78.8,17.2,-76.8C31.2,-74.8,31.2,-71.6,44.4,-65.2Z"
-                    fill="#FF7800"
-                    transform="translate(100 100)"
-                  />
-                </svg>
               </div>
             </motion.div>
           </motion.div>

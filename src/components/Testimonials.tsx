@@ -2,17 +2,18 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Container from "./Container";
 
 export default function Testimonials() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
+    <section className="relative py-20 lg:py-28 bg-white overflow-hidden">
       {/* Decorative shapes */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <svg
-          className="absolute top-10 -left-20 w-[350px] h-[350px] opacity-[0.04]"
+          className="absolute top-10 -left-20 w-[350px] h-[350px] opacity-[0.02]"
           viewBox="0 0 200 200"
           style={{ animation: "blob-float 22s ease-in-out infinite" }}
         >
@@ -24,8 +25,8 @@ export default function Testimonials() {
         </svg>
       </div>
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-3 gap-6">
+      <Container>
+        <div ref={ref} className="grid lg:grid-cols-3 gap-6">
           {/* Main quote */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -126,7 +127,7 @@ export default function Testimonials() {
             </motion.div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

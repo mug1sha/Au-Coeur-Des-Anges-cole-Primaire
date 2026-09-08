@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Container from "@/components/Container";
 
 const contactDetails = [
   {
@@ -56,11 +57,11 @@ export default function ContactInfo() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
+    <section className="relative py-20 lg:py-28 bg-white overflow-hidden">
       {/* Decorative shape */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <svg
-          className="absolute -top-20 -left-20 w-[350px] h-[350px] opacity-[0.03]"
+          className="absolute -top-20 -left-20 w-[350px] h-[350px] opacity-[0.015]"
           viewBox="0 0 200 200"
           style={{ animation: "blob-float 22s ease-in-out infinite" }}
         >
@@ -72,7 +73,8 @@ export default function ContactInfo() {
         </svg>
       </div>
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+      <div ref={ref} className="relative z-10">
+        <Container>
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <motion.span
@@ -132,6 +134,7 @@ export default function ContactInfo() {
             </motion.div>
           ))}
         </div>
+        </Container>
       </div>
     </section>
   );

@@ -1,17 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Container from "@/components/Container";
 
 export default function ServiceHero() {
   return (
-    <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[70vh] flex items-center overflow-hidden py-32 lg:py-40">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-navy via-[#032840] to-[#041e30]" />
 
       {/* Flowing organic shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <svg
-          className="absolute -top-32 -right-32 w-[600px] h-[600px] opacity-15"
+          className="absolute -top-32 -right-32 w-[600px] h-[600px] opacity-[0.08]"
           viewBox="0 0 200 200"
           style={{ animation: "blob-float 20s ease-in-out infinite" }}
         >
@@ -22,7 +23,7 @@ export default function ServiceHero() {
           />
         </svg>
         <svg
-          className="absolute top-1/3 -left-20 w-[400px] h-[400px] opacity-10"
+          className="absolute top-1/3 -left-20 w-[400px] h-[400px] opacity-[0.05]"
           viewBox="0 0 200 200"
           style={{ animation: "blob-float-reverse 24s ease-in-out infinite" }}
         >
@@ -33,23 +34,9 @@ export default function ServiceHero() {
           />
         </svg>
 
-        {/* Floating accent shapes */}
-        <div
-          className="absolute top-24 left-[12%] w-4 h-4 rounded-full bg-orange/25"
-          style={{ animation: "float-up 6s ease-in-out infinite" }}
-        />
-        <div
-          className="absolute top-[45%] right-[18%] w-3 h-3 rounded-full bg-blue/20"
-          style={{ animation: "float-up 8s ease-in-out infinite 1.5s" }}
-        />
-        <div
-          className="absolute bottom-[25%] left-[22%] w-5 h-5 rounded-full bg-white/8"
-          style={{ animation: "float-up 7s ease-in-out infinite 0.8s" }}
-        />
-
         {/* Bottom wave */}
         <svg
-          className="absolute bottom-0 left-0 w-full h-24 opacity-8"
+          className="absolute bottom-0 left-0 w-full h-24 opacity-[0.06]"
           viewBox="0 0 1440 96"
           preserveAspectRatio="none"
         >
@@ -62,7 +49,8 @@ export default function ServiceHero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-32 pb-20 lg:pt-40 lg:pb-24">
+      <div className="relative z-10 w-full">
+        <Container>
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -100,6 +88,7 @@ export default function ServiceHero() {
             votre enfant avec expertise et bienveillance.
           </motion.p>
         </div>
+        </Container>
       </div>
     </section>
   );

@@ -2,19 +2,20 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Container from "@/components/Container";
+import Button from "@/components/Button";
 
 export default function CTA() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="relative py-24 lg:py-32 bg-offwhite overflow-hidden">
+    <section className="relative py-20 lg:py-28 bg-offwhite overflow-hidden">
       {/* Decorative shapes */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <svg
-          className="absolute -top-20 -right-20 w-[400px] h-[400px] opacity-[0.04]"
+          className="absolute -top-20 -right-20 w-[400px] h-[400px] opacity-[0.02]"
           viewBox="0 0 200 200"
-          style={{ animation: "blob-float 20s ease-in-out infinite" }}
         >
           <path
             d="M45.3,-73.4C58.4,-66.1,68.9,-53.3,75.8,-39.1C82.7,-24.9,86,-9.3,83.7,5.8C81.4,20.9,73.5,35.5,63.4,47.2C53.3,58.9,41,67.7,27.2,73.3C13.4,78.9,-1.9,81.3,-16.8,78.5C-31.7,75.7,-46.2,67.7,-57.7,56.1C-69.2,44.5,-77.7,29.3,-80.3,13.3C-82.9,-2.7,-79.6,-19.4,-71.8,-33.2C-64,-47,-51.7,-57.9,-38.2,-65.1C-24.7,-72.3,-10,-75.8,3.4,-80.3C16.8,-84.8,32.2,-80.7,45.3,-73.4Z"
@@ -23,9 +24,8 @@ export default function CTA() {
           />
         </svg>
         <svg
-          className="absolute -bottom-20 -left-20 w-[300px] h-[300px] opacity-[0.03]"
+          className="absolute -bottom-20 -left-20 w-[300px] h-[300px] opacity-[0.02]"
           viewBox="0 0 200 200"
-          style={{ animation: "blob-float-reverse 18s ease-in-out infinite" }}
         >
           <path
             d="M39.5,-65.7C53.2,-60.2,68,-52.5,75.7,-40.2C83.4,-27.9,84,-11,80.8,4.3C77.6,19.6,70.6,33.3,61.2,44.4C51.8,55.5,40,64,27,70.1C14,76.2,-0.2,79.9,-14.4,77.8C-28.6,75.7,-42.8,67.8,-54.2,57.1C-65.6,46.4,-74.2,32.9,-78.1,18.1C-82,3.3,-81.2,-12.8,-75.2,-27.1C-69.2,-41.4,-58,-53.9,-44.8,-59.9C-31.6,-65.9,-16.4,-65.4,-0.4,-64.7C15.6,-64,25.8,-71.2,39.5,-65.7Z"
@@ -35,7 +35,8 @@ export default function CTA() {
         </svg>
       </div>
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+      <div ref={ref}>
+        <Container>
         <div className="relative bg-navy rounded-3xl overflow-hidden">
           {/* Inner decorative elements */}
           <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -103,11 +104,7 @@ export default function CTA() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="mt-10 flex flex-wrap justify-center gap-4"
             >
-              <a
-                href="#contact"
-                className="group px-8 py-4 bg-orange text-white font-heading font-semibold rounded-full text-base hover:bg-orange-light transition-all duration-300 hover:shadow-xl hover:shadow-orange/25 hover:-translate-y-0.5 btn-press flex items-center gap-2.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-3"
-              >
-                Contactez-nous
+              <Button href="#contact" variant="primary" size="lg">Contactez-nous
                 <svg
                   className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                   fill="none"
@@ -118,16 +115,12 @@ export default function CTA() {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-              </a>
-              <a
-                href="#service"
-                className="px-8 py-4 border border-white/20 text-white font-heading font-semibold rounded-full text-base hover:bg-white/10 transition-all duration-300 hover:-translate-y-0.5 btn-press focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-3"
-              >
-                Découvrir nos services
-              </a>
+              </Button>
+              <Button href="#service" variant="secondary" size="lg">Découvrir nos services</Button>
             </motion.div>
           </div>
         </div>
+        </Container>
       </div>
     </section>
   );

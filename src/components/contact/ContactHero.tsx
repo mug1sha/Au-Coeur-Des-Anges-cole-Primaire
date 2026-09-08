@@ -2,13 +2,14 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Container from "@/components/Container";
 
 export default function ContactHero() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-navy overflow-hidden">
+    <section className="relative py-32 lg:py-40 bg-navy overflow-hidden">
       {/* Decorative blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <svg
@@ -42,7 +43,8 @@ export default function ContactHero() {
         />
       </div>
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <div ref={ref} className="relative z-10 text-center">
+        <Container>
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -82,6 +84,7 @@ export default function ContactHero() {
             Nous sommes à votre écoute pour répondre à toutes vos questions.
           </motion.p>
         </motion.div>
+        </Container>
       </div>
     </section>
   );

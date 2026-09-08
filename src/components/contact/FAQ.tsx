@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
+import Container from "@/components/Container";
 
 const faqs = [
   {
@@ -68,7 +69,7 @@ function FAQItem({ faq, index }: { faq: (typeof faqs)[number]; index: number }) 
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="pb-5 text-sm text-navy/55 leading-relaxed pr-12">
+            <p className="pb-5 text-sm text-navy/55 leading-relaxed pr-0 md:pr-12">
               {faq.answer}
             </p>
           </motion.div>
@@ -83,11 +84,11 @@ export default function FAQ() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="relative py-24 lg:py-32 bg-offwhite overflow-hidden">
+    <section className="relative py-20 lg:py-28 bg-offwhite overflow-hidden">
       {/* Decorative shape */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <svg
-          className="absolute -top-20 -right-20 w-[400px] h-[400px] opacity-[0.04]"
+          className="absolute -top-20 -right-20 w-[400px] h-[400px] opacity-[0.02]"
           viewBox="0 0 200 200"
           style={{ animation: "blob-float 22s ease-in-out infinite" }}
         >
@@ -99,7 +100,8 @@ export default function FAQ() {
         </svg>
       </div>
 
-      <div ref={ref} className="relative z-10 max-w-3xl mx-auto px-6 lg:px-8">
+      <div ref={ref} className="relative z-10 max-w-3xl mx-auto">
+        <Container>
         {/* Header */}
         <div className="text-center mb-12">
           <motion.span
@@ -136,6 +138,7 @@ export default function FAQ() {
             <FAQItem key={i} faq={faq} index={i} />
           ))}
         </motion.div>
+        </Container>
       </div>
     </section>
   );

@@ -10,7 +10,6 @@
   --lightgray: #DCE3E7;
   --white: #FFFFFF;
 
-  /* Spacing scale */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
@@ -22,7 +21,6 @@
   --space-section: 6rem;
   --space-section-lg: 8rem;
 
-  /* Border radius */
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
@@ -30,7 +28,6 @@
   --radius-2xl: 1.5rem;
   --radius-full: 9999px;
 
-  /* Shadows */
   --shadow-sm: 0 1px 2px rgba(2, 50, 80, 0.04);
   --shadow-md: 0 4px 12px rgba(2, 50, 80, 0.06);
   --shadow-lg: 0 8px 30px rgba(2, 50, 80, 0.08);
@@ -39,7 +36,6 @@
   --shadow-card-hover: 0 4px 12px rgba(2, 50, 80, 0.06), 0 16px 40px rgba(2, 50, 80, 0.10);
   --shadow-card-active: 0 1px 4px rgba(2, 50, 80, 0.04), 0 4px 16px rgba(2, 50, 80, 0.06);
 
-  /* Transitions */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --duration-fast: 150ms;
@@ -95,7 +91,7 @@ img, video {
   display: block;
 }
 
-/* ── Focus States (Accessibility) ─────────────────── */
+/* ── Focus States ─────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 2px;
@@ -108,7 +104,6 @@ button:focus-visible {
   outline-offset: 3px;
 }
 
-/* Remove default focus ring for mouse users */
 :focus:not(:focus-visible) {
   outline: none;
 }
@@ -123,16 +118,13 @@ button:focus-visible {
 ::-webkit-scrollbar {
   width: 6px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--offwhite);
 }
-
 ::-webkit-scrollbar-thumb {
   background: var(--lightgray);
   border-radius: var(--radius-full);
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: var(--blue);
 }
@@ -143,64 +135,23 @@ button:focus-visible {
 }
 
 /* ── Animations ───────────────────────────────────── */
-
-/* Floating blob backgrounds */
-@keyframes blob-float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(30px, -20px) scale(1.05); }
-  50% { transform: translate(-20px, 15px) scale(0.95); }
-  75% { transform: translate(15px, 25px) scale(1.02); }
-}
-
-@keyframes blob-float-reverse {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(-25px, 20px) scale(0.97); }
-  50% { transform: translate(20px, -15px) scale(1.04); }
-  75% { transform: translate(-10px, -25px) scale(0.98); }
-}
-
-@keyframes gentle-rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes float-up {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-}
-
-@keyframes pulse-soft {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
-
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Scale entrance for modals/lightbox */
 @keyframes scale-in {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
 
-/* Subtle shimmer for loading states */
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-/* Button press feedback */
 @keyframes btn-press {
   0% { transform: scale(1); }
   50% { transform: scale(0.97); }
   100% { transform: scale(1); }
 }
 
-/* ── Component Animation Utilities ────────────────── */
-
-/* Card hover lift — apply to any interactive card */
+/* ── Component Utilities ──────────────────────────── */
 .card-hover {
   transition:
     transform var(--duration-normal) var(--ease-out),
@@ -218,12 +169,10 @@ button:focus-visible {
   transition-duration: var(--duration-fast);
 }
 
-/* Button press effect */
 .btn-press:active {
   animation: btn-press var(--duration-fast) var(--ease-out);
 }
 
-/* Image zoom on hover */
 .img-zoom {
   overflow: hidden;
 }
@@ -235,89 +184,27 @@ button:focus-visible {
   transform: scale(1.05);
 }
 
-/* Stagger entrance — used with intersection observer */
-.stagger-enter > * {
-  opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity var(--duration-slow) var(--ease-out),
-    transform var(--duration-slow) var(--ease-out);
+/* Section spacing rhythm */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
-.stagger-enter.in-view > * {
-  opacity: 1;
-  transform: translateY(0);
-}
-.stagger-enter.in-view > *:nth-child(1) { transition-delay: 0ms; }
-.stagger-enter.in-view > *:nth-child(2) { transition-delay: 60ms; }
-.stagger-enter.in-view > *:nth-child(3) { transition-delay: 120ms; }
-.stagger-enter.in-view > *:nth-child(4) { transition-delay: 180ms; }
-.stagger-enter.in-view > *:nth-child(5) { transition-delay: 240ms; }
-.stagger-enter.in-view > *:nth-child(6) { transition-delay: 300ms; }
-.stagger-enter.in-view > *:nth-child(7) { transition-delay: 360ms; }
-.stagger-enter.in-view > *:nth-child(8) { transition-delay: 420ms; }
-
-/* Icon spin on card hover */
-.icon-spin-hover {
-  transition: transform var(--duration-normal) var(--ease-spring);
-}
-.group:hover .icon-spin-hover {
-  transform: rotate(-5deg) scale(1.1);
-}
-
-/* Underline grow from center */
-.underline-grow {
-  position: relative;
-}
-.underline-grow::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  border-radius: 1px;
-  background: currentColor;
-  transition: width var(--duration-normal) var(--ease-out), left var(--duration-normal) var(--ease-out);
-}
-.underline-grow:hover::after {
-  width: 100%;
-  left: 0;
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
 }
 
 /* ── Reduced Motion ───────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-
-  .card-hover:hover {
-    transform: none;
-  }
-
-  .card-hover:active {
-    transform: none;
-  }
-
-  .img-zoom:hover > * {
-    transform: none;
-  }
-
-  .stagger-enter > * {
-    opacity: 1;
-    transform: none;
-    transition-delay: 0ms;
-  }
-
-  .icon-spin-hover {
-    transition: none;
-  }
-
-  .underline-grow::after {
-    transition: none;
-  }
+  .card-hover:hover { transform: none; }
+  .card-hover:active { transform: none; }
+  .img-zoom:hover > * { transform: none; }
 }

@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import Container from "@/components/Container";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -99,11 +100,11 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="relative py-24 lg:py-32 bg-offwhite overflow-hidden">
+    <section className="relative py-20 lg:py-28 bg-offwhite overflow-hidden">
       {/* Decorative shape */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <svg
-          className="absolute -bottom-32 -right-32 w-[500px] h-[500px] opacity-[0.03]"
+          className="absolute -bottom-32 -right-32 w-[500px] h-[500px] opacity-[0.015]"
           viewBox="0 0 200 200"
           style={{ animation: "blob-float-reverse 25s ease-in-out infinite" }}
         >
@@ -115,13 +116,15 @@ export default function ContactForm() {
         </svg>
       </div>
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+      <div ref={ref} className="relative z-10">
+        <Container>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left: Header + info */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
+            className="min-w-0"
           >
             <span className="inline-block text-orange font-heading font-semibold text-sm tracking-widest uppercase mb-4">
               Formulaire
@@ -171,6 +174,7 @@ export default function ContactForm() {
             initial={{ opacity: 0, x: 24 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
+            className="min-w-0"
           >
             {/* Status messages */}
             {status === "success" && (
@@ -367,6 +371,7 @@ export default function ContactForm() {
             </form>
           </motion.div>
         </div>
+        </Container>
       </div>
     </section>
   );

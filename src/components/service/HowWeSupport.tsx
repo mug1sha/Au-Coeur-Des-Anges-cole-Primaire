@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Container from "@/components/Container";
 
 const steps = [
   {
@@ -74,13 +75,12 @@ export default function HowWeSupport() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="relative py-24 lg:py-32 bg-offwhite overflow-hidden">
+    <section className="relative py-20 lg:py-28 bg-offwhite overflow-hidden">
       {/* Decorative shapes */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <svg
-          className="absolute -bottom-32 -left-32 w-[500px] h-[500px] opacity-[0.03]"
+          className="absolute -bottom-32 -left-32 w-[500px] h-[500px] opacity-[0.02]"
           viewBox="0 0 200 200"
-          style={{ animation: "blob-float-reverse 25s ease-in-out infinite" }}
         >
           <path
             d="M39.5,-65.7C53.2,-60.2,68,-52.5,75.7,-40.2C83.4,-27.9,84,-11,80.8,4.3C77.6,19.6,70.6,33.3,61.2,44.4C51.8,55.5,40,64,27,70.1C14,76.2,-0.2,79.9,-14.4,77.8C-28.6,75.7,-42.8,67.8,-54.2,57.1C-65.6,46.4,-74.2,32.9,-78.1,18.1C-82,3.3,-81.2,-12.8,-75.2,-27.1C-69.2,-41.4,-58,-53.9,-44.8,-59.9C-31.6,-65.9,-16.4,-65.4,-0.4,-64.7C15.6,-64,25.8,-71.2,39.5,-65.7Z"
@@ -90,7 +90,8 @@ export default function HowWeSupport() {
         </svg>
       </div>
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
+      <div ref={ref} className="relative z-10">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
           <motion.span
@@ -170,6 +171,7 @@ export default function HowWeSupport() {
           </div>
         </div>
       </div>
+      </Container>
     </section>
   );
 }

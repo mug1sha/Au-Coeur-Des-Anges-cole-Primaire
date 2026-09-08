@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Container from "@/components/Container";
 
 const services = [
   {
@@ -118,13 +119,12 @@ export default function ServicesGrid() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
+    <section className="relative py-20 lg:py-28 bg-white overflow-hidden">
       {/* Decorative shape */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <svg
-          className="absolute -top-20 -right-20 w-[400px] h-[400px] opacity-[0.03]"
+          className="absolute -top-20 -right-20 w-[400px] h-[400px] opacity-[0.02]"
           viewBox="0 0 200 200"
-          style={{ animation: "blob-float 22s ease-in-out infinite" }}
         >
           <path
             d="M45.3,-73.4C58.4,-66.1,68.9,-53.3,75.8,-39.1C82.7,-24.9,86,-9.3,83.7,5.8C81.4,20.9,73.5,35.5,63.4,47.2C53.3,58.9,41,67.7,27.2,73.3C13.4,78.9,-1.9,81.3,-16.8,78.5C-31.7,75.7,-46.2,67.7,-57.7,56.1C-69.2,44.5,-77.7,29.3,-80.3,13.3C-82.9,-2.7,-79.6,-19.4,-71.8,-33.2C-64,-47,-51.7,-57.9,-38.2,-65.1C-24.7,-72.3,-10,-75.8,3.4,-80.3C16.8,-84.8,32.2,-80.7,45.3,-73.4Z"
@@ -134,7 +134,8 @@ export default function ServicesGrid() {
         </svg>
       </div>
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
+      <div ref={ref} className="relative z-10">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
           <motion.span
@@ -192,6 +193,7 @@ export default function ServicesGrid() {
           ))}
         </div>
       </div>
+      </Container>
     </section>
   );
 }
