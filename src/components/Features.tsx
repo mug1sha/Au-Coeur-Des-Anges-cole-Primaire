@@ -92,7 +92,7 @@ export default function Features() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="features" className="relative py-20 lg:py-28 bg-offwhite overflow-hidden">
+    <section id="features" className="relative py-20 lg:py-28 px-6 sm:px-8 lg:px-12 bg-offwhite overflow-hidden">
       {/* Decorative shape */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <svg
