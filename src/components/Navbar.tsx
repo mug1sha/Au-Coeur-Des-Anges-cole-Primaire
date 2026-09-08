@@ -124,7 +124,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center gap-1.5">
+            <div className="hidden lg:flex items-center gap-2">
               {navLinks.map((link) => {
                 const active = isActive(link.href);
                 return (
@@ -146,7 +146,7 @@ export default function Navbar() {
                     {active && (
                       <motion.span
                         layoutId="nav-indicator"
-                        className={`absolute bottom-0.5 left-1/2 -translate-x-1/2 w-5 h-[2px] rounded-full ${
+                        className={`absolute bottom-0.5 left-0 right-0 h-[2px] rounded-full ${
                           scrolled ? "bg-orange" : "bg-white"
                         }`}
                         transition={{ type: "spring", stiffness: 350, damping: 30 }}
@@ -154,7 +154,7 @@ export default function Navbar() {
                     )}
                     {!active && (
                       <span
-                        className={`absolute bottom-0.5 left-1/2 -translate-x-1/2 w-5 h-[2px] rounded-full scale-x-0 transition-transform duration-200 ${
+                        className={`absolute bottom-0.5 left-0 right-0 h-[2px] rounded-full scale-x-0 transition-transform duration-200 ${
                           scrolled ? "bg-navy/40" : "bg-white/50"
                         } group-hover:scale-x-100`}
                       />
@@ -165,7 +165,7 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Login */}
-            <div className="hidden lg:flex items-center">
+            <div className="hidden lg:flex items-center mr-1">
               <Link
                 href="/login"
                 className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-[5px] font-heading text-sm font-semibold transition-all duration-300 ${
