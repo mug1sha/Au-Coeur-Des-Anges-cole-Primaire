@@ -124,21 +124,21 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-1.5">
               {navLinks.map((link) => {
                 const active = isActive(link.href);
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`relative px-4 py-2 font-heading text-sm font-medium rounded-full transition-all duration-250 ${
+                    className={`relative px-3 py-2 font-heading text-sm font-medium transition-colors duration-200 ${
                       scrolled
                         ? active
-                          ? "text-navy bg-navy/[0.06]"
-                          : "text-navy/60 hover:text-navy hover:bg-navy/[0.04]"
+                          ? "text-navy"
+                          : "text-navy/60 hover:text-navy"
                         : active
-                          ? "text-white bg-white/[0.12]"
-                          : "text-white/70 hover:text-white hover:bg-white/[0.08]"
+                          ? "text-white"
+                          : "text-white/70 hover:text-white"
                     }`}
                     aria-current={active ? "page" : undefined}
                   >
@@ -146,10 +146,17 @@ export default function Navbar() {
                     {active && (
                       <motion.span
                         layoutId="nav-indicator"
-                        className={`absolute bottom-1 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full ${
+                        className={`absolute bottom-0.5 left-1/2 -translate-x-1/2 w-5 h-[2px] rounded-full ${
                           scrolled ? "bg-orange" : "bg-white"
                         }`}
                         transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                      />
+                    )}
+                    {!active && (
+                      <span
+                        className={`absolute bottom-0.5 left-1/2 -translate-x-1/2 w-5 h-[2px] rounded-full scale-x-0 transition-transform duration-200 ${
+                          scrolled ? "bg-navy/40" : "bg-white/50"
+                        } group-hover:scale-x-100`}
                       />
                     )}
                   </Link>
@@ -161,14 +168,15 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center">
               <Link
                 href="/login"
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-heading text-sm font-semibold transition-all duration-300 ${
+                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-[5px] font-heading text-sm font-semibold transition-all duration-300 ${
                   scrolled
                     ? "bg-navy text-white hover:bg-navy-light hover:shadow-lg hover:shadow-navy/15 hover:-translate-y-0.5"
                     : "bg-white text-navy hover:bg-white/90 hover:shadow-lg hover:-translate-y-0.5"
                 }`}
               >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
                 </svg>
                 Login
               </Link>
@@ -178,7 +186,7 @@ export default function Navbar() {
             <button
               ref={hamburgerRef}
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`lg:hidden relative w-11 h-11 flex items-center justify-center rounded-full transition-colors duration-200 ${
+              className={`lg:hidden relative w-11 h-11 flex items-center justify-center rounded-[5px] transition-colors duration-200 ${
                 scrolled
                   ? "text-navy hover:bg-navy/5"
                   : "text-white hover:bg-white/10"
@@ -243,7 +251,7 @@ export default function Navbar() {
                 <button
                   ref={closeButtonRef}
                   onClick={closeMobile}
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors duration-200"
+                  className="w-10 h-10 flex items-center justify-center rounded-[5px] bg-white/10 text-white hover:bg-white/20 transition-colors duration-200"
                   aria-label="Fermer le menu"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
@@ -293,8 +301,9 @@ export default function Navbar() {
                     onClick={closeMobile}
                     className="flex items-center justify-center gap-2.5 w-full px-6 py-4 bg-orange text-white font-heading font-semibold rounded-[5px] text-base hover:bg-orange-light transition-all duration-300 hover:shadow-lg hover:shadow-orange/25"
                   >
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
                     </svg>
                     Login
                   </Link>
