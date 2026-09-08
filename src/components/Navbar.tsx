@@ -165,7 +165,7 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Login */}
-            <div className="hidden lg:flex items-center mr-1">
+            <div className="hidden lg:flex items-center mr-2">
               <Link
                 href="/login"
                 className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-[5px] font-heading text-sm font-semibold transition-all duration-300 ${
