@@ -156,25 +156,6 @@ export default function Hero() {
                     />
                   </svg>
                 </div>
-
-                {/* Stats badges */}
-                <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-2 right-8 px-4 py-2 bg-white rounded-[5px] shadow-lg shadow-navy/10"
-                >
-                  <span className="font-heading font-bold text-navy text-sm">280+</span>
-                  <span className="text-navy/50 text-xs ml-1">élèves</span>
-                </motion.div>
-
-                <motion.div
-                  animate={{ y: [0, 6, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="absolute bottom-8 -left-4 px-4 py-2 bg-white rounded-[5px] shadow-lg shadow-navy/10"
-                >
-                  <span className="font-heading font-bold text-orange text-sm">15</span>
-                  <span className="text-navy/50 text-xs ml-1">ans</span>
-                </motion.div>
               </div>
             </motion.div>
           </div>
