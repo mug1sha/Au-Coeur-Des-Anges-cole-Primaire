@@ -2,7 +2,9 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import { FadeUp } from "@/lib/animations";
 
 type Category = "all" | "espaces" | "activites" | "repos" | "evenements";
 
@@ -15,7 +17,7 @@ interface GalleryItem {
 
 const items: GalleryItem[] = [
   { src: "/images/hero.jpg", alt: "Enfants en activité", category: "activites", span: "wide" },
-  { src: "/images/school.jpg", alt: "L'école", category: "espaces", span: "tall" },
+  { src: "/images/school.jpg", alt: "L\u2019école", category: "espaces", span: "tall" },
   { src: "/images/creche.jpg", alt: "La crèche", category: "espaces" },
   { src: "/images/maternelle.jpg", alt: "La maternelle", category: "activites" },
   { src: "/gallery/home1.jpg", alt: "Moment de vie", category: "activites", span: "wide" },
@@ -45,18 +47,13 @@ const filters: { key: Category; label: string }[] = [
 export default function GalleryClient() {
   const [active, setActive] = useState<Category>("all");
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const reduced = useReducedMotion();
 
   const filtered = active === "all" ? items : items.filter((i) => i.category === active);
 
   const closeLightbox = useCallback(() => setLightbox(null), []);
-  const prev = useCallback(() =>
-    setLightbox((i) => (i !== null ? (i - 1 + filtered.length) % filtered.length : null)),
-    [filtered.length]
-  );
-  const next = useCallback(() =>
-    setLightbox((i) => (i !== null ? (i + 1) % filtered.length : null)),
-    [filtered.length]
-  );
+  const prev = useCallback(() => setLightbox((i) => (i !== null ? (i - 1 + filtered.length) % filtered.length : null)), [filtered.length]);
+  const next = useCallback(() => setLightbox((i) => (i !== null ? (i + 1) % filtered.length : null)), [filtered.length]);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -70,11 +67,7 @@ export default function GalleryClient() {
   }, [lightbox, closeLightbox, prev, next]);
 
   useEffect(() => {
-    if (lightbox !== null) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = lightbox !== null ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [lightbox]);
 
@@ -82,50 +75,58 @@ export default function GalleryClient() {
     <section className="bg-white px-5 py-16 md:px-8 lg:py-20">
       <div className="mx-auto max-w-[1200px]">
         {/* FILTERS */}
-        <div className="mb-10 flex gap-2 overflow-x-auto pb-2 scrollbar-none">
-          {filters.map((f) => (
-            <button
-              key={f.key}
-              onClick={() => setActive(f.key)}
-              className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold transition duration-200 ${
-                active === f.key
-                  ? "bg-[#FF6B35] text-white shadow-md"
-                  : "border border-slate-200 bg-white text-[#012dcc] hover:border-[#FF6B35] hover:text-[#FF6B35]"
-              }`}
-            >
-              {f.label}
-            </button>
-          ))}
-        </div>
+        <FadeUp>
+          <div className="mb-10 flex gap-2 overflow-x-auto pb-2">
+            {filters.map((f) => (
+              <button
+                key={f.key}
+                onClick={() => setActive(f.key)}
+                className={`relative shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold transition duration-200 ${
+                  active === f.key
+                    ? "bg-[#FF6B35] text-white shadow-md"
+                    : "border border-slate-200 bg-white text-[#012dcc] hover:border-[#FF6B35] hover:text-[#FF6B35]"
+                }`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        </FadeUp>
 
         {/* GRID */}
-        <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
-          {filtered.map((item, i) => (
-            <div
-              key={`${item.src}-${i}`}
-              className="group mb-4 cursor-pointer overflow-hidden rounded-[18px] break-inside-avoid"
-              onClick={() => setLightbox(i)}
-            >
-              <div className={`relative w-full overflow-hidden rounded-[18px] ${
-                item.span === "wide" ? "aspect-[4/3]" :
-                item.span === "tall" ? "aspect-[3/4]" : "aspect-square"
-              }`}>
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-[#012dcc]/0 transition duration-300 group-hover:bg-[#012dcc]/20" />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 transition duration-300 group-hover:opacity-100">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90">
-                    <ZoomIn size={18} className="text-[#012dcc]" />
+        <motion.div layout className="columns-1 gap-4 sm:columns-2 lg:columns-3">
+          <AnimatePresence mode="popLayout">
+            {filtered.map((item, i) => (
+              <motion.div
+                key={item.src}
+                layout
+                initial={{ opacity: 0, scale: reduced ? 1 : 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: reduced ? 1 : 0.95 }}
+                transition={{ duration: 0.3, delay: i * 0.03 }}
+                className="group mb-4 cursor-pointer overflow-hidden rounded-[18px] break-inside-avoid"
+                onClick={() => setLightbox(i)}
+              >
+                <div className={`relative w-full overflow-hidden rounded-[18px] ${
+                  item.span === "wide" ? "aspect-[4/3]" : item.span === "tall" ? "aspect-[3/4]" : "aspect-square"
+                }`}>
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-[1.04]"
+                  />
+                  <div className="absolute inset-0 bg-[#012dcc]/0 transition duration-300 group-hover:bg-[#012dcc]/20" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 transition duration-300 group-hover:opacity-100">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90">
+                      <ZoomIn size={18} className="text-[#012dcc]" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
         {filtered.length === 0 && (
           <p className="py-16 text-center text-[#012dcc]/40">Aucune photo dans cette catégorie.</p>
@@ -133,56 +134,67 @@ export default function GalleryClient() {
       </div>
 
       {/* LIGHTBOX */}
-      {lightbox !== null && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
-          onClick={closeLightbox}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Visionneuse d'images"
-        >
-          <button
+      <AnimatePresence>
+        {lightbox !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
             onClick={closeLightbox}
-            aria-label="Fermer"
-            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Visionneuse d\u2019images"
           >
-            <X size={20} />
-          </button>
+            <button
+              onClick={closeLightbox}
+              aria-label="Fermer"
+              className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+            >
+              <X size={20} />
+            </button>
 
-          <button
-            onClick={(e) => { e.stopPropagation(); prev(); }}
-            aria-label="Image précédente"
-            className="absolute left-4 top-1/2 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
-          >
-            <ChevronLeft size={22} />
-          </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); prev(); }}
+              aria-label="Image précédente"
+              className="absolute left-4 top-1/2 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+            >
+              <ChevronLeft size={22} />
+            </button>
 
-          <div
-            className="relative max-h-[85vh] max-w-[90vw] overflow-hidden rounded-[16px]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={filtered[lightbox].src}
-              alt={filtered[lightbox].alt}
-              width={1200}
-              height={800}
-              className="max-h-[85vh] w-auto object-contain"
-            />
-          </div>
+            <motion.div
+              key={lightbox}
+              initial={{ scale: reduced ? 1 : 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: reduced ? 1 : 0.95, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="relative max-h-[85vh] max-w-[90vw] overflow-hidden rounded-[16px]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={filtered[lightbox].src}
+                alt={filtered[lightbox].alt}
+                width={1200}
+                height={800}
+                className="max-h-[85vh] w-auto object-contain"
+              />
+            </motion.div>
 
-          <button
-            onClick={(e) => { e.stopPropagation(); next(); }}
-            aria-label="Image suivante"
-            className="absolute right-4 top-1/2 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
-          >
-            <ChevronRight size={22} />
-          </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); next(); }}
+              aria-label="Image suivante"
+              className="absolute right-4 top-1/2 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+            >
+              <ChevronRight size={22} />
+            </button>
 
-          <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-white/60">
-            {lightbox + 1} / {filtered.length}
-          </p>
-        </div>
-      )}
+            <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-white/60">
+              {lightbox + 1} / {filtered.length}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

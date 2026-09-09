@@ -1,13 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-} from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { StaggerContainer, StaggerItem } from "@/lib/animations";
 
-// Social icons as inline SVGs (removed from lucide-react v1+)
 function InstagramIcon({ size = 18 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -38,143 +33,79 @@ const links = [
 export default function Footer() {
   return (
     <footer className="mt-8 bg-[#012dcc] text-white">
-
       <div className="mx-auto max-w-[1200px] px-5 py-14 md:px-8">
-
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_1fr_0.8fr]">
+        <StaggerContainer className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_1fr_0.8fr]">
 
           {/* BRAND */}
-          <div>
+          <StaggerItem>
             <div className="flex items-center gap-3">
               <div className="relative h-16 w-16 shrink-0 rounded-full bg-white">
-                <Image
-                  src="/images/logo.png"
-                  alt="Au Coeur Des Anges"
-                  fill
-                  className="rounded-full object-contain p-1"
-                />
+                <Image src="/images/logo.png" alt="Au Coeur Des Anges" fill className="rounded-full object-contain p-1" />
               </div>
-
               <div>
-                <h3 className="font-[family-name:var(--font-heading)] text-lg font-bold">
-                  Au Coeur Des Anges
-                </h3>
-
-                <p className="text-sm text-white/65">
-                  Crèche & Maternelle
-                </p>
+                <h3 className="font-[family-name:var(--font-heading)] text-lg font-bold">Au Coeur Des Anges</h3>
+                <p className="text-sm text-white/65">Crèche & Maternelle</p>
               </div>
             </div>
-
             <p className="mt-5 max-w-[280px] text-sm leading-6 text-white/60">
-              Grandir avec amour, apprendre avec joie.
-              Un environnement chaleureux pour accompagner
-              chaque enfant dans ses premiers pas.
+              Grandir avec amour, apprendre avec joie. Un environnement chaleureux pour accompagner chaque enfant dans ses premiers pas.
             </p>
-          </div>
+          </StaggerItem>
 
           {/* LINKS */}
-          <div>
-            <h3 className="font-[family-name:var(--font-heading)] font-bold">
-              Navigation
-            </h3>
-
+          <StaggerItem>
+            <h3 className="font-[family-name:var(--font-heading)] font-bold">Navigation</h3>
             <ul className="mt-5 space-y-3">
               {links.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/60 transition hover:text-[#FF6B35]"
-                  >
+                  <Link href={link.href} className="text-sm text-white/60 transition hover:text-[#FF6B35]">
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </StaggerItem>
 
           {/* CONTACT */}
-          <div>
-            <h3 className="font-[family-name:var(--font-heading)] font-bold">
-              Contact
-            </h3>
-
+          <StaggerItem>
+            <h3 className="font-[family-name:var(--font-heading)] font-bold">Contact</h3>
             <div className="mt-5 space-y-4 text-sm text-white/60">
-
-              <div className="flex gap-3">
-                <MapPin className="mt-0.5 shrink-0 text-[#FF6B35]" size={17} />
-                <span>Adresse de l&apos;école, Kigali, Rwanda</span>
-              </div>
-
-              <div className="flex gap-3">
-                <Phone className="shrink-0 text-[#FF6B35]" size={17} />
-                <span>+250 XXX XXX XXX</span>
-              </div>
-
-              <div className="flex gap-3">
-                <Mail className="shrink-0 text-[#FF6B35]" size={17} />
-                <span>contact@example.com</span>
-              </div>
-
-              <div className="flex gap-3">
-                <Clock className="shrink-0 text-[#FF6B35]" size={17} />
-                <span>Lun – Ven : 07:00 – 17:30</span>
-              </div>
-
+              <div className="flex gap-3"><MapPin className="mt-0.5 shrink-0 text-[#FF6B35]" size={17} /><span>Adresse de l&apos;école, Kigali, Rwanda</span></div>
+              <div className="flex gap-3"><Phone className="shrink-0 text-[#FF6B35]" size={17} /><span>+250 XXX XXX XXX</span></div>
+              <div className="flex gap-3"><Mail className="shrink-0 text-[#FF6B35]" size={17} /><span>contact@example.com</span></div>
+              <div className="flex gap-3"><Clock className="shrink-0 text-[#FF6B35]" size={17} /><span>Lun – Ven : 07:00 – 17:30</span></div>
             </div>
-          </div>
+          </StaggerItem>
 
           {/* SOCIAL */}
-          <div>
-            <h3 className="font-[family-name:var(--font-heading)] font-bold">
-              Suivez-nous
-            </h3>
-
+          <StaggerItem>
+            <h3 className="font-[family-name:var(--font-heading)] font-bold">Suivez-nous</h3>
             <div className="mt-5 flex gap-3">
-
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-[#FF6B35]"
-              >
-                <InstagramIcon size={18} />
-              </a>
-
-              <a
-                href="#"
-                aria-label="Facebook"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-[#FF6B35]"
-              >
-                <FacebookIcon size={18} />
-              </a>
-
-              <a
-                href="#"
-                aria-label="WhatsApp"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-[#FF6B35]"
-              >
+              {[
+                { label: "Instagram", Icon: InstagramIcon },
+                { label: "Facebook", Icon: FacebookIcon },
+              ].map(({ label, Icon }) => (
+                <a key={label} href="#" aria-label={label}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition duration-200 hover:bg-[#FF6B35] hover:scale-110">
+                  <Icon size={18} />
+                </a>
+              ))}
+              <a href="#" aria-label="WhatsApp"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition duration-200 hover:bg-[#FF6B35] hover:scale-110">
                 <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                 </svg>
               </a>
-
             </div>
-
             <p className="mt-7 font-[family-name:var(--font-heading)] text-lg font-bold text-white/90">
-              Ensemble pour
-              <br />
-              leur avenir.
+              Ensemble pour<br />leur avenir.
             </p>
-          </div>
-
-        </div>
+          </StaggerItem>
+        </StaggerContainer>
 
         <div className="mt-12 border-t border-white/10 pt-6">
-          <p className="text-xs text-white/45">
-            © {new Date().getFullYear()} Au Coeur Des Anges. Tous droits réservés.
-          </p>
+          <p className="text-xs text-white/45">© {new Date().getFullYear()} Au Coeur Des Anges. Tous droits réservés.</p>
         </div>
-
       </div>
     </footer>
   );
