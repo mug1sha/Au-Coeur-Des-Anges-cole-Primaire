@@ -1,39 +1,29 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar";
 import AboutHero from "@/components/about/AboutHero";
 import OurStory from "@/components/about/OurStory";
-import OurMission from "@/components/about/OurMission";
-import OurVision from "@/components/about/OurVision";
+import MissionVision from "@/components/about/MissionVision";
 import OurValues from "@/components/about/OurValues";
-import EducationalPhilosophy from "@/components/about/EducationalPhilosophy";
-import TeamPreview from "@/components/about/TeamPreview";
+import PedagogicalApproach from "@/components/about/PedagogicalApproach";
 import AboutCTA from "@/components/about/AboutCTA";
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "À propos",
+  title: "À Propos | Au Coeur Des Anges",
   description:
-    "Découvrez l'histoire, la mission et les valeurs de l'École Primaire Au Coeur Des Anges. Une éducation bienveillante et d'excellence pour chaque enfant.",
-  openGraph: {
-    title: "À propos — Au Coeur Des Anges",
-    description:
-      "Notre histoire, notre mission et nos valeurs pour l'épanouissement de chaque enfant.",
-    url: "/about",
-  },
+    "Découvrez l'histoire, la mission, les valeurs et la philosophie pédagogique d'Au Coeur Des Anges — crèche et maternelle à Kigali, Rwanda.",
 };
 
 export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="overflow-x-hidden">
         <AboutHero />
         <OurStory />
-        <OurMission />
-        <OurVision />
+        <MissionVision />
         <OurValues />
-        <EducationalPhilosophy />
-        <TeamPreview />
+        <PedagogicalApproach />
         <AboutCTA />
       </main>
       <Footer />

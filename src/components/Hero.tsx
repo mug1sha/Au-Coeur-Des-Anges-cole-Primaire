@@ -1,179 +1,126 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
-import Container from "./Container";
-import Button from "./Button";
-
-const heroImages = [
-  "/gallery/home1.jpg",
-  "/gallery/home2.jpg",
-  "/gallery/home3.jpg",
-  "/gallery/home4.jpg",
-];
+import Link from "next/link";
+import { ArrowRight, Images, Heart, Star } from "lucide-react";
 
 export default function Hero() {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <section
-      id="accueil"
-      className="relative min-h-screen flex items-center overflow-hidden"
-    >
-      {/* Slideshow background */}
-      <div className="absolute inset-0" aria-hidden="true">
-        {heroImages.map((src, i) => (
-          <div
-            key={src}
-            className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
-            style={{ opacity: i === current ? 1 : 0 }}
-          >
-            <Image
-              src={src}
-              alt=""
-              fill
-              className="object-cover"
-              priority={i === 0}
-              sizes="100vw"
-            />
+    <section className="relative overflow-hidden bg-[#F8F9FA]">
+
+      {/* Decorative clouds */}
+      <div className="pointer-events-none absolute -left-10 top-20 h-28 w-28 rounded-full bg-[#FF6B35]/10 blur-3xl" />
+      <div className="pointer-events-none absolute right-0 top-10 h-40 w-40 rounded-full bg-blue-100/70 blur-3xl" />
+
+      <div className="relative mx-auto grid max-w-[1320px] items-center gap-12 px-5 py-16 md:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:py-20 xl:py-24">
+
+        {/* LEFT */}
+        <div className="relative z-10 max-w-[650px]">
+
+          <div className="mb-5 inline-flex rounded-full bg-[#FF6B35] px-4 py-2 text-xs font-bold text-white shadow-sm">
+            Crèche & École Maternelle à Kigali
           </div>
-        ))}
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-navy/90 via-navy/85 to-[#041e30]/90" />
-      </div>
 
-      {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none" aria-hidden="true">
-        <svg
-          className="absolute bottom-0 left-0 w-full h-24"
-          viewBox="0 0 1440 96"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0,48 C360,96 720,0 1080,48 C1260,72 1380,24 1440,48 L1440,96 L0,96 Z"
-            fill="#0783BD"
-            opacity="0.08"
-          />
-        </svg>
-      </div>
+          <h1 className="font-[family-name:var(--font-heading)] text-[42px] font-extrabold leading-[1.08] tracking-[-1px] text-[#0B1B3D] sm:text-5xl lg:text-[58px] xl:text-[64px]">
+            Un environnement chaleureux pour{" "}
+            <span className="text-[#FF6B35]">
+              grandir avec amour
+            </span>{" "}
+            et apprendre avec joie.
+          </h1>
 
-      {/* Content */}
-      <Container>
-        <div className="relative z-10 w-full pt-32 pb-20 lg:pt-40 lg:pb-28">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left: Text */}
-            <div className="max-w-xl">
-              <motion.h1
-                initial={{ opacity: 0, y: 32 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="font-heading text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight text-balance"
-              >
-                Bienvenue à{" "}
-                <span className="relative inline-block">
-                  <span className="relative z-10 text-orange">Au Coeur</span>
-                  <span className="absolute bottom-1 left-0 right-0 h-3 bg-orange/20 -rotate-1 rounded-full" />
-                </span>{" "}
-                Des Anges
-              </motion.h1>
+          <p className="mt-6 max-w-[570px] text-base leading-7 text-[#0B1B3D]/70 sm:text-lg">
+            À Au Coeur Des Anges, nous offrons à vos enfants un cadre
+            sécurisé, bienveillant et stimulant pour favoriser leur
+            épanouissement et leur réussite.
+          </p>
 
-              <motion.p
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-6 text-lg text-white/65 leading-relaxed max-w-lg"
-              >
-                Un environnement sûr, bienveillant et inspirant où chaque enfant
-                développe ses talents, sa confiance et sa créativité. De la crèche à l&apos;école maternelle.
-              </motion.p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
 
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-9 flex flex-wrap gap-4"
-              >
-                <Button href="#about" variant="primary" size="lg" className="px-10">
-                  Découvrir notre école
-                  <svg
-                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2.5}
-                    aria-hidden="true"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </Button>
-                <Button href="#contact" variant="secondary" size="lg" className="!border-white/30 !text-white hover:!bg-white hover:!text-navy">
-                  Nous contacter
-                </Button>
-              </motion.div>
+            <Link
+              href="/services"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[14px] bg-[#FF6B35] px-6 py-3 text-sm font-bold text-white shadow-md transition duration-200 hover:-translate-y-1 hover:bg-[#F95738] hover:shadow-xl"
+            >
+              Découvrir nos programmes
+              <ArrowRight size={17} />
+            </Link>
+
+            <Link
+              href="/gallery"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[14px] border-2 border-[#0B1B3D] bg-white px-6 py-3 text-sm font-bold text-[#0B1B3D] transition duration-200 hover:bg-[#0B1B3D] hover:text-white"
+            >
+              Visiter la galerie
+              <Images size={17} />
+            </Link>
+
+          </div>
+
+          {/* Small trust indicators */}
+          <div className="mt-9 flex flex-wrap items-center gap-5 text-sm text-[#0B1B3D]/70">
+
+            <div className="flex items-center gap-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FF6B35]/10">
+                <Heart size={15} className="text-[#FF6B35]" />
+              </div>
+              <span>Un cadre bienveillant</span>
             </div>
 
-            {/* Right: Visual */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="relative hidden lg:block"
-            >
-              <div className="relative w-full aspect-square max-w-lg mx-auto">
-                <div className="absolute inset-0 rounded-full border border-white/[0.06]" />
-                <div className="absolute inset-6 rounded-full border border-white/[0.04]" />
-
-                <div className="absolute inset-12 rounded-[5px] bg-gradient-to-br from-blue/20 to-orange/10 backdrop-blur-sm border border-white/[0.08] overflow-hidden flex items-center justify-center">
-                  <svg viewBox="0 0 200 200" className="w-full h-full opacity-60" aria-hidden="true">
-                    <circle cx="100" cy="70" r="18" fill="#FF7800" opacity="0.7" />
-                    <circle cx="70" cy="90" r="14" fill="#0783BD" opacity="0.6" />
-                    <circle cx="130" cy="90" r="14" fill="#0783BD" opacity="0.6" />
-                    <circle cx="85" cy="120" r="12" fill="#FFFFFF" opacity="0.3" />
-                    <circle cx="115" cy="120" r="12" fill="#FFFFFF" opacity="0.3" />
-                    <path
-                      d="M100,145 C100,145 70,125 65,105 C60,85 80,80 100,100 C120,80 140,85 135,105 C130,125 100,145 100,145 Z"
-                      fill="#FF7800"
-                      opacity="0.15"
-                    />
-                  </svg>
-                </div>
+            <div className="flex items-center gap-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FF6B35]/10">
+                <Star size={15} className="fill-[#FF6B35] text-[#FF6B35]" />
               </div>
-            </motion.div>
+              <span>Éveil & créativité</span>
+            </div>
+
+          </div>
+        </div>
+
+        {/* RIGHT VISUAL */}
+        <div className="relative mx-auto w-full max-w-[650px]">
+
+          {/* Decorative orange arc */}
+          <div className="absolute -left-3 top-2 z-20 h-24 w-24 rounded-tl-[80px] border-l-[6px] border-t-[6px] border-[#FF6B35] sm:h-32 sm:w-32" />
+
+          {/* Image frame */}
+          <div className="relative aspect-[1.05/0.85] overflow-hidden rounded-[34%_30%_35%_25%] border-[7px] border-[#FF6B35] bg-white shadow-2xl">
+
+            <Image
+              src="/images/hero.jpg"
+              alt="Enfants de Au Coeur Des Anges"
+              fill
+              priority
+              className="object-cover"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1B3D]/15 to-transparent" />
           </div>
 
-          {/* Stats strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-16 lg:mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x divide-white/10 max-w-2xl"
-          >
-            {[
-              { value: "280+", label: "Élèves" },
-              { value: "16", label: "Classes" },
-              { value: "95%", label: "Satisfaction" },
-              { value: "15", label: "Ans d'expérience" },
-            ].map((stat, i) => (
-              <div key={i} className="md:px-6 first:pl-0">
-                <div className="font-heading text-2xl md:text-3xl font-bold text-orange">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-white/45 font-medium mt-1">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
+          {/* Floating logo */}
+          <div className="absolute -bottom-8 -right-3 z-20 h-28 w-28 rounded-full bg-white p-2 shadow-xl sm:h-36 sm:w-36">
+            <Image
+              src="/images/logo.png"
+              alt="Logo Au Coeur Des Anges"
+              fill
+              className="rounded-full object-contain p-2"
+            />
+          </div>
+
+          {/* Floating message */}
+          <div className="absolute -right-2 top-[30px] hidden rotate-3 sm:block">
+            <div className="text-right font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+              <div className="text-sm">Petits pas,</div>
+              <div className="text-lg text-[#FF6B35]">grands rêves</div>
+              <Heart className="ml-auto mt-1 fill-[#FF6B35] text-[#FF6B35]" size={21} />
+            </div>
+          </div>
+
+          {/* Star */}
+          <div className="absolute -left-4 bottom-16 hidden lg:block">
+            <Star className="fill-[#FF6B35] text-[#FF6B35]" size={30} />
+          </div>
+
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

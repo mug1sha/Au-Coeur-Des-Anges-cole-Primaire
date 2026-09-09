@@ -1,70 +1,37 @@
-"use client";
-
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import Container from "@/components/Container";
-import Button from "@/components/Button";
+import Link from "next/link";
+import { ArrowRight, Heart } from "lucide-react";
 
 export default function CTA() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section className="relative py-20 lg:py-28 bg-navy overflow-hidden">
-      {/* Subtle grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-          backgroundSize: "40px 40px",
-        }}
-        aria-hidden="true"
-      />
+    <section className="px-5 pb-8 md:px-8">
+      <div className="mx-auto max-w-[1200px] overflow-hidden rounded-[24px] bg-[#FF6B35] px-6 py-8 text-white sm:px-10">
 
-      <Container>
-        <div ref={ref} className="text-center max-w-2xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7 }}
-          >
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight text-balance">
-              Rejoignez{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10 text-orange">notre communauté</span>
-                <span className="absolute bottom-1 left-0 right-0 h-3 bg-orange/20 -rotate-1 rounded-full" />
-              </span>
-            </h2>
-          </motion.div>
+        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="mt-6 text-white/50 text-lg leading-relaxed"
-          >
-            Offrez à votre enfant une éducation de qualité dans un cadre
-            bienveillant et stimulant. Contactez-nous dès aujourd&apos;hui.
-          </motion.p>
+          <div className="flex items-start gap-4">
+            <Heart className="mt-1 hidden shrink-0 fill-white md:block" size={28} />
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-10 flex flex-wrap justify-center gap-4"
+            <div>
+              <h2 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold sm:text-3xl">
+                Vous souhaitez réserver une place pour votre enfant ?
+              </h2>
+
+              <p className="mt-2 text-sm text-white/85 sm:text-base">
+                Notre équipe est à votre écoute pour répondre à toutes vos questions.
+              </p>
+            </div>
+          </div>
+
+          <Link
+            href="/contact"
+            className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-[14px] bg-[#0B1B3D] px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-[#102A43] hover:shadow-lg"
           >
-            <Button href="#contact" variant="primary" size="lg">
-              Contactez-nous
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </Button>
-            <Button href="#service" variant="secondary" size="lg" className="!border-white/25 !text-white hover:!bg-white hover:!text-navy">
-              Nos services
-            </Button>
-          </motion.div>
+            Contactez-nous aujourd&apos;hui
+            <ArrowRight size={17} />
+          </Link>
+
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

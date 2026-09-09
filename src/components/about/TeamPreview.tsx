@@ -10,7 +10,7 @@ const team = [
     role: "Directrice",
     description: "Passionnée par l'éducation depuis plus de 20 ans, elle guide la vision pédagogique de l'école avec bienveillance et exigence.",
     initials: "FD",
-    color: "#FF7800",
+    color: "#FF6B35",
   },
   {
     name: "M. Amadou Bamba",
@@ -24,14 +24,14 @@ const team = [
     role: "Enseignante — CE1/CE2",
     description: "Animée par la créativité, elle intègre les arts et les projets dans son enseignement pour stimuler la curiosité naturelle.",
     initials: "AN",
-    color: "#023250",
+    color: "#0B1B3D",
   },
   {
     name: "M. Ibrahim Konaté",
     role: "Enseignant — CM1/CM2",
     description: "Rigoureux et bienveillant, il prépare ses élèves aux défis du collège tout en cultivant leur esprit critique.",
     initials: "IK",
-    color: "#FF7800",
+    color: "#FF6B35",
   },
   {
     name: "Mme Mariama Touré",
@@ -45,7 +45,7 @@ const team = [
     role: "Coordinateur des activités",
     description: "Il orchestre les activités extrascolaires, du sport à la musique, pour révéler les talents cachés de chaque enfant.",
     initials: "OS",
-    color: "#023250",
+    color: "#0B1B3D",
   },
 ];
 
@@ -112,12 +112,12 @@ export default function TeamPreview() {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 + i * 0.07 }}
-              className="group relative p-6 rounded-[5px] bg-offwhite/50 hover:bg-offwhite transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
+              className="group relative p-6 rounded-[16px] bg-offwhite/50 hover:bg-offwhite transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
             >
               {/* Avatar placeholder */}
               <div className="flex items-start gap-4 mb-4">
                 <div
-                  className="w-14 h-14 rounded-[5px] flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+                  className="w-14 h-14 rounded-[10px] flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
                   style={{ backgroundColor: `${member.color}15` }}
                 >
                   <span

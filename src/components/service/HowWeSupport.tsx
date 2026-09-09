@@ -9,12 +9,12 @@ const steps = [
     number: "01",
     title: "Découvrir",
     description: "L&apos;enfant explore, observe et s&apos;éveille au monde qui l&apos;entoure dans un cadre stimulant.",
-    color: "#FF7800",
+    color: "#FF6B35",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" aria-hidden="true">
-        <circle cx="20" cy="20" r="8" fill="#FF7800" opacity="0.2" />
-        <circle cx="20" cy="20" r="4" fill="#FF7800" />
-        <path d="M20 8 L20 12 M20 28 L20 32 M8 20 L12 20 M28 20 L32 20" stroke="#FF7800" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="20" cy="20" r="8" fill="#FF6B35" opacity="0.2" />
+        <circle cx="20" cy="20" r="4" fill="#FF6B35" />
+        <path d="M20 8 L20 12 M20 28 L20 32 M8 20 L12 20 M28 20 L32 20" stroke="#FF6B35" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     ),
   },
@@ -35,11 +35,11 @@ const steps = [
     number: "03",
     title: "Pratiquer",
     description: "Mise en situation, exercices concrets et projets pour ancrer les apprentissages dans la réalité.",
-    color: "#023250",
+    color: "#0B1B3D",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" aria-hidden="true">
-        <circle cx="20" cy="20" r="10" fill="#023250" opacity="0.15" />
-        <path d="M16 20 L19 23 L25 17" stroke="#023250" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="20" cy="20" r="10" fill="#0B1B3D" opacity="0.15" />
+        <path d="M16 20 L19 23 L25 17" stroke="#0B1B3D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -60,11 +60,11 @@ const steps = [
     number: "05",
     title: "S&apos;épanouir",
     description: "L&apos;enfant révèle son potentiel unique, équilibré et heureux, prêt pour la suite.",
-    color: "#FF7800",
+    color: "#FF6B35",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" aria-hidden="true">
-        <path d="M20 10 C20 10 12 16 12 22 C12 26.4 15.6 30 20 30 C24.4 30 28 26.4 28 22 C28 16 20 10 20 10Z" fill="#FF7800" opacity="0.2" />
-        <path d="M20 14 C20 14 15 18 15 22 C15 24.8 17.2 27 20 27 C22.8 27 25 24.8 25 22 C25 18 20 14 20 14Z" fill="#FF7800" opacity="0.5" />
+        <path d="M20 10 C20 10 12 16 12 22 C12 26.4 15.6 30 20 30 C24.4 30 28 26.4 28 22 C28 16 20 10 20 10Z" fill="#FF6B35" opacity="0.2" />
+        <path d="M20 14 C20 14 15 18 15 22 C15 24.8 17.2 27 20 27 C22.8 27 25 24.8 25 22 C25 18 20 14 20 14Z" fill="#FF6B35" opacity="0.5" />
       </svg>
     ),
   },
@@ -111,7 +111,7 @@ export default function HowWeSupport() {
             Comment nous{" "}
             <span className="relative inline-block">
               <span className="relative z-10">accompagnons</span>
-              <span className="absolute bottom-1 left-0 right-0 h-3 bg-orange/15 -rotate-1 rounded-full" />
+              <span className="absolute bottom-1 left-0 right-0 h-3 bg-orange/10 -rotate-1 rounded-full" />
             </span>{" "}
             les enfants
           </motion.h2>

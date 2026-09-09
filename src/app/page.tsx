@@ -1,29 +1,30 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Introduction from "@/components/Introduction";
-import Features from "@/components/Features";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import Approach from "@/components/Approach";
-import Gallery from "@/components/Gallery";
-import CTA from "@/components/CTA";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/navbar";
+import Hero from "@/components/hero";
+import Highlights from "@/components/highlights";
+import SchoolIntro from "@/components/school-intro";
+import Programs from "@/components/programs";
+import Testimonials from "@/components/testimonials";
+import CTA from "@/components/cta";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
-    <>
+    <main className="min-h-screen bg-white text-[#0B1B3D] overflow-x-hidden">
       <Navbar />
-      <main>
-        <Hero />
-        <Introduction />
-        <Features />
-        <WhyChooseUs />
-        <Approach />
-        <Gallery />
-        <CTA />
-        <Contact />
-      </main>
+
+      <Hero />
+
+      <Highlights />
+
+      <SchoolIntro />
+
+      <Programs />
+
+      <Testimonials />
+
+      <CTA />
+
       <Footer />
-    </>
+    </main>
   );
 }

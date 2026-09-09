@@ -18,7 +18,7 @@ export default function OurVision() {
         >
           <path
             d="M44.4,-65.2C57.6,-58.8,68.8,-47.6,75.2,-34.2C81.6,-20.8,83.2,-5.2,79.2,8.8C75.2,22.8,65.6,36.2,54.4,46.4C43.2,56.6,30.4,63.6,16.4,68.8C2.4,74,-12.8,77.4,-27.2,74.2C-41.6,71,-55.2,61.2,-64,48C-72.8,34.8,-76.8,18.2,-76.4,1.8C-76,-14.6,-71.2,-30.8,-62,-43.2C-52.8,-55.6,-39.2,-64.2,-25.2,-70C-11.2,-75.8,3.2,-78.8,17.2,-76.8C31.2,-74.8,31.2,-71.6,44.4,-65.2Z"
-            fill="#FF7800"
+            fill="#FF6B35"
             transform="translate(100 100)"
           />
         </svg>
@@ -85,15 +85,15 @@ export default function OurVision() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="relative aspect-[4/3] rounded-[5px] bg-gradient-to-br from-navy via-[#032840] to-[#041e30] overflow-hidden">
+            <div className="relative aspect-[4/3] rounded-[16px] bg-gradient-to-br from-navy via-[#032840] to-[#041e30] overflow-hidden">
               {/* Abstract visual */}
               <svg viewBox="0 0 400 300" className="w-full h-full" aria-hidden="true">
                 {/* Background blobs */}
                 <circle cx="300" cy="80" r="60" fill="#0783BD" opacity="0.08" />
-                <circle cx="100" cy="220" r="50" fill="#FF7800" opacity="0.06" />
+                <circle cx="100" cy="220" r="50" fill="#FF6B35" opacity="0.06" />
 
                 {/* Abstract child figures */}
-                <circle cx="200" cy="100" r="20" fill="#FF7800" opacity="0.3" />
+                <circle cx="200" cy="100" r="20" fill="#FF6B35" opacity="0.3" />
                 <circle cx="160" cy="130" r="15" fill="#0783BD" opacity="0.25" />
                 <circle cx="240" cy="130" r="15" fill="#0783BD" opacity="0.25" />
 
@@ -102,7 +102,7 @@ export default function OurVision() {
                 <path d="M190,90 L200,70 L210,90" stroke="#FFFFFF" strokeWidth="2" opacity="0.15" strokeLinecap="round" strokeLinejoin="round" />
 
                 {/* Stars */}
-                <path d="M80,60 L82,66 L88,66 L83,70 L85,76 L80,72 L75,76 L77,70 L72,66 L78,66 Z" fill="#FF7800" opacity="0.3" />
+                <path d="M80,60 L82,66 L88,66 L83,70 L85,76 L80,72 L75,76 L77,70 L72,66 L78,66 Z" fill="#FF6B35" opacity="0.3" />
                 <path d="M320,180 L322,186 L328,186 L323,190 L325,196 L320,192 L315,196 L317,190 L312,186 L318,186 Z" fill="#0783BD" opacity="0.3" />
                 <path d="M340,80 L341,83 L344,83 L342,85 L343,88 L340,86 L337,88 L338,85 L336,83 L339,83 Z" fill="#FFFFFF" opacity="0.2" />
 
@@ -112,7 +112,7 @@ export default function OurVision() {
               </svg>
 
               {/* Floating badge */}
-              <div className="absolute bottom-4 left-4 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-[5px] border border-white/10">
+              <div className="absolute bottom-4 left-4 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-[12px] border border-white/10">
                 <span className="font-heading font-bold text-white text-sm">Notre vision</span>
               </div>
             </div>

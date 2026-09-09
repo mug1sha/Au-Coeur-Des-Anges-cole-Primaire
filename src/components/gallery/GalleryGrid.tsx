@@ -14,26 +14,26 @@ interface GalleryImage {
 
 const galleryImages: GalleryImage[] = [
   { id: 1, src: "/gallery/home1.jpg", alt: "Vue de l'école Au Coeur Des Anges", category: "vie-scolaire", span: "tall", color: "#0783BD" },
-  { id: 2, src: "/gallery/home2.jpg", alt: "Activités pédagogiques en classe", category: "vie-scolaire", span: "normal", color: "#FF7800" },
-  { id: 3, src: "/gallery/home3.jpg", alt: "Espaces de jeu et d'apprentissage", category: "activites", span: "normal", color: "#023250" },
+  { id: 2, src: "/gallery/home2.jpg", alt: "Activités pédagogiques en classe", category: "vie-scolaire", span: "normal", color: "#FF6B35" },
+  { id: 3, src: "/gallery/home3.jpg", alt: "Espaces de jeu et d'apprentissage", category: "activites", span: "normal", color: "#0B1B3D" },
   { id: 4, src: "/gallery/home4.jpg", alt: "Moments de vie scolaire", category: "vie-scolaire", span: "wide", color: "#0783BD" },
-  { id: 5, src: "/gallery/SaveInta.com_683661564_18103403128820336_1238733442180959024_n.jpg", alt: "Moment de vie à l'école", category: "vie-scolaire", span: "normal", color: "#FF7800" },
-  { id: 6, src: "/gallery/SaveInta.com_683863397_18103396111820336_3558858900540924310_n.jpg", alt: "Activité artistique", category: "arts", span: "tall", color: "#023250" },
+  { id: 5, src: "/gallery/SaveInta.com_683661564_18103403128820336_1238733442180959024_n.jpg", alt: "Moment de vie à l'école", category: "vie-scolaire", span: "normal", color: "#FF6B35" },
+  { id: 6, src: "/gallery/SaveInta.com_683863397_18103396111820336_3558858900540924310_n.jpg", alt: "Activité artistique", category: "arts", span: "tall", color: "#0B1B3D" },
   { id: 7, src: "/gallery/SaveInta.com_684542056_18103399819820336_4892628499305349799_n.jpg", alt: "Jeux et apprentissage", category: "activites", span: "normal", color: "#0783BD" },
-  { id: 8, src: "/gallery/SaveInta.com_684877741_18103402387820336_2454046358446170538_n.jpg", alt: "Cours et activités", category: "vie-scolaire", span: "wide", color: "#FF7800" },
-  { id: 9, src: "/gallery/SaveInta.com_684899680_18103397866820336_3796937601087402777_n.jpg", alt: "Éveil artistique", category: "arts", span: "normal", color: "#023250" },
+  { id: 8, src: "/gallery/SaveInta.com_684877741_18103402387820336_2454046358446170538_n.jpg", alt: "Cours et activités", category: "vie-scolaire", span: "wide", color: "#FF6B35" },
+  { id: 9, src: "/gallery/SaveInta.com_684899680_18103397866820336_3796937601087402777_n.jpg", alt: "Éveil artistique", category: "arts", span: "normal", color: "#0B1B3D" },
   { id: 10, src: "/gallery/SaveInta.com_684930614_18103404028820336_1580249080457615241_n.jpg", alt: "Sport et activité physique", category: "sport", span: "tall", color: "#0783BD" },
-  { id: 11, src: "/gallery/SaveInta.com_684933413_18103401367820336_4233310601391204048_n.jpg", alt: "Vie scolaire", category: "vie-scolaire", span: "normal", color: "#FF7800" },
-  { id: 12, src: "/gallery/SaveInta.com_684935031_18103405594820336_5357220759385998860_n.jpg", alt: "Événement scolaire", category: "evenements", span: "normal", color: "#023250" },
+  { id: 11, src: "/gallery/SaveInta.com_684933413_18103401367820336_4233310601391204048_n.jpg", alt: "Vie scolaire", category: "vie-scolaire", span: "normal", color: "#FF6B35" },
+  { id: 12, src: "/gallery/SaveInta.com_684935031_18103405594820336_5357220759385998860_n.jpg", alt: "Événement scolaire", category: "evenements", span: "normal", color: "#0B1B3D" },
   { id: 13, src: "/gallery/SaveInta.com_685126844_18103398790820336_4529002440530130932_n.jpg", alt: "Découverte et exploration", category: "activites", span: "wide", color: "#0783BD" },
-  { id: 14, src: "/gallery/SaveInta.com_685210266_18103422778820336_4044264174149839000_n.jpg", alt: "Créativité et arts", category: "arts", span: "normal", color: "#FF7800" },
-  { id: 15, src: "/gallery/SaveInta.com_685279741_18103404538820336_735369786134308218_n.jpg", alt: "Moments de bonheur", category: "vie-scolaire", span: "tall", color: "#023250" },
+  { id: 14, src: "/gallery/SaveInta.com_685210266_18103422778820336_4044264174149839000_n.jpg", alt: "Créativité et arts", category: "arts", span: "normal", color: "#FF6B35" },
+  { id: 15, src: "/gallery/SaveInta.com_685279741_18103404538820336_735369786134308218_n.jpg", alt: "Moments de bonheur", category: "vie-scolaire", span: "tall", color: "#0B1B3D" },
   { id: 16, src: "/gallery/SaveInta.com_685522138_18103401121820336_30625268061250043_n.jpg", alt: "Activités extrascolaires", category: "activites", span: "normal", color: "#0783BD" },
-  { id: 17, src: "/gallery/SaveInta.com_685856216_18103397071820336_179393363516157231_n.jpg", alt: "Apprentissage en groupe", category: "vie-scolaire", span: "normal", color: "#FF7800" },
-  { id: 18, src: "/gallery/SaveInta.com_685874763_18103399318820336_4320236786891545047_n.jpg", alt: "Expression artistique", category: "arts", span: "wide", color: "#023250" },
+  { id: 17, src: "/gallery/SaveInta.com_685856216_18103397071820336_179393363516157231_n.jpg", alt: "Apprentissage en groupe", category: "vie-scolaire", span: "normal", color: "#FF6B35" },
+  { id: 18, src: "/gallery/SaveInta.com_685874763_18103399318820336_4320236786891545047_n.jpg", alt: "Expression artistique", category: "arts", span: "wide", color: "#0B1B3D" },
   { id: 19, src: "/gallery/SaveInta.com_686829456_18103398268820336_2574770879968171877_n.jpg", alt: "Sport et jeux", category: "sport", span: "normal", color: "#0783BD" },
-  { id: 20, src: "/gallery/SaveInta.com_687716127_18103394218820336_4645229405665639641_n.jpg", alt: "Célébration scolaire", category: "evenements", span: "tall", color: "#FF7800" },
-  { id: 21, src: "/gallery/SaveInta.com_689781505_18103395148820336_4660054925702114142_n.jpg", alt: "Vie de classe", category: "vie-scolaire", span: "normal", color: "#023250" },
+  { id: 20, src: "/gallery/SaveInta.com_687716127_18103394218820336_4645229405665639641_n.jpg", alt: "Célébration scolaire", category: "evenements", span: "tall", color: "#FF6B35" },
+  { id: 21, src: "/gallery/SaveInta.com_689781505_18103395148820336_4660054925702114142_n.jpg", alt: "Vie de classe", category: "vie-scolaire", span: "normal", color: "#0B1B3D" },
   { id: 22, src: "/gallery/SaveInta.com_691435225_18103406668820336_641567191787030065_n.jpg", alt: "Événement spécial", category: "evenements", span: "normal", color: "#0783BD" },
 ];
 
@@ -95,7 +95,7 @@ export default function GalleryGrid({ activeCategory }: GalleryGridProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] }}
-              className={`group relative cursor-pointer rounded-[5px] overflow-hidden ${
+              className={`group relative cursor-pointer rounded-[16px] overflow-hidden ${
                 image.span === "tall" ? "row-span-2" : ""
               } ${image.span === "wide" ? "sm:col-span-2" : ""}`}
               onClick={() => openLightbox(i)}
@@ -134,7 +134,7 @@ export default function GalleryGrid({ activeCategory }: GalleryGridProps) {
               {/* Icon placeholder */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div
-                  className="w-16 h-16 rounded-[5px] flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg icon-spin-hover"
+                  className="w-16 h-16 rounded-[12px] flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg icon-spin-hover"
                   style={{ backgroundColor: `${image.color}15` }}
                 >
                   <svg
@@ -233,14 +233,14 @@ export default function GalleryGrid({ activeCategory }: GalleryGridProps) {
               >
                 {/* Image placeholder */}
                 <div
-                  className="relative w-full aspect-[4/3] rounded-[5px] overflow-hidden flex items-center justify-center"
+                  className="relative w-full aspect-[4/3] rounded-[12px] overflow-hidden flex items-center justify-center"
                   style={{
                     background: `linear-gradient(135deg, ${galleryImages[lightboxIndex].color}20, ${galleryImages[lightboxIndex].color}08)`,
                   }}
                 >
                   <div className="text-center">
                     <div
-                      className="w-20 h-20 rounded-[5px] flex items-center justify-center mx-auto mb-4"
+                      className="w-20 h-20 rounded-[12px] flex items-center justify-center mx-auto mb-4"
                       style={{ backgroundColor: `${galleryImages[lightboxIndex].color}15` }}
                     >
                       <svg

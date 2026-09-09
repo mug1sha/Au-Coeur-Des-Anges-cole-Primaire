@@ -1,76 +1,49 @@
-"use client";
-
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import Container from "@/components/Container";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 export default function ContactHero() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   return (
-    <section ref={ref} className="relative py-32 lg:py-40 bg-navy overflow-hidden">
-      {/* Decorative blobs */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <svg
-          className="absolute -top-24 -right-24 w-[450px] h-[450px] opacity-[0.05]"
-          viewBox="0 0 200 200"
-        >
-          <path
-            d="M45.3,-73.4C58.4,-66.1,68.9,-53.3,75.8,-39.1C82.7,-24.9,86,-9.3,83.7,5.8C81.4,20.9,73.5,35.5,63.4,47.2C53.3,58.9,41,67.7,27.2,73.3C13.4,78.9,-1.9,81.3,-16.8,78.5C-31.7,75.7,-46.2,67.7,-57.7,56.1C-69.2,44.5,-77.7,29.3,-80.3,13.3C-82.9,-2.7,-79.6,-19.4,-71.8,-33.2C-64,-47,-51.7,-57.9,-38.2,-65.1C-24.7,-72.3,-10,-75.8,3.4,-80.3C16.8,-84.8,32.2,-80.7,45.3,-73.4Z"
-            fill="#FF7800"
-            transform="translate(100 100)"
-          />
-        </svg>
-        <svg
-          className="absolute -bottom-32 -left-32 w-[400px] h-[400px] opacity-[0.03]"
-          viewBox="0 0 200 200"
-        >
-          <path
-            d="M44.4,-65.2C57.6,-58.8,68.8,-47.6,75.2,-34.2C81.6,-20.8,83.2,-5.2,79.2,8.8C75.2,22.8,65.6,36.2,54.4,46.4C43.2,56.6,30.4,63.6,16.4,68.8C2.4,74,-12.8,77.4,-27.2,74.2C-41.6,71,-55.2,61.2,-64,48C-72.8,34.8,-76.8,18.2,-76.4,1.8C-76,-14.6,-71.2,-30.8,-62,-43.2C-52.8,-55.6,-39.2,-64.2,-25.2,-70C-11.2,-75.8,3.2,-78.8,17.2,-76.8C31.2,-74.8,31.2,-71.6,44.4,-65.2Z"
-            fill="#0783BD"
-            transform="translate(100 100)"
-          />
-        </svg>
-      </div>
+    <section className="relative overflow-hidden bg-[#F8F9FA]">
+      <div className="pointer-events-none absolute -left-10 top-20 h-32 w-32 rounded-full bg-[#FF6B35]/10 blur-3xl" />
+      <div className="pointer-events-none absolute right-0 top-10 h-48 w-48 rounded-full bg-blue-100/60 blur-3xl" />
 
-      <Container>
-        <div className="relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white/80 text-sm font-heading font-medium mb-8"
-          >
-            <svg className="w-4 h-4 text-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-            </svg>
-            Nous écrire
-          </motion.div>
+      <div className="relative mx-auto max-w-[1320px] px-5 py-16 md:px-8 lg:py-20">
+        <div className="mx-auto max-w-[680px] text-center">
+          <span className="mb-5 inline-flex rounded-full bg-[#FF6B35] px-4 py-2 text-xs font-bold text-white">
+            Contactez-nous
+          </span>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight text-balance"
-          >
-            Contactez{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10 text-orange">-nous</span>
-              <span className="absolute bottom-1 left-0 right-0 h-3 bg-orange/25 -rotate-1 rounded-full" />
-            </span>
-          </motion.h1>
+          <h1 className="font-[family-name:var(--font-heading)] text-[38px] font-extrabold leading-[1.1] tracking-tight text-[#0B1B3D] sm:text-5xl">
+            Nous sommes là pour{" "}
+            <span className="text-[#FF6B35]">vous accompagner.</span>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-6 text-white/60 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
-          >
-            Nous sommes à votre écoute pour répondre à toutes vos questions.
-          </motion.p>
+          <p className="mt-5 text-base leading-7 text-[#0B1B3D]/65 sm:text-lg">
+            Une question, une demande de visite ou une inscription ?
+            Notre équipe est à votre écoute du lundi au vendredi.
+          </p>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-[#0B1B3D]/70">
+            <div className="flex items-center gap-2">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FF6B35]/10">
+                <Phone size={14} className="text-[#FF6B35]" />
+              </div>
+              <span>+250 XXX XXX XXX</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FF6B35]/10">
+                <Mail size={14} className="text-[#FF6B35]" />
+              </div>
+              <span>contact@example.com</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FF6B35]/10">
+                <MapPin size={14} className="text-[#FF6B35]" />
+              </div>
+              <span>Kigali, Rwanda</span>
+            </div>
+          </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

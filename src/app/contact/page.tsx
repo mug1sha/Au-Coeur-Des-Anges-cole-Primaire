@@ -1,35 +1,23 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/navbar";
 import ContactHero from "@/components/contact/ContactHero";
-import ContactInfo from "@/components/contact/ContactInfo";
-import ContactForm from "@/components/contact/ContactForm";
-import MapPlaceholder from "@/components/contact/MapPlaceholder";
-import FAQ from "@/components/contact/FAQ";
+import ContactSection from "@/components/contact/ContactSection";
 import ContactCTA from "@/components/contact/ContactCTA";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact | Au Coeur Des Anges",
   description:
-    "Contactez l'École Primaire Au Coeur Des Anges. Adresse, téléphone, formulaire de contact et plan d'accès.",
-  openGraph: {
-    title: "Contact — Au Coeur Des Anges",
-    description:
-      "Nous sommes à votre écoute pour répondre à toutes vos questions.",
-    url: "/contact",
-  },
+    "Contactez Au Coeur Des Anges. Adresse, téléphone, formulaire de contact et localisation à Kigali, Rwanda.",
 };
 
 export default function ContactPage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="overflow-x-hidden">
         <ContactHero />
-        <ContactInfo />
-        <ContactForm />
-        <MapPlaceholder />
-        <FAQ />
+        <ContactSection />
         <ContactCTA />
       </main>
       <Footer />

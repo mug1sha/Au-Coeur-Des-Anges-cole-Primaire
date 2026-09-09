@@ -44,7 +44,7 @@ function FAQItem({ faq, index }: { faq: (typeof faqs)[number]; index: number }) 
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between gap-4 py-5 text-left group focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue focus-visible:outline-offset-4 rounded-[5px]"
+        className="w-full flex items-center justify-between gap-4 py-5 text-left group focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue focus-visible:outline-offset-4 rounded-[10px]"
         aria-expanded={isOpen}
       >
         <span className="font-heading text-base font-semibold text-navy group-hover:text-blue transition-colors duration-200">
@@ -132,7 +132,7 @@ export default function FAQ() {
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="bg-white rounded-[5px] p-6 md:p-8 shadow-card"
+          className="bg-white rounded-[16px] p-6 md:p-8 shadow-card"
         >
           {faqs.map((faq, i) => (
             <FAQItem key={i} faq={faq} index={i} />

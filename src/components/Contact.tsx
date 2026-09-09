@@ -40,7 +40,7 @@ const contactItems = [
       </svg>
     ),
     label: "Horaires",
-    value: "Lun–Ven, 8h00 – 16h30",
+    value: "Lun–Ven, 7h00 – 17h30",
   },
 ];
 
@@ -49,7 +49,7 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 bg-offwhite overflow-hidden">
+    <section id="contact" className="relative py-20 lg:py-28 bg-offwhite overflow-hidden">
       <Container>
         <div ref={ref} className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left: Info */}
@@ -93,9 +93,9 @@ export default function Contact() {
                   initial={{ opacity: 0, x: -16 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.25 + i * 0.08 }}
-                  className="flex items-center gap-4 p-4 rounded-[5px] bg-white border border-navy/[0.04] hover:border-navy/[0.08] transition-colors"
+                  className="flex items-center gap-4 p-4 rounded-[12px] bg-white border border-navy/[0.04] hover:border-navy/[0.08] transition-colors"
                 >
-                  <div className="w-10 h-10 rounded-[5px] bg-navy/5 flex items-center justify-center text-navy flex-shrink-0">
+                  <div className="w-10 h-10 rounded-[10px] bg-orange/10 flex items-center justify-center text-orange flex-shrink-0">
                     {item.icon}
                   </div>
                   <div>
@@ -118,7 +118,7 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="relative"
           >
-            <div className="bg-navy/[0.03] border border-navy/[0.06] rounded-[5px] aspect-[4/3] flex items-center justify-center overflow-hidden">
+            <div className="bg-navy/[0.03] border border-navy/[0.06] rounded-[16px] aspect-[4/3] flex items-center justify-center overflow-hidden">
               <div className="text-center px-6">
                 <svg className="w-12 h-12 mx-auto text-navy/20 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />

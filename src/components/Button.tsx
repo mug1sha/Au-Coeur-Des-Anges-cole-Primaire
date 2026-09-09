@@ -3,7 +3,7 @@ import Link from "next/link";
 interface ButtonProps {
   children: React.ReactNode;
   href?: string;
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary" | "dark" | "ghost";
   size?: "sm" | "md" | "lg";
   className?: string;
   onClick?: () => void;
@@ -24,20 +24,22 @@ export default function Button({
   "aria-label": ariaLabel,
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-2.5 font-heading font-semibold rounded-full transition-all duration-300 btn-press focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 whitespace-nowrap";
+    "inline-flex items-center justify-center gap-2 font-heading font-semibold transition-all duration-300 btn-press focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 whitespace-nowrap";
 
   const variants = {
     primary:
       "bg-orange text-white hover:bg-orange-light hover:shadow-lg hover:shadow-orange/20 hover:-translate-y-0.5 focus-visible:outline-orange",
     secondary:
-      "border border-navy/15 text-navy hover:bg-navy hover:text-white hover:-translate-y-0.5 focus-visible:outline-navy",
+      "border-2 border-navy text-navy bg-white hover:bg-navy hover:text-white hover:-translate-y-0.5 focus-visible:outline-navy",
+    dark:
+      "bg-navy text-white hover:bg-navy-light hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline-navy",
     ghost: "text-navy/60 hover:text-navy hover:bg-navy/5 focus-visible:outline-navy",
   };
 
   const sizes = {
-    sm: "px-5 py-2 text-sm",
-    md: "px-7 py-3 text-sm",
-    lg: "px-8 py-3.5 text-base",
+    sm: "px-5 py-2.5 text-sm rounded-[10px]",
+    md: "px-6 py-3 text-sm rounded-[10px]",
+    lg: "px-8 py-3.5 text-base rounded-[12px]",
   };
 
   const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;

@@ -1,76 +1,62 @@
-"use client";
-
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import Container from "@/components/Container";
+import Image from "next/image";
+import { Star } from "lucide-react";
 
 export default function GalleryHero() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
   return (
-    <section ref={ref} className="relative py-32 lg:py-40 bg-navy overflow-hidden">
-      {/* Decorative blobs */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <svg
-          className="absolute -top-24 -right-24 w-[450px] h-[450px] opacity-[0.05]"
-          viewBox="0 0 200 200"
-        >
-          <path
-            d="M45.3,-73.4C58.4,-66.1,68.9,-53.3,75.8,-39.1C82.7,-24.9,86,-9.3,83.7,5.8C81.4,20.9,73.5,35.5,63.4,47.2C53.3,58.9,41,67.7,27.2,73.3C13.4,78.9,-1.9,81.3,-16.8,78.5C-31.7,75.7,-46.2,67.7,-57.7,56.1C-69.2,44.5,-77.7,29.3,-80.3,13.3C-82.9,-2.7,-79.6,-19.4,-71.8,-33.2C-64,-47,-51.7,-57.9,-38.2,-65.1C-24.7,-72.3,-10,-75.8,3.4,-80.3C16.8,-84.8,32.2,-80.7,45.3,-73.4Z"
-            fill="#FF7800"
-            transform="translate(100 100)"
-          />
-        </svg>
-        <svg
-          className="absolute -bottom-32 -left-32 w-[400px] h-[400px] opacity-[0.03]"
-          viewBox="0 0 200 200"
-        >
-          <path
-            d="M44.4,-65.2C57.6,-58.8,68.8,-47.6,75.2,-34.2C81.6,-20.8,83.2,-5.2,79.2,8.8C75.2,22.8,65.6,36.2,54.4,46.4C43.2,56.6,30.4,63.6,16.4,68.8C2.4,74,-12.8,77.4,-27.2,74.2C-41.6,71,-55.2,61.2,-64,48C-72.8,34.8,-76.8,18.2,-76.4,1.8C-76,-14.6,-71.2,-30.8,-62,-43.2C-52.8,-55.6,-39.2,-64.2,-25.2,-70C-11.2,-75.8,3.2,-78.8,17.2,-76.8C31.2,-74.8,31.2,-71.6,44.4,-65.2Z"
-            fill="#0783BD"
-            transform="translate(100 100)"
-          />
-        </svg>
+    <section className="relative overflow-hidden bg-[#0B1B3D] text-white">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-10 top-20 h-40 w-40 rounded-full bg-[#FF6B35]/10 blur-3xl" />
+        <div className="absolute right-0 top-10 h-56 w-56 rounded-full bg-white/5 blur-3xl" />
       </div>
 
-      <Container>
-        <div className="relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white/80 text-sm font-heading font-medium mb-8"
-          >
-            <svg className="w-4 h-4 text-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-            </svg>
-            Nos moments
-          </motion.div>
+      <div className="relative mx-auto grid max-w-[1320px] items-center gap-10 px-5 py-16 md:px-8 lg:grid-cols-2 lg:py-24">
+        {/* LEFT */}
+        <div className="max-w-[580px]">
+          <span className="mb-5 inline-flex rounded-full bg-[#FF6B35] px-4 py-2 text-xs font-bold text-white">
+            Notre galerie
+          </span>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight text-balance"
-          >
-            Notre{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10 text-orange">Galerie</span>
-              <span className="absolute bottom-1 left-0 right-0 h-3 bg-orange/25 -rotate-1 rounded-full" />
-            </span>
-          </motion.h1>
+          <h1 className="font-[family-name:var(--font-heading)] text-[38px] font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-[52px]">
+            Découvrez{" "}
+            <span className="text-[#FF6B35]">notre univers.</span>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-6 text-white/60 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
-          >
-            Découvrez quelques moments de vie à Au Coeur Des Anges.
-          </motion.p>
+          <p className="mt-5 max-w-[500px] text-base leading-7 text-white/70 sm:text-lg">
+            Un aperçu des espaces, activités et moments qui font la vie
+            d&apos;Au Coeur Des Anges au quotidien.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-4 text-sm text-white/60">
+            <div className="flex items-center gap-2">
+              <Star size={14} className="fill-[#FF6B35] text-[#FF6B35]" />
+              <span>Espaces de vie</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Star size={14} className="fill-[#FF6B35] text-[#FF6B35]" />
+              <span>Activités & ateliers</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Star size={14} className="fill-[#FF6B35] text-[#FF6B35]" />
+              <span>Moments de vie</span>
+            </div>
+          </div>
         </div>
-      </Container>
+
+        {/* RIGHT */}
+        <div className="relative mx-auto grid w-full max-w-[520px] grid-cols-2 gap-4">
+          <div className="relative aspect-[3/4] overflow-hidden rounded-[20px]">
+            <Image src="/images/hero.jpg" alt="Enfants à Au Coeur Des Anges" fill className="object-cover" />
+          </div>
+          <div className="flex flex-col gap-4">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[20px]">
+              <Image src="/images/creche.jpg" alt="La crèche" fill className="object-cover" />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[20px]">
+              <Image src="/images/maternelle.jpg" alt="La maternelle" fill className="object-cover" />
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

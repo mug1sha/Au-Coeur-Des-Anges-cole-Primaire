@@ -20,35 +20,35 @@ const pillars = [
   {
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10" aria-hidden="true">
-        <circle cx="24" cy="24" r="22" fill="#FF7800" opacity="0.1" />
-        <path d="M24 14C24 14 16 18 16 24C16 28.4 19.6 32 24 32C28.4 32 32 28.4 32 24C32 18 24 14 24 14Z" fill="#FF7800" opacity="0.3" />
-        <circle cx="24" cy="24" r="4" fill="#FF7800" />
+        <circle cx="24" cy="24" r="22" fill="#FF6B35" opacity="0.1" />
+        <path d="M24 14C24 14 16 18 16 24C16 28.4 19.6 32 24 32C28.4 32 32 28.4 32 24C32 18 24 14 24 14Z" fill="#FF6B35" opacity="0.3" />
+        <circle cx="24" cy="24" r="4" fill="#FF6B35" />
       </svg>
     ),
     title: "Développement émotionnel",
     description: "Identification et gestion des émotions, developpement de l'empathie et construction d'une estime de soi solide et realiste.",
-    color: "#FF7800",
+    color: "#FF6B35",
   },
   {
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10" aria-hidden="true">
-        <circle cx="24" cy="24" r="22" fill="#023250" opacity="0.1" />
-        <circle cx="18" cy="20" r="5" fill="#FF7800" opacity="0.4" />
+        <circle cx="24" cy="24" r="22" fill="#0B1B3D" opacity="0.1" />
+        <circle cx="18" cy="20" r="5" fill="#FF6B35" opacity="0.4" />
         <circle cx="30" cy="20" r="5" fill="#0783BD" opacity="0.4" />
-        <circle cx="24" cy="30" r="5" fill="#023250" opacity="0.4" />
+        <circle cx="24" cy="30" r="5" fill="#0B1B3D" opacity="0.4" />
       </svg>
     ),
     title: "Créativité & expression",
     description: "Arts, musique, theatre et projets — l'expression créative comme moyen d'apprendre differently et de developper l'imagination.",
-    color: "#023250",
+    color: "#0B1B3D",
   },
   {
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10" aria-hidden="true">
         <circle cx="24" cy="24" r="22" fill="#0783BD" opacity="0.1" />
         <circle cx="18" cy="22" r="5" fill="#0783BD" opacity="0.6" />
-        <circle cx="30" cy="22" r="5" fill="#FF7800" opacity="0.6" />
-        <path d="M18 27 C18 27 21 30 24 30 C27 30 30 27 30 27" stroke="#023250" strokeWidth="2" fill="none" strokeLinecap="round" />
+        <circle cx="30" cy="22" r="5" fill="#FF6B35" opacity="0.6" />
+        <path d="M18 27 C18 27 21 30 24 30 C27 30 30 27 30 27" stroke="#0B1B3D" strokeWidth="2" fill="none" strokeLinecap="round" />
       </svg>
     ),
     title: "Développement social",
@@ -122,7 +122,7 @@ export default function EducationalPhilosophy() {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + i * 0.08 }}
-              className="group relative flex gap-5 p-6 rounded-[5px] bg-white transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
+              className="group relative flex gap-5 p-6 rounded-[16px] bg-white transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
             >
               {/* Icon */}
               <div className="flex-shrink-0">
@@ -155,9 +155,9 @@ export default function EducationalPhilosophy() {
           transition={{ duration: 0.7, delay: 0.5 }}
           className="mt-12 flex justify-center"
         >
-          <div className="relative flex items-center gap-4 px-8 py-4 bg-white rounded-[5px] shadow-sm">
+          <div className="relative flex items-center gap-4 px-8 py-4 bg-white rounded-[16px] shadow-sm">
             <div className="text-center">
-              <div className="w-10 h-10 rounded-[5px] bg-blue/10 flex items-center justify-center mx-auto mb-1">
+              <div className="w-10 h-10 rounded-[10px] bg-blue/10 flex items-center justify-center mx-auto mb-1">
                 <svg className="w-5 h-5 text-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
                 </svg>
@@ -168,7 +168,7 @@ export default function EducationalPhilosophy() {
             <div className="w-6 h-px bg-lightgray" />
 
             <div className="text-center">
-              <div className="w-10 h-10 rounded-[5px] bg-orange/10 flex items-center justify-center mx-auto mb-1">
+              <div className="w-10 h-10 rounded-[10px] bg-orange/10 flex items-center justify-center mx-auto mb-1">
                 <svg className="w-5 h-5 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                 </svg>
@@ -179,7 +179,7 @@ export default function EducationalPhilosophy() {
             <div className="w-6 h-px bg-lightgray" />
 
             <div className="text-center">
-              <div className="w-10 h-10 rounded-[5px] bg-navy/10 flex items-center justify-center mx-auto mb-1">
+              <div className="w-10 h-10 rounded-[10px] bg-navy/10 flex items-center justify-center mx-auto mb-1">
                 <svg className="w-5 h-5 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
                 </svg>
@@ -190,7 +190,7 @@ export default function EducationalPhilosophy() {
             <div className="w-6 h-px bg-lightgray" />
 
             <div className="text-center">
-              <div className="w-10 h-10 rounded-[5px] bg-blue/10 flex items-center justify-center mx-auto mb-1">
+              <div className="w-10 h-10 rounded-[10px] bg-blue/10 flex items-center justify-center mx-auto mb-1">
                 <svg className="w-5 h-5 text-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                 </svg>

@@ -1,210 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @import "tailwindcss";
 
 :root {
-  --navy: #023250;
-  --blue: #0783BD;
-  --orange: #FF7800;
-  --offwhite: #F0F3F4;
-  --lightgray: #DCE3E7;
-  --white: #FFFFFF;
-
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
-  --space-4xl: 6rem;
-  --space-section: 6rem;
-  --space-section-lg: 8rem;
-
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
-  --radius-full: 9999px;
-
-  --shadow-sm: 0 1px 2px rgba(2, 50, 80, 0.04);
-  --shadow-md: 0 4px 12px rgba(2, 50, 80, 0.06);
-  --shadow-lg: 0 8px 30px rgba(2, 50, 80, 0.08);
-  --shadow-xl: 0 16px 50px rgba(2, 50, 80, 0.10);
-  --shadow-card: 0 2px 8px rgba(2, 50, 80, 0.04), 0 8px 30px rgba(2, 50, 80, 0.06);
-  --shadow-card-hover: 0 4px 12px rgba(2, 50, 80, 0.06), 0 16px 40px rgba(2, 50, 80, 0.10);
-  --shadow-card-active: 0 1px 4px rgba(2, 50, 80, 0.04), 0 4px 16px rgba(2, 50, 80, 0.06);
-
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --duration-slow: 400ms;
+  --background: #ffffff;
+  --foreground: #0b1b3d;
+  --school-blue: #0b1b3d;
+  --school-orange: #ff6b35;
+  --school-orange-dark: #f95738;
+  --school-gray: #f8f9fa;
 }
 
-@theme inline {
-  --color-navy: #023250;
-  --color-navy-light: #0a4068;
-  --color-blue: #0783BD;
-  --color-blue-light: #0a9ad8;
-  --color-orange: #FF7800;
-  --color-orange-light: #FF9533;
-  --color-offwhite: #F0F3F4;
-  --color-lightgray: #DCE3E7;
-  --color-surface: #FFFFFF;
-  --font-heading: 'Plus Jakarta Sans', sans-serif;
-  --font-body: 'Inter', sans-serif;
-}
-
-/* ── Reset ────────────────────────────────────────── */
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
+* {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: var(--font-body);
-  color: var(--navy);
-  background: var(--white);
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
   overflow-x: hidden;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  line-height: 1.2;
-}
-
-img, video {
+img {
   max-width: 100%;
-  height: auto;
-  display: block;
 }
 
-/* ── Focus States ─────────────────────────────────── */
-:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 3px;
-}
-
-:focus:not(:focus-visible) {
-  outline: none;
-}
-
-/* ── Selection ────────────────────────────────────── */
 ::selection {
-  background: rgba(7, 131, 189, 0.2);
-  color: var(--navy);
-}
-
-/* ── Scrollbar ────────────────────────────────────── */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--offwhite);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--lightgray);
-  border-radius: var(--radius-full);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--blue);
-}
-
-/* ── Typography Utilities ─────────────────────────── */
-.text-balance {
-  text-wrap: balance;
-}
-
-/* ── Animations ───────────────────────────────────── */
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes scale-in {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes btn-press {
-  0% { transform: scale(1); }
-  50% { transform: scale(0.97); }
-  100% { transform: scale(1); }
-}
-
-/* ── Component Utilities ──────────────────────────── */
-.card-hover {
-  transition:
-    transform var(--duration-normal) var(--ease-out),
-    box-shadow var(--duration-normal) var(--ease-out),
-    background-color var(--duration-normal) var(--ease-out);
-  will-change: transform, box-shadow;
-}
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-card-hover);
-}
-.card-hover:active {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-card-active);
-  transition-duration: var(--duration-fast);
-}
-
-.btn-press:active {
-  animation: btn-press var(--duration-fast) var(--ease-out);
-}
-
-.img-zoom {
-  overflow: hidden;
-}
-.img-zoom > * {
-  transition: transform 500ms var(--ease-out);
-  will-change: transform;
-}
-.img-zoom:hover > * {
-  transform: scale(1.05);
-}
-
-/* Section spacing rhythm */
-.section-padding {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-@media (min-width: 1024px) {
-  .section-padding {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
-  }
-}
-
-/* ── Reduced Motion ───────────────────────────────── */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .card-hover:hover { transform: none; }
-  .card-hover:active { transform: none; }
-  .img-zoom:hover > * { transform: none; }
+  background: #ff6b35;
+  color: white;
 }

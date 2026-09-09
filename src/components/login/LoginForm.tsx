@@ -91,7 +91,7 @@ export default function LoginForm() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-12 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-navy" aria-hidden="true">
+      <div className="absolute inset-0 bg-offwhite" aria-hidden="true">
         {/* Decorative blobs */}
         <svg
           className="absolute -top-32 -right-32 w-[600px] h-[600px] opacity-[0.03]"
@@ -99,7 +99,7 @@ export default function LoginForm() {
         >
           <path
             d="M45.3,-73.4C58.4,-66.1,68.9,-53.3,75.8,-39.1C82.7,-24.9,86,-9.3,83.7,5.8C81.4,20.9,73.5,35.5,63.4,47.2C53.3,58.9,41,67.7,27.2,73.3C13.4,78.9,-1.9,81.3,-16.8,78.5C-31.7,75.7,-46.2,67.7,-57.7,56.1C-69.2,44.5,-77.7,29.3,-80.3,13.3C-82.9,-2.7,-79.6,-19.4,-71.8,-33.2C-64,-47,-51.7,-57.9,-38.2,-65.1C-24.7,-72.3,-10,-75.8,3.4,-80.3C16.8,-84.8,32.2,-80.7,45.3,-73.4Z"
-            fill="#FF7800"
+            fill="#FF6B35"
             transform="translate(100 100)"
           />
         </svg>
@@ -130,7 +130,7 @@ export default function LoginForm() {
         transition={{ duration: 0.7 }}
         className="relative z-10 w-full max-w-md"
       >
-        <div className="bg-white rounded-[5px] shadow-xl p-8 md:p-10">
+        <div className="bg-white rounded-[20px] shadow-xl p-8 md:p-10">
           {/* Logo / branding */}
           <div className="text-center mb-8">
             <Image
@@ -289,7 +289,7 @@ export default function LoginForm() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="group w-full flex items-center justify-center gap-2.5 px-8 py-3.5 bg-navy text-white font-heading font-semibold rounded-full text-base hover:bg-navy-light transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-navy focus-visible:outline-offset-3 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+              className="group w-full flex items-center justify-center gap-2.5 px-8 py-3.5 bg-orange text-white font-heading font-semibold rounded-[12px] text-base hover:bg-orange-light transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange focus-visible:outline-offset-3 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
             >
               {status === "loading" ? (
                 <>
@@ -332,7 +332,7 @@ export default function LoginForm() {
         <div className="mt-6 text-center">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white/60 transition-colors duration-200"
+            className="inline-flex items-center gap-2 text-sm text-navy/40 hover:text-navy/60 transition-colors duration-200"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
