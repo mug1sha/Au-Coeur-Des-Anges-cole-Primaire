@@ -3,7 +3,7 @@ import { Star } from "lucide-react";
 
 export default function GalleryHero() {
   return (
-    <section className="relative overflow-hidden bg-[#0B1B3D] text-white">
+    <section className="relative overflow-hidden bg-[#012dcc] text-white">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-10 top-20 h-40 w-40 rounded-full bg-[#FF6B35]/10 blur-3xl" />
         <div className="absolute right-0 top-10 h-56 w-56 rounded-full bg-white/5 blur-3xl" />

@@ -90,7 +90,7 @@ export default function GalleryClient() {
               className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold transition duration-200 ${
                 active === f.key
                   ? "bg-[#FF6B35] text-white shadow-md"
-                  : "border border-slate-200 bg-white text-[#0B1B3D] hover:border-[#FF6B35] hover:text-[#FF6B35]"
+                  : "border border-slate-200 bg-white text-[#012dcc] hover:border-[#FF6B35] hover:text-[#FF6B35]"
               }`}
             >
               {f.label}
@@ -116,10 +116,10 @@ export default function GalleryClient() {
                   fill
                   className="object-cover transition duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-[#0B1B3D]/0 transition duration-300 group-hover:bg-[#0B1B3D]/20" />
+                <div className="absolute inset-0 bg-[#012dcc]/0 transition duration-300 group-hover:bg-[#012dcc]/20" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 transition duration-300 group-hover:opacity-100">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90">
-                    <ZoomIn size={18} className="text-[#0B1B3D]" />
+                    <ZoomIn size={18} className="text-[#012dcc]" />
                   </div>
                 </div>
               </div>
@@ -128,7 +128,7 @@ export default function GalleryClient() {
         </div>
 
         {filtered.length === 0 && (
-          <p className="py-16 text-center text-[#0B1B3D]/40">Aucune photo dans cette catégorie.</p>
+          <p className="py-16 text-center text-[#012dcc]/40">Aucune photo dans cette catégorie.</p>
         )}
       </div>
 
