@@ -40,7 +40,7 @@ import {
   ConfirmDialog, SearchInput, useToast,
   Table, Th, Td, Toggle, RichEditor,
 } from "@/components/admin/ui";
-import { getAdminSession } from "@/lib/admin-auth";
+import { useAdminSession } from "@/lib/AdminSessionContext";
 
 // ─────────────────────────────────────────────
 // CONSTANTS & CONFIG
@@ -706,7 +706,7 @@ export default function AnnouncementsClient() {
 
   // Derive permission from session
   // canAccess guard is placed after all hooks (before main return) to comply with Rules of Hooks.
-  const session = getAdminSession();
+  const { session } = useAdminSession();
   const canPublish = session?.role === "super_admin" || session?.role === "admin";
   const canAccess = session && (
     ROLE_PERMISSIONS[session.role]?.includes("*") ||

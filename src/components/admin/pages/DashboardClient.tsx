@@ -10,7 +10,7 @@ import {
 import { getDashboardStats } from "@/lib/admin-data";
 import type { DashboardStats, DashboardTransaction, DashboardAnnouncement } from "@/lib/admin-types";
 import { Badge, Card, CardHeader, CardBody, Skeleton } from "@/components/admin/ui";
-import { getAdminSession } from "@/lib/admin-auth";
+import { useAdminSession } from "@/lib/AdminSessionContext";
 
 // ─────────────────────────────────────────────
 // HELPERS
@@ -329,7 +329,7 @@ export default function DashboardClient() {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const session = getAdminSession();
+  const { session } = useAdminSession();
 
   useEffect(() => {
     getDashboardStats()

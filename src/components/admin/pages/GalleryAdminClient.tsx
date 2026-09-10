@@ -6,7 +6,7 @@ import { Upload, Trash2, Image as ImageIcon, Filter, ShieldAlert } from "lucide-
 import { getGalleryImages, deleteGalleryImage } from "@/lib/admin-data";
 import type { GalleryImage, GalleryCategory } from "@/lib/admin-types";
 import { ROLE_PERMISSIONS } from "@/lib/admin-types";
-import { getAdminSession } from "@/lib/admin-auth";
+import { useAdminSession } from "@/lib/AdminSessionContext";
 import {
   Card, CardBody, Button, Badge, EmptyState, Skeleton,
   Pagination, ConfirmDialog, SearchInput, useToast,
@@ -42,7 +42,7 @@ export default function GalleryAdminClient() {
   const PAGE_SIZE = 12;
 
   // ── Session & permission ─────────────────
-  const session = getAdminSession();
+  const { session } = useAdminSession();
   const canAccess = session && (
     ROLE_PERMISSIONS[session.role]?.includes("*") ||
     ROLE_PERMISSIONS[session.role]?.includes("gallery")

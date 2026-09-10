@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Menu, Bell, Search, User, Settings, LogOut, ChevronDown } from "lucide-react";
-import { getAdminSession, adminLogout } from "@/lib/admin-auth";
+import { getAdminSession, adminLogout, type AdminSession } from "@/lib/admin-auth";
 
 // ─────────────────────────────────────────────
 // PAGE TITLE MAP
@@ -27,11 +27,10 @@ const PAGE_TITLES: Record<string, { title: string; breadcrumb: string[] }> = {
 // ─────────────────────────────────────────────
 // PROFILE DROPDOWN
 // ─────────────────────────────────────────────
-function ProfileDropdown() {
+function ProfileDropdown({ session }: { session: AdminSession | null }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  const session = getAdminSession();
 
   const name = session?.name ?? "Administrateur";
   const email = session?.email ?? "";
@@ -66,8 +65,8 @@ function ProfileDropdown() {
     return () => document.removeEventListener("keydown", handler);
   }, []);
 
-  function handleLogout() {
-    adminLogout();
+  async function handleLogout() {
+    await adminLogout();
     router.push("/admin/login");
   }
 
@@ -217,7 +216,7 @@ function NotificationsButton() {
 // ─────────────────────────────────────────────
 // MAIN HEADER EXPORT
 // ─────────────────────────────────────────────
-export default function AdminHeader({ onMenuClick }: { onMenuClick: () => void }) {
+export default function AdminHeader({ onMenuClick, session }: { onMenuClick: () => void; session: AdminSession | null }) {
   const pathname = usePathname();
   const meta = PAGE_TITLES[pathname] ?? { title: "Administration", breadcrumb: ["Administration"] };
 
@@ -268,7 +267,7 @@ export default function AdminHeader({ onMenuClick }: { onMenuClick: () => void }
         <NotificationsButton />
 
         {/* Profile */}
-        <ProfileDropdown />
+        <ProfileDropdown session={session} />
       </div>
     </header>
   );

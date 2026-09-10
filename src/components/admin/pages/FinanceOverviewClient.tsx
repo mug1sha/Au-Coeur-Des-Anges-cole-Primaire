@@ -21,7 +21,7 @@ import {
   ArrowRight, RefreshCw, AlertCircle, Scale, Clock,
 } from "lucide-react";
 import type { FinanceSummary } from "@/lib/admin-types";
-import { getAdminSession } from "@/lib/admin-auth";
+import { useAdminSession } from "@/lib/AdminSessionContext";
 import { getFinancePermissions } from "@/lib/finance-guard";
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
@@ -90,7 +90,7 @@ const SECTIONS = [
 
 // ─── Main component ────────────────────────────────────────────────────────
 export default function FinanceOverviewClient() {
-  const session = getAdminSession();
+  const { session } = useAdminSession();
   const { canRead } = getFinancePermissions(session?.role);
 
   const [summary, setSummary] = useState<FinanceSummary | null>(null);

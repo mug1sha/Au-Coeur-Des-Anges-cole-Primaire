@@ -14,7 +14,7 @@ import {
 } from "@/lib/admin-data";
 import type { Service, ServiceStatus } from "@/lib/admin-types";
 import { ROLE_PERMISSIONS } from "@/lib/admin-types";
-import { getAdminSession } from "@/lib/admin-auth";
+import { useAdminSession } from "@/lib/AdminSessionContext";
 import {
   Card, CardHeader, CardBody, Button, Badge, EmptyState,
   Modal, Input, Textarea, Select, Toggle, Skeleton,
@@ -526,7 +526,7 @@ export default function ServicesClient() {
   // ── Session & permission ─────────────────
   // Computed here so session is available in audit log callbacks.
   // Access denied guard is placed after all hooks (before main return).
-  const session = getAdminSession();
+  const { session } = useAdminSession();
   const canAccess = session && (
     ROLE_PERMISSIONS[session.role]?.includes("*") ||
     ROLE_PERMISSIONS[session.role]?.includes("services")

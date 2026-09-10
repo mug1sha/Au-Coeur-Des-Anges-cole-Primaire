@@ -3,27 +3,17 @@ import { createClient } from "@/lib/supabase/server";
 import { requireAuth, isNextResponse } from "@/lib/supabase/auth-guard";
 
 export async function GET(request: NextRequest) {
-  const auth = await requireAuth("finance");
-  if (isNextResponse(auth)) return auth;
-
   const supabase = await createClient();
   const { searchParams } = new URL(request.url);
-  const month = searchParams.get("month");
-  const year = searchParams.get("year");
-  const status = searchParams.get("status");
+  const publicOnly = searchParams.get("public") === "true";
 
-  let query = supabase
-    .from("expenses")
-    .select("*")
-    .order("date", { ascending: false });
+  let query = supabase.from("teachers").select("*").order("joined_at", { ascending: false });
 
-  if (status) query = query.eq("status", status);
-  if (year && month) {
-    const from = `${year}-${month.padStart(2, "0")}-01`;
-    const to = new Date(parseInt(year), parseInt(month), 0).toISOString().split("T")[0];
-    query = query.gte("date", from).lte("date", to);
-  } else if (year) {
-    query = query.gte("date", `${year}-01-01`).lte("date", `${year}-12-31`);
+  if (publicOnly) {
+    query = query.eq("status", "active").eq("public_visible", true);
+  } else {
+    const auth = await requireAuth("teachers");
+    if (isNextResponse(auth)) return auth;
   }
 
   const { data, error } = await query;
@@ -32,15 +22,15 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const auth = await requireAuth("finance");
+  const auth = await requireAuth("teachers");
   if (isNextResponse(auth)) return auth;
 
   const supabase = await createClient();
   const body = await request.json();
 
   const { data, error } = await supabase
-    .from("expenses")
-    .insert({ ...body, recorded_by: auth.user.id })
+    .from("teachers")
+    .insert(body)
     .select()
     .single();
 

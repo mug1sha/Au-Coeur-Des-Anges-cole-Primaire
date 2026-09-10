@@ -2,45 +2,49 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { requireAuth, isNextResponse } from "@/lib/supabase/auth-guard";
 
+// GET — list announcements (public gets published only, staff gets all)
 export async function GET(request: NextRequest) {
-  const auth = await requireAuth("finance");
-  if (isNextResponse(auth)) return auth;
-
   const supabase = await createClient();
   const { searchParams } = new URL(request.url);
-  const month = searchParams.get("month");
-  const year = searchParams.get("year");
+  const publicOnly = searchParams.get("public") === "true";
   const status = searchParams.get("status");
+  const category = searchParams.get("category");
 
   let query = supabase
-    .from("expenses")
+    .from("announcements")
     .select("*")
-    .order("date", { ascending: false });
+    .order("pinned", { ascending: false })
+    .order("published_at", { ascending: false });
 
-  if (status) query = query.eq("status", status);
-  if (year && month) {
-    const from = `${year}-${month.padStart(2, "0")}-01`;
-    const to = new Date(parseInt(year), parseInt(month), 0).toISOString().split("T")[0];
-    query = query.gte("date", from).lte("date", to);
-  } else if (year) {
-    query = query.gte("date", `${year}-01-01`).lte("date", `${year}-12-31`);
+  if (publicOnly) {
+    query = query
+      .eq("status", "published")
+      .or("expires_at.is.null,expires_at.gt." + new Date().toISOString());
+  } else {
+    // Staff — verify auth
+    const auth = await requireAuth("announcements");
+    if (isNextResponse(auth)) return auth;
+    if (status) query = query.eq("status", status);
   }
+
+  if (category) query = query.eq("category", category);
 
   const { data, error } = await query;
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   return NextResponse.json({ data });
 }
 
+// POST — create announcement
 export async function POST(request: NextRequest) {
-  const auth = await requireAuth("finance");
+  const auth = await requireAuth("announcements");
   if (isNextResponse(auth)) return auth;
 
   const supabase = await createClient();
   const body = await request.json();
 
   const { data, error } = await supabase
-    .from("expenses")
-    .insert({ ...body, recorded_by: auth.user.id })
+    .from("announcements")
+    .insert({ ...body, author: auth.user.name, created_by: auth.user.id })
     .select()
     .single();
 

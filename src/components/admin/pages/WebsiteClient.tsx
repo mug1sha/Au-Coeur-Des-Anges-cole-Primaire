@@ -5,7 +5,7 @@ import { Globe, Save, Eye, Info, ShieldAlert } from "lucide-react";
 import { getSchoolSettings, updateSchoolSettings } from "@/lib/admin-data";
 import type { SchoolSettings } from "@/lib/admin-types";
 import { ROLE_PERMISSIONS } from "@/lib/admin-types";
-import { getAdminSession } from "@/lib/admin-auth";
+import { useAdminSession } from "@/lib/AdminSessionContext";
 import {
   Card, CardHeader, CardBody, Button, Input, Textarea, Skeleton, useToast,
 } from "@/components/admin/ui";
@@ -18,7 +18,7 @@ export default function WebsiteClient() {
   const { show, ToastComponent } = useToast();
 
   // ── Session & permission ─────────────────
-  const session = getAdminSession();
+  const { session } = useAdminSession();
   const canAccess = session && (
     ROLE_PERMISSIONS[session.role]?.includes("*") ||
     ROLE_PERMISSIONS[session.role]?.includes("website")

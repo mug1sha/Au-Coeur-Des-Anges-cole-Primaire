@@ -9,6 +9,7 @@ import {
   TrendingUp, TrendingDown, Calculator, BarChart3, LogOut, X,
 } from "lucide-react";
 import { getAdminSession, adminLogout } from "@/lib/admin-auth";
+import { useAdminSession } from "@/lib/AdminSessionContext";
 import { ROLE_PERMISSIONS } from "@/lib/admin-types";
 
 interface NavItem {
@@ -129,7 +130,7 @@ function SidebarContent({
   isMobile: boolean;
 }) {
   const router = useRouter();
-  const session = getAdminSession();
+  const { session } = useAdminSession();
   const initials = session?.name
     ? session.name.split(" ").map((n) => n[0]).slice(0, 2).join("").toUpperCase()
     : "A";
@@ -147,8 +148,8 @@ function SidebarContent({
     ),
   })).filter((group) => group.items.length > 0);
 
-  function handleLogout() {
-    adminLogout();
+  async function handleLogout() {
+    await adminLogout();
     router.push("/admin/login");
   }
 

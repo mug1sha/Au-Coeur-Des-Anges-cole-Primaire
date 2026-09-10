@@ -1,17 +1,9 @@
 /**
- * Admin authentication & authorization layer.
- *
- * Architecture:
- * - Client-side: useAdminAuth hook guards UI, reads from sessionStorage/localStorage
- * - Server-side: verifyAdminSession() must be called in Server Components / API routes
- *   before returning sensitive data (replaces the mock when a real backend exists).
- *
- * TODO: replace localStorage mock with:
- *   - NextAuth.js (recommended), or
- *   - JWT cookies validated in middleware.ts, or
- *   - Any server-side session system
+ * Admin authentication layer — backed by Supabase Auth.
+ * Client-side helpers only. All real auth happens via /api/auth/* routes.
  */
 
+import { createClient } from "@/lib/supabase/client";
 import { ROLE_PERMISSIONS, type UserRole } from "./admin-types";
 
 // ─────────────────────────────────────────────
@@ -23,129 +15,85 @@ export interface AdminSession {
   email: string;
   role: UserRole;
   token: string;
-  expiresAt: number; // unix ms
+  expiresAt: number;
 }
 
-const SESSION_KEY = "admin_session";
-const SESSION_DURATION_MS = 8 * 60 * 60 * 1000; // 8 hours
-
-// ─────────────────────────────────────────────
-// MOCK CREDENTIALS (replace with real auth)
-// ─────────────────────────────────────────────
-const MOCK_ADMIN_CREDENTIALS: {
-  email: string;
-  password: string;
-  userId: string;
-  name: string;
-  role: UserRole;
-}[] = [
-  {
-    email: "admin@aucoeurddesanges.rw",
-    password: "Admin2026!",
-    userId: "u1",
-    name: "Directeur Admin",
-    role: "super_admin",
-  },
-  {
-    email: "finance@example.com",
-    password: "Finance2026!",
-    userId: "u3",
-    name: "Comptable Principale",
-    role: "accountant",
-  },
-  {
-    email: "coord@example.com",
-    password: "Coord2026!",
-    userId: "u4",
-    name: "Coordinatrice Admin",
-    role: "admin",
-  },
-  {
-    email: "content@example.com",
-    password: "Content2026!",
-    userId: "u5",
-    name: "Gestionnaire Contenu",
-    role: "content_manager",
-  },
-];
-
-// ─────────────────────────────────────────────
-// SESSION STORAGE HELPERS
-// ─────────────────────────────────────────────
-export function getAdminSession(): AdminSession | null {
-  if (typeof window === "undefined") return null;
-  try {
-    const raw =
-      sessionStorage.getItem(SESSION_KEY) ??
-      localStorage.getItem(SESSION_KEY);
-    if (!raw) return null;
-    const session = JSON.parse(raw) as AdminSession;
-    if (Date.now() > session.expiresAt) {
-      clearAdminSession();
-      return null;
-    }
-    return session;
-  } catch {
-    return null;
-  }
-}
-
-export function setAdminSession(session: AdminSession, remember = false): void {
-  if (typeof window === "undefined") return;
-  const store = remember ? localStorage : sessionStorage;
-  store.setItem(SESSION_KEY, JSON.stringify(session));
-}
-
-export function clearAdminSession(): void {
-  if (typeof window === "undefined") return;
-  sessionStorage.removeItem(SESSION_KEY);
-  localStorage.removeItem(SESSION_KEY);
-}
-
-export function isAdminAuthenticated(): boolean {
-  return getAdminSession() !== null;
-}
-
-// ─────────────────────────────────────────────
-// LOGIN
-// ─────────────────────────────────────────────
 export interface AdminLoginResult {
   success: boolean;
   session?: AdminSession;
   error?: string;
 }
 
+// ─────────────────────────────────────────────
+// LOGIN — calls /api/auth/login
+// ─────────────────────────────────────────────
 export async function adminLogin(
   email: string,
   password: string,
-  remember = false
+  _remember = false
 ): Promise<AdminLoginResult> {
-  // Simulate network delay
-  await new Promise((r) => setTimeout(r, 800));
+  const res = await fetch("/api/auth/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password }),
+  });
 
-  const match = MOCK_ADMIN_CREDENTIALS.find(
-    (c) => c.email.toLowerCase() === email.toLowerCase() && c.password === password
-  );
+  const data = await res.json();
 
-  if (!match) {
-    return { success: false, error: "Identifiants incorrects." };
+  if (!res.ok) {
+    return { success: false, error: data.error ?? "Identifiants incorrects." };
   }
 
-  const session: AdminSession = {
-    userId: match.userId,
-    name: match.name,
-    email: match.email,
-    role: match.role,
-    token: `mock-admin-token-${match.userId}-${Date.now()}`,
-    expiresAt: Date.now() + SESSION_DURATION_MS,
+  return {
+    success: true,
+    session: {
+      userId: data.user.id,
+      name: data.user.name,
+      email: data.user.email,
+      role: data.user.role,
+      token: data.access_token,
+      expiresAt: Date.now() + 8 * 60 * 60 * 1000,
+    },
   };
-
-  setAdminSession(session, remember);
-  return { success: true, session };
 }
 
-export function adminLogout(): void {
-  clearAdminSession();
+// ─────────────────────────────────────────────
+// LOGOUT — calls /api/auth/logout
+// ─────────────────────────────────────────────
+export async function adminLogout(): Promise<void> {
+  await fetch("/api/auth/logout", { method: "POST" });
+}
+
+// ─────────────────────────────────────────────
+// SESSION CHECK — reads from Supabase client
+// ─────────────────────────────────────────────
+export function isAdminAuthenticated(): boolean {
+  // Optimistic check — real guard is in middleware.ts server-side
+  if (typeof window === "undefined") return false;
+  return !!document.cookie.includes("sb-aubdtgbewzdntilhenos-auth-token");
+}
+
+export async function getAdminSession(): Promise<AdminSession | null> {
+  const supabase = createClient();
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) return null;
+
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("id, name, email, role")
+    .eq("id", session.user.id)
+    .single();
+
+  if (!profile) return null;
+
+  return {
+    userId: profile.id,
+    name: profile.name,
+    email: profile.email,
+    role: profile.role as UserRole,
+    token: session.access_token,
+    expiresAt: new Date(session.expires_at! * 1000).getTime(),
+  };
 }
 
 // ─────────────────────────────────────────────
@@ -161,16 +109,15 @@ export function canAccess(session: AdminSession | null, resource: string): boole
   return hasPermission(session.role, resource);
 }
 
-/**
- * Server-side permission check stub.
- * TODO: implement real JWT / session cookie verification here.
- * Call this at the top of every Server Action and API Route handler.
- */
 export async function verifyAdminSession(
   _token: string,
   _requiredResource?: string
 ): Promise<{ valid: boolean; session?: AdminSession; error?: string }> {
-  // Mock: always passes in dev.
-  // In production, verify JWT signature and expiry against your DB/cache.
-  return { valid: true };
+  const session = await getAdminSession();
+  if (!session) return { valid: false, error: "Non authentifié." };
+  return { valid: true, session };
 }
+
+// Legacy stubs kept for backwards compat with any component still importing them
+export function setAdminSession(_s: AdminSession, _r = false) {}
+export function clearAdminSession() {}

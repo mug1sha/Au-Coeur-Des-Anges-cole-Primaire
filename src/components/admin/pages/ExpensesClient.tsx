@@ -21,7 +21,7 @@ import {
 } from "@/lib/admin-data";
 import type { Expense, ExpenseCategoryKey, PaymentMethod, TransactionStatus } from "@/lib/admin-types";
 import { EXPENSE_CATEGORY_LABELS, EXPENSE_CATEGORY_COLORS } from "@/lib/admin-types";
-import { getAdminSession } from "@/lib/admin-auth";
+import { useAdminSession } from "@/lib/AdminSessionContext";
 import { getFinancePermissions } from "@/lib/finance-guard";
 import {
   Card, CardBody, Button, EmptyState, Modal,
@@ -84,7 +84,7 @@ function CatDot({ cat }: { cat: ExpenseCategoryKey }) {
 const PAGE_SIZE = 12;
 
 export default function ExpensesClient() {
-  const session = getAdminSession();
+  const { session } = useAdminSession();
   const { canWrite, canDelete } = getFinancePermissions(session?.role);
 
   const [expenses, setExpenses] = useState<Expense[]>([]);

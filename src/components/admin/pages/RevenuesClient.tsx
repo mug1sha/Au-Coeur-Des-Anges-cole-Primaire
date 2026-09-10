@@ -22,7 +22,7 @@ import {
 } from "@/lib/admin-data";
 import type { Revenue, RevenueCategory, PaymentMethod, TransactionStatus } from "@/lib/admin-types";
 import { REVENUE_CATEGORY_LABELS } from "@/lib/admin-types";
-import { getAdminSession } from "@/lib/admin-auth";
+import { useAdminSession } from "@/lib/AdminSessionContext";
 import { getFinancePermissions } from "@/lib/finance-guard";
 import {
   Card, CardBody, Button, EmptyState, Modal,
@@ -81,7 +81,7 @@ function validate(f: RevForm): RevErrors {
 const PAGE_SIZE = 12;
 
 export default function RevenuesClient() {
-  const session = getAdminSession();
+  const { session } = useAdminSession();
   const { canWrite, canDelete } = getFinancePermissions(session?.role);
 
   const [revenues, setRevenues] = useState<Revenue[]>([]);

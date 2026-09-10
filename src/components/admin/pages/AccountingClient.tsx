@@ -24,7 +24,7 @@ import {
   AlertCircle, Lock, Unlock, Calculator, ArrowRight, Info,
 } from "lucide-react";
 import type { FinanceSummary, AccountingPeriod } from "@/lib/admin-types";
-import { getAdminSession } from "@/lib/admin-auth";
+import { useAdminSession } from "@/lib/AdminSessionContext";
 import { getFinancePermissions } from "@/lib/finance-guard";
 import { getAccountingPeriods } from "@/lib/admin-data";
 import { Card, CardHeader, CardBody, Button, Badge, Skeleton, useToast } from "@/components/admin/ui";
@@ -99,7 +99,7 @@ function BarGroup({
 // MAIN COMPONENT
 // ─────────────────────────────────────────────
 export default function AccountingClient() {
-  const session = getAdminSession();
+  const { session } = useAdminSession();
   const { canRead } = getFinancePermissions(session?.role);
 
   const today = new Date();

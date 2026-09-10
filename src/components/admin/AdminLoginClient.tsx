@@ -1,14 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { Eye, EyeOff, LogIn, AlertCircle } from "lucide-react";
-import { adminLogin, isAdminAuthenticated } from "@/lib/admin-auth";
+import { adminLogin, getAdminSession } from "@/lib/admin-auth";
 import { Button, Input } from "@/components/admin/ui";
 
 export default function AdminLoginClient() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -18,9 +19,9 @@ export default function AdminLoginClient() {
 
   // Redirect if already authenticated
   useEffect(() => {
-    if (isAdminAuthenticated()) {
-      router.replace("/admin");
-    }
+    getAdminSession().then((session) => {
+      if (session) router.replace("/admin");
+    });
   }, [router]);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -34,7 +35,8 @@ export default function AdminLoginClient() {
     try {
       const result = await adminLogin(email, password, remember);
       if (result.success) {
-        router.push("/admin");
+        const redirectTo = searchParams.get("redirectTo") ?? "/admin";
+        router.push(redirectTo);
       } else {
         setError(result.error ?? "Une erreur est survenue.");
       }

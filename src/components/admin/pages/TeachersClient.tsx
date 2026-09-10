@@ -16,7 +16,7 @@ import {
 } from "@/lib/admin-data";
 import type { Teacher, TeacherStatus } from "@/lib/admin-types";
 import { ROLE_PERMISSIONS } from "@/lib/admin-types";
-import { getAdminSession } from "@/lib/admin-auth";
+import { useAdminSession } from "@/lib/AdminSessionContext";
 import {
   Card, CardHeader, CardBody, Button, Badge, EmptyState,
   Modal, Input, Textarea, Select, Toggle, Skeleton,
@@ -672,7 +672,7 @@ export default function TeachersClient() {
   // to audit log calls inside callbacks. The early-return guard is placed
   // right before the main JSX return below, AFTER all hooks have been
   // called, to comply with React's Rules of Hooks.
-  const session = getAdminSession();
+  const { session } = useAdminSession();
   const canAccess = session && (
     ROLE_PERMISSIONS[session.role]?.includes("*") ||
     ROLE_PERMISSIONS[session.role]?.includes("teachers")
