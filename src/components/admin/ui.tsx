@@ -98,7 +98,13 @@ export function Button({
       className={`inline-flex items-center gap-2 rounded-xl font-semibold transition duration-150 disabled:cursor-not-allowed disabled:opacity-60 ${BTN_STYLES[variant]} ${sizeClass} ${className}`}
       {...props}
     >
-      {loading ? <Loader2 size={14} className="animate-spin" /> : Icon ? <Icon size={14} /> : null}
+      <span className="inline-flex shrink-0 items-center">
+        {loading
+          ? <Loader2 size={14} className="animate-spin" />
+          : Icon
+          ? <Icon size={14} />
+          : null}
+      </span>
       {children}
     </button>
   );
