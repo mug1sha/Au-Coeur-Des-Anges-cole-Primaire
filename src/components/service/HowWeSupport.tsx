@@ -8,7 +8,7 @@ const steps = [
   {
     number: "01",
     title: "Découvrir",
-    description: "L&apos;enfant explore, observe et s&apos;éveille au monde qui l&apos;entoure dans un cadre stimulant.",
+    description: "L'enfant explore, observe et s'éveille au monde qui l'entoure dans un cadre stimulant.",
     color: "#FF6B35",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" aria-hidden="true">
@@ -58,8 +58,8 @@ const steps = [
   },
   {
     number: "05",
-    title: "S&apos;épanouir",
-    description: "L&apos;enfant révèle son potentiel unique, équilibré et heureux, prêt pour la suite.",
+    title: "S'épanouir",
+    description: "L'enfant révèle son potentiel unique, équilibré et heureux, prêt pour la suite.",
     color: "#FF6B35",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" aria-hidden="true">

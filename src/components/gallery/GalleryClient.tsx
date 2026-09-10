@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { FadeUp } from "@/lib/animations";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 type Category = "all" | "espaces" | "activites" | "repos" | "evenements";
 
@@ -48,6 +49,9 @@ export default function GalleryClient() {
   const [active, setActive] = useState<Category>("all");
   const [lightbox, setLightbox] = useState<number | null>(null);
   const reduced = useReducedMotion();
+  const lightboxRef = useRef<HTMLDivElement>(null);
+
+  useFocusTrap(lightboxRef, lightbox !== null);
 
   const filtered = active === "all" ? items : items.filter((i) => i.category === active);
 
@@ -137,6 +141,7 @@ export default function GalleryClient() {
       <AnimatePresence>
         {lightbox !== null && (
           <motion.div
+            ref={lightboxRef}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

@@ -23,7 +23,7 @@ const values = [
       </svg>
     ),
     title: "Discipline",
-    description: "L&apos;ordre et la rigueur comme fondements de la reussite.",
+    description: "L'ordre et la rigueur comme fondements de la reussite.",
     color: "#0783BD",
   },
   {
@@ -34,7 +34,7 @@ const values = [
       </svg>
     ),
     title: "Bienveillance",
-    description: "L&apos;ecoute, le soin et la douceur au quotidien.",
+    description: "L'ecoute, le soin et la douceur au quotidien.",
     color: "#0B1B3D",
   },
   {
@@ -46,7 +46,7 @@ const values = [
       </svg>
     ),
     title: "Curiosite",
-    description: "Le desire d&apos;apprendre comme moteur de l&apos;eveil.",
+    description: "Le desire d'apprendre comme moteur de l'eveil.",
     color: "#FF6B35",
   },
   {

@@ -27,7 +27,6 @@ const links = [
   { label: "À Propos", href: "/about" },
   { label: "Galerie", href: "/gallery" },
   { label: "Contact", href: "/contact" },
-  { label: "Connexion", href: "/login" },
 ];
 
 export default function Footer() {
@@ -82,15 +81,15 @@ export default function Footer() {
             <h3 className="font-[family-name:var(--font-heading)] font-bold">Suivez-nous</h3>
             <div className="mt-5 flex gap-3">
               {[
-                { label: "Instagram", Icon: InstagramIcon },
-                { label: "Facebook", Icon: FacebookIcon },
-              ].map(({ label, Icon }) => (
-                <a key={label} href="#" aria-label={label}
+                { label: "Instagram", href: "https://instagram.com", Icon: InstagramIcon },
+                { label: "Facebook", href: "https://facebook.com", Icon: FacebookIcon },
+              ].map(({ label, href, Icon }) => (
+                <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition duration-200 hover:bg-[#FF6B35] hover:scale-110">
                   <Icon size={18} />
                 </a>
               ))}
-              <a href="#" aria-label="WhatsApp"
+              <a href="https://wa.me/250000000000" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition duration-200 hover:bg-[#FF6B35] hover:scale-110">
                 <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />

@@ -1,16 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Mail, CalendarDays, ArrowRight, ArrowUp } from "lucide-react";
+import { Menu, X, Phone, Mail, CalendarDays, LogIn, ArrowUp } from "lucide-react";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 const navigation = [
   { label: "Accueil", href: "/" },
   { label: "Nos Services", href: "/services" },
   { label: "À Propos", href: "/about" },
+  { label: "Annonces", href: "/announcements" },
   { label: "Galerie", href: "/gallery" },
   { label: "Contact", href: "/contact" },
 ];
@@ -20,6 +22,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [showTop, setShowTop] = useState(false);
   const pathname = usePathname();
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  useFocusTrap(mobileMenuRef, open);
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30 });
@@ -32,6 +37,14 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && open) setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -122,11 +135,11 @@ export default function Navbar() {
                 );
               })}
               <Link
-                href="/contact"
-                className="flex items-center gap-2 rounded-[14px] bg-[#FF6B35] px-5 py-3 text-sm font-bold text-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-[#F95738] hover:shadow-lg"
+                href="/admin/login"
+                className="flex items-center gap-2 rounded-[14px] border-2 border-[#0B1B3D] bg-white px-5 py-2.5 text-sm font-bold text-[#0B1B3D] shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-[#0B1B3D] hover:text-white hover:shadow-lg"
               >
-                Inscrire mon enfant
-                <ArrowRight size={16} />
+                <LogIn size={16} />
+                Connexion
               </Link>
             </div>
 
@@ -155,11 +168,15 @@ export default function Navbar() {
           <AnimatePresence>
             {open && (
               <motion.div
+                ref={mobileMenuRef}
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.25, ease: "easeInOut" }}
                 className="overflow-hidden border-t border-white/10 bg-[#012dcc] lg:hidden"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Menu de navigation"
               >
                 <div className="px-5 pb-6 pt-4">
                   <div className="mx-auto flex max-w-[1320px] flex-col gap-1">
@@ -191,12 +208,12 @@ export default function Navbar() {
                       transition={{ delay: navigation.length * 0.05, duration: 0.2 }}
                     >
                       <Link
-                        href="/contact"
+                        href="/admin/login"
                         onClick={() => setOpen(false)}
-                        className="mt-3 flex items-center justify-center gap-2 rounded-[14px] bg-[#FF6B35] px-5 py-3.5 text-sm font-bold text-white"
+                        className="mt-3 flex items-center justify-center gap-2 rounded-[14px] border-2 border-white/30 bg-white/10 px-5 py-3.5 text-sm font-bold text-white transition hover:bg-white hover:text-[#0B1B3D]"
                       >
-                        Inscrire mon enfant
-                        <ArrowRight size={16} />
+                        <LogIn size={16} />
+                        Connexion
                       </Link>
                     </motion.div>
                   </div>

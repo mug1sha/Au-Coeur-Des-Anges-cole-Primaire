@@ -55,7 +55,7 @@ const services = [
     ),
     title: "Activités artistiques et créatives",
     description:
-      "Arts plastiques, théâtre, musique, danse et expression corporelle. L&apos;art comme moyen d&apos;expression, de confiance en soi et d&apos;éveil culturel.",
+      "Arts plastiques, théâtre, musique, danse et expression corporelle. L'art comme moyen d'expression, de confiance en soi et d'éveil culturel.",
     color: "#FF6B35",
   },
   {
@@ -69,7 +69,7 @@ const services = [
     ),
     title: "Développement des compétences sociales",
     description:
-      "Travail d&apos;équipe, gestion des émotions, résolution de conflits et communication. Les enfants apprennent à vivre ensemble dans le respect mutuel.",
+      "Travail d'équipe, gestion des émotions, résolution de conflits et communication. Les enfants apprennent à vivre ensemble dans le respect mutuel.",
     color: "#0783BD",
   },
   {
