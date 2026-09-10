@@ -18,10 +18,10 @@ export default function ActivitiesSection() {
           <span className="inline-flex rounded-full bg-[#FF6B35]/10 px-4 py-2 text-xs font-bold text-[#FF6B35]">
             Activités
           </span>
-          <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold text-[#0B1B3D] sm:text-4xl">
+          <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold text-[#463ACB] sm:text-4xl">
             Bien plus qu&apos;un programme scolaire
           </h2>
-          <p className="mt-3 text-[#0B1B3D]/60">
+          <p className="mt-3 text-[#463ACB]/60">
             Des activités variées pour nourrir la curiosité et le développement global de chaque enfant.
           </p>
         </FadeUp>
@@ -35,8 +35,8 @@ export default function ActivitiesSection() {
                   <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FF6B35]/10 transition duration-300 group-hover:bg-[#FF6B35]">
                     <Icon size={20} className="text-[#FF6B35] transition duration-300 group-hover:text-white" />
                   </div>
-                  <h3 className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">{activity.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-[#0B1B3D]/60">{activity.description}</p>
+                  <h3 className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">{activity.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#463ACB]/60">{activity.description}</p>
                 </div>
               </StaggerItem>
             );

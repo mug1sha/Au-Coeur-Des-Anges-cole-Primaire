@@ -24,7 +24,7 @@ const team = [
     role: "Enseignante — CE1/CE2",
     description: "Animée par la créativité, elle intègre les arts et les projets dans son enseignement pour stimuler la curiosité naturelle.",
     initials: "AN",
-    color: "#0B1B3D",
+    color: "#463ACB",
   },
   {
     name: "M. Ibrahim Konaté",
@@ -45,7 +45,7 @@ const team = [
     role: "Coordinateur des activités",
     description: "Il orchestre les activités extrascolaires, du sport à la musique, pour révéler les talents cachés de chaque enfant.",
     initials: "OS",
-    color: "#0B1B3D",
+    color: "#463ACB",
   },
 ];
 

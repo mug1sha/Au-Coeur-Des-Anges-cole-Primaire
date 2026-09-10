@@ -65,7 +65,7 @@ export default function MapPlaceholder() {
               <svg width="100%" height="100%">
                 <defs>
                   <pattern id="map-grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-                    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#0B1B3D" strokeWidth="0.5" />
+                    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#463ACB" strokeWidth="0.5" />
                   </pattern>
                 </defs>
                 <rect width="100%" height="100%" fill="url(#map-grid)" />

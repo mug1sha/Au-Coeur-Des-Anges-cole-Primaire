@@ -12,17 +12,17 @@ export default function ContactHero() {
             Contactez-nous
           </span>
 
-          <h1 className="font-[family-name:var(--font-heading)] text-[38px] font-extrabold leading-[1.1] tracking-tight text-[#0B1B3D] sm:text-5xl">
+          <h1 className="font-[family-name:var(--font-heading)] text-[38px] font-extrabold leading-[1.1] tracking-tight text-[#463ACB] sm:text-5xl">
             Nous sommes là pour{" "}
             <span className="text-[#FF6B35]">vous accompagner.</span>
           </h1>
 
-          <p className="mt-5 text-base leading-7 text-[#0B1B3D]/65 sm:text-lg">
+          <p className="mt-5 text-base leading-7 text-[#463ACB]/65 sm:text-lg">
             Une question, une demande de visite ou une inscription ?
             Notre équipe est à votre écoute du lundi au vendredi.
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-[#0B1B3D]/70">
+          <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-[#463ACB]/70">
             <div className="flex items-center gap-2">
               <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FF6B35]/10">
                 <Phone size={14} className="text-[#FF6B35]" />

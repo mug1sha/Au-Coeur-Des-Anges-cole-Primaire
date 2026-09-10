@@ -49,10 +49,10 @@ function TimelineItem({ item, index }: { item: typeof routine[0]; index: number 
         <span className="inline-flex rounded-full bg-[#FF6B35]/10 px-3 py-1 text-xs font-bold text-[#FF6B35]">
           {item.time}
         </span>
-        <h3 className="mt-2 font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+        <h3 className="mt-2 font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
           {item.label}
         </h3>
-        <p className="mt-1 text-sm text-[#0B1B3D]/55">{item.desc}</p>
+        <p className="mt-1 text-sm text-[#463ACB]/55">{item.desc}</p>
       </div>
     </motion.div>
   );
@@ -74,10 +74,10 @@ export default function DailyRoutine() {
           <span className="inline-flex rounded-full bg-[#FF6B35]/10 px-4 py-2 text-xs font-bold text-[#FF6B35]">
             Une journée type
           </span>
-          <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold text-[#0B1B3D] sm:text-4xl">
+          <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold text-[#463ACB] sm:text-4xl">
             Une journée chez Au Coeur Des Anges
           </h2>
-          <p className="mt-3 text-[#0B1B3D]/60">
+          <p className="mt-3 text-[#463ACB]/60">
             Un programme équilibré qui alterne apprentissage, créativité et repos.
           </p>
         </FadeUp>
@@ -107,8 +107,8 @@ export default function DailyRoutine() {
                 <div className="mb-3 inline-flex rounded-full bg-[#FF6B35]/10 px-3 py-1 text-xs font-bold text-[#FF6B35]">
                   {item.time}
                 </div>
-                <h3 className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">{item.label}</h3>
-                <p className="mt-1.5 text-sm text-[#0B1B3D]/55">{item.desc}</p>
+                <h3 className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">{item.label}</h3>
+                <p className="mt-1.5 text-sm text-[#463ACB]/55">{item.desc}</p>
                 <div className="mt-4 h-[2px] w-8 rounded-full bg-[#FF6B35]/30 transition-all duration-300 group-hover:w-full group-hover:bg-[#FF6B35]/50" />
               </div>
             </FadeUp>

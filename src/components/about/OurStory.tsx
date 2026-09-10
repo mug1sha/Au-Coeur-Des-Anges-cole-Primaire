@@ -30,16 +30,16 @@ export default function OurStory() {
             <span className="inline-flex rounded-full bg-[#FF6B35]/10 px-4 py-2 text-xs font-bold text-[#FF6B35]">
               Notre histoire
             </span>
-            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold leading-tight text-[#0B1B3D] sm:text-4xl">
+            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold leading-tight text-[#463ACB] sm:text-4xl">
               Une école construite autour de l&apos;enfant.
             </h2>
-            <p className="mt-5 leading-7 text-[#0B1B3D]/65">
+            <p className="mt-5 leading-7 text-[#463ACB]/65">
               Au Coeur Des Anges est née d&apos;une conviction profonde : chaque enfant mérite un espace
               où il se sent aimé, compris et libre de grandir à son rythme. Nous avons bâti un lieu
               chaleureux, bienveillant et stimulant, conçu pour accompagner les premières années de
               vie avec soin et attention.
             </p>
-            <p className="mt-4 leading-7 text-[#0B1B3D]/65">
+            <p className="mt-4 leading-7 text-[#463ACB]/65">
               Notre approche allie tendresse et exigence éducative, créativité et structure, liberté
               et sécurité. Ici, chaque journée est une invitation à découvrir, créer et grandir ensemble.
             </p>
@@ -52,7 +52,7 @@ export default function OurStory() {
                       <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FF6B35]/10">
                         <Icon size={15} className="text-[#FF6B35]" />
                       </div>
-                      <span className="text-sm font-semibold text-[#0B1B3D]">{p.label}</span>
+                      <span className="text-sm font-semibold text-[#463ACB]">{p.label}</span>
                     </div>
                   </StaggerItem>
                 );

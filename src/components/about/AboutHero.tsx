@@ -15,12 +15,12 @@ export default function AboutHero() {
             À propos de nous
           </span>
 
-          <h1 className="font-[family-name:var(--font-heading)] text-[38px] font-extrabold leading-[1.1] tracking-tight text-[#0B1B3D] sm:text-5xl lg:text-[52px]">
+          <h1 className="font-[family-name:var(--font-heading)] text-[38px] font-extrabold leading-[1.1] tracking-tight text-[#463ACB] sm:text-5xl lg:text-[52px]">
             Grandir dans un environnement où{" "}
             <span className="text-[#FF6B35]">chaque enfant compte.</span>
           </h1>
 
-          <p className="mt-5 max-w-[540px] text-base leading-7 text-[#0B1B3D]/65 sm:text-lg">
+          <p className="mt-5 max-w-[540px] text-base leading-7 text-[#463ACB]/65 sm:text-lg">
             À Au Coeur Des Anges, nous croyons que les premières années jouent
             un rôle essentiel dans le développement et l&apos;épanouissement de
             chaque enfant.
@@ -36,7 +36,7 @@ export default function AboutHero() {
             </Link>
             <Link
               href="/services"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[14px] border-2 border-[#0B1B3D] bg-white px-6 py-3 text-sm font-bold text-[#0B1B3D] transition duration-200 hover:bg-[#0B1B3D] hover:text-white"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[14px] border-2 border-[#463ACB] bg-white px-6 py-3 text-sm font-bold text-[#463ACB] transition duration-200 hover:bg-[#463ACB] hover:text-white"
             >
               Nos programmes
               <ArrowRight size={16} />
@@ -55,7 +55,7 @@ export default function AboutHero() {
               priority
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1B3D]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#463ACB]/20 to-transparent" />
           </div>
           <div className="absolute -bottom-4 -right-4 z-10 flex h-16 w-16 items-center justify-center rounded-full bg-[#FF6B35] shadow-xl">
             <Heart className="fill-white text-white" size={22} />

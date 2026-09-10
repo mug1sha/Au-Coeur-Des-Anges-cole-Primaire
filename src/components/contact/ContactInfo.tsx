@@ -37,7 +37,7 @@ const contactDetails = [
     label: "Adresse",
     value: "Kn41, 25, Nyarugenge",
     note: "Kigali, Rwanda",
-    color: "#0B1B3D",
+    color: "#463ACB",
   },
   {
     icon: (

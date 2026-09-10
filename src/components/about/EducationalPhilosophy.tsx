@@ -32,15 +32,15 @@ const pillars = [
   {
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10" aria-hidden="true">
-        <circle cx="24" cy="24" r="22" fill="#0B1B3D" opacity="0.1" />
+        <circle cx="24" cy="24" r="22" fill="#463ACB" opacity="0.1" />
         <circle cx="18" cy="20" r="5" fill="#FF6B35" opacity="0.4" />
         <circle cx="30" cy="20" r="5" fill="#0783BD" opacity="0.4" />
-        <circle cx="24" cy="30" r="5" fill="#0B1B3D" opacity="0.4" />
+        <circle cx="24" cy="30" r="5" fill="#463ACB" opacity="0.4" />
       </svg>
     ),
     title: "Créativité & expression",
     description: "Arts, musique, theatre et projets — l'expression créative comme moyen d'apprendre differently et de developper l'imagination.",
-    color: "#0B1B3D",
+    color: "#463ACB",
   },
   {
     icon: (
@@ -48,7 +48,7 @@ const pillars = [
         <circle cx="24" cy="24" r="22" fill="#0783BD" opacity="0.1" />
         <circle cx="18" cy="22" r="5" fill="#0783BD" opacity="0.6" />
         <circle cx="30" cy="22" r="5" fill="#FF6B35" opacity="0.6" />
-        <path d="M18 27 C18 27 21 30 24 30 C27 30 30 27 30 27" stroke="#0B1B3D" strokeWidth="2" fill="none" strokeLinecap="round" />
+        <path d="M18 27 C18 27 21 30 24 30 C27 30 30 27 30 27" stroke="#463ACB" strokeWidth="2" fill="none" strokeLinecap="round" />
       </svg>
     ),
     title: "Développement social",

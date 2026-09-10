@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { FadeUp } from "@/lib/animations";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 type Category = "all" | "espaces" | "activites" | "repos" | "evenements";
 
@@ -48,6 +49,9 @@ export default function GalleryClient() {
   const [active, setActive] = useState<Category>("all");
   const [lightbox, setLightbox] = useState<number | null>(null);
   const reduced = useReducedMotion();
+  const lightboxRef = useRef<HTMLDivElement>(null);
+
+  useFocusTrap(lightboxRef, lightbox !== null);
 
   const filtered = active === "all" ? items : items.filter((i) => i.category === active);
 
@@ -84,7 +88,7 @@ export default function GalleryClient() {
                 className={`relative shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold transition duration-200 ${
                   active === f.key
                     ? "bg-[#FF6B35] text-white shadow-md"
-                    : "border border-slate-200 bg-white text-[#012dcc] hover:border-[#FF6B35] hover:text-[#FF6B35]"
+                    : "border border-slate-200 bg-white text-[#463ACB] hover:border-[#FF6B35] hover:text-[#FF6B35]"
                 }`}
               >
                 {f.label}
@@ -116,10 +120,10 @@ export default function GalleryClient() {
                     fill
                     className="object-cover transition duration-500 group-hover:scale-[1.04]"
                   />
-                  <div className="absolute inset-0 bg-[#012dcc]/0 transition duration-300 group-hover:bg-[#012dcc]/20" />
+                  <div className="absolute inset-0 bg-[#463ACB]/0 transition duration-300 group-hover:bg-[#463ACB]/20" />
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 transition duration-300 group-hover:opacity-100">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90">
-                      <ZoomIn size={18} className="text-[#012dcc]" />
+                      <ZoomIn size={18} className="text-[#463ACB]" />
                     </div>
                   </div>
                 </div>
@@ -129,7 +133,7 @@ export default function GalleryClient() {
         </motion.div>
 
         {filtered.length === 0 && (
-          <p className="py-16 text-center text-[#012dcc]/40">Aucune photo dans cette catégorie.</p>
+          <p className="py-16 text-center text-[#463ACB]/40">Aucune photo dans cette catégorie.</p>
         )}
       </div>
 
@@ -137,6 +141,7 @@ export default function GalleryClient() {
       <AnimatePresence>
         {lightbox !== null && (
           <motion.div
+            ref={lightboxRef}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

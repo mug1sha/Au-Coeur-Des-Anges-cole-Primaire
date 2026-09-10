@@ -8,7 +8,7 @@ const steps = [
   {
     number: "01",
     title: "Découvrir",
-    description: "L&apos;enfant explore, observe et s&apos;éveille au monde qui l&apos;entoure dans un cadre stimulant.",
+    description: "L'enfant explore, observe et s'éveille au monde qui l'entoure dans un cadre stimulant.",
     color: "#FF6B35",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" aria-hidden="true">
@@ -35,11 +35,11 @@ const steps = [
     number: "03",
     title: "Pratiquer",
     description: "Mise en situation, exercices concrets et projets pour ancrer les apprentissages dans la réalité.",
-    color: "#0B1B3D",
+    color: "#463ACB",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" aria-hidden="true">
-        <circle cx="20" cy="20" r="10" fill="#0B1B3D" opacity="0.15" />
-        <path d="M16 20 L19 23 L25 17" stroke="#0B1B3D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="20" cy="20" r="10" fill="#463ACB" opacity="0.15" />
+        <path d="M16 20 L19 23 L25 17" stroke="#463ACB" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -58,8 +58,8 @@ const steps = [
   },
   {
     number: "05",
-    title: "S&apos;épanouir",
-    description: "L&apos;enfant révèle son potentiel unique, équilibré et heureux, prêt pour la suite.",
+    title: "S'épanouir",
+    description: "L'enfant révèle son potentiel unique, équilibré et heureux, prêt pour la suite.",
     color: "#FF6B35",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" aria-hidden="true">

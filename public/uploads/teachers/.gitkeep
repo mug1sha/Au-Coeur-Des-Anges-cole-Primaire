@@ -1,0 +1,6 @@
+# This directory stores teacher profile photos uploaded via the admin panel.
+# Files are named as: {timestamp}-{sanitized-name}.{ext}
+# They are served publicly at /uploads/teachers/{filename}
+#
+# This directory is intentionally committed so the path exists on fresh clones.
+# The actual uploaded images should be added to .gitignore in production.
