@@ -219,7 +219,7 @@ function AnnouncementPreview({ ann, onClose, onEdit }: {
       <div className="flex h-full w-full max-w-lg flex-col overflow-hidden bg-white shadow-2xl sm:rounded-l-[24px]">
         {/* Header */}
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-100 bg-white px-6 py-4">
-          <p className="text-sm font-semibold text-[#0B1B3D]">Aperçu — vue publique</p>
+          <p className="text-sm font-semibold text-[#463ACB]">Aperçu — vue publique</p>
           <button onClick={onClose} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100" aria-label="Fermer">
             <X size={18} />
           </button>
@@ -259,7 +259,7 @@ function AnnouncementPreview({ ann, onClose, onEdit }: {
             </div>
 
             {/* Title */}
-            <h2 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold leading-snug text-[#0B1B3D]">
+            <h2 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold leading-snug text-[#463ACB]">
               {ann.title}
             </h2>
 
@@ -287,7 +287,7 @@ function AnnouncementPreview({ ann, onClose, onEdit }: {
 
             {/* Rich content */}
             <div
-              className="rich-editor prose prose-sm mt-5 max-w-none text-[#0B1B3D]"
+              className="rich-editor prose prose-sm mt-5 max-w-none text-[#463ACB]"
               dangerouslySetInnerHTML={{ __html: sanitizeHtml(ann.content) }}
             />
           </div>
@@ -367,7 +367,7 @@ function AnnouncementCard({
         </div>
 
         {/* Title */}
-        <h3 className="mt-2 font-[family-name:var(--font-heading)] text-sm font-bold leading-snug text-[#0B1B3D] line-clamp-2">
+        <h3 className="mt-2 font-[family-name:var(--font-heading)] text-sm font-bold leading-snug text-[#463ACB] line-clamp-2">
           {ann.title}
         </h3>
 
@@ -401,13 +401,13 @@ function AnnouncementCard({
 
         {/* Actions */}
         <div className="mt-auto flex items-center gap-1 border-t border-slate-100 pt-3">
-          <button onClick={onPreview} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D] transition" aria-label="Aperçu" title="Aperçu">
+          <button onClick={onPreview} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB] transition" aria-label="Aperçu" title="Aperçu">
             <Eye size={14} />
           </button>
-          <button onClick={onEdit} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D] transition" aria-label="Modifier" title="Modifier">
+          <button onClick={onEdit} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB] transition" aria-label="Modifier" title="Modifier">
             <Pencil size={14} />
           </button>
-          <button onClick={onDuplicate} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D] transition" aria-label="Dupliquer" title="Dupliquer">
+          <button onClick={onDuplicate} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB] transition" aria-label="Dupliquer" title="Dupliquer">
             <Copy size={14} />
           </button>
           <button
@@ -474,7 +474,7 @@ function AnnouncementFormPanel({ form, errors, setField, onCoverUpload, coverUpl
 
       {/* Cover image */}
       <div>
-        <label className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]">
+        <label className="mb-1.5 block text-xs font-semibold text-[#463ACB]">
           Image de couverture
         </label>
         <div className="relative overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
@@ -558,14 +558,14 @@ function AnnouncementFormPanel({ form, errors, setField, onCoverUpload, coverUpl
       {/* Category + Status */}
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]" htmlFor="ann-cat">
+          <label className="mb-1.5 block text-xs font-semibold text-[#463ACB]" htmlFor="ann-cat">
             Catégorie
           </label>
           <select
             id="ann-cat"
             value={form.category}
             onChange={(e) => setField("category", e.target.value as AnnouncementCategory)}
-            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#0B1B3D] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
+            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#463ACB] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
           >
             {(Object.keys(ANNOUNCEMENT_CATEGORY_LABELS) as AnnouncementCategory[]).map((k) => (
               <option key={k} value={k}>{ANNOUNCEMENT_CATEGORY_LABELS[k]}</option>
@@ -573,14 +573,14 @@ function AnnouncementFormPanel({ form, errors, setField, onCoverUpload, coverUpl
           </select>
         </div>
         <div>
-          <label className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]" htmlFor="ann-status">
+          <label className="mb-1.5 block text-xs font-semibold text-[#463ACB]" htmlFor="ann-status">
             Statut
           </label>
           <select
             id="ann-status"
             value={form.status}
             onChange={(e) => setField("status", e.target.value as AnnouncementStatus)}
-            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#0B1B3D] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
+            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#463ACB] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
           >
             <option value="draft">📝 Brouillon</option>
             <option value="scheduled">🕐 Programmé</option>
@@ -621,7 +621,7 @@ function AnnouncementFormPanel({ form, errors, setField, onCoverUpload, coverUpl
       {/* Pin toggle */}
       <div className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
         <div>
-          <p className="text-sm font-semibold text-[#0B1B3D]">Épingler en haut</p>
+          <p className="text-sm font-semibold text-[#463ACB]">Épingler en haut</p>
           <p className="text-xs text-slate-400">Cette annonce apparaît en premier sur le site public.</p>
         </div>
         <Toggle
@@ -1038,7 +1038,7 @@ export default function AnnouncementsClient() {
             type="button"
             onClick={() => { setField("status", "draft"); setTimeout(handleSave, 0); }}
             disabled={saving}
-            className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-[#0B1B3D] hover:bg-slate-50 transition disabled:opacity-50"
+            className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-[#463ACB] hover:bg-slate-50 transition disabled:opacity-50"
           >
             💾 Brouillon
           </button>
@@ -1054,7 +1054,7 @@ export default function AnnouncementsClient() {
         {/* Page header */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#0B1B3D]">
+            <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#463ACB]">
               Annonces
             </h1>
             <p className="mt-1 text-sm text-slate-500">
@@ -1090,7 +1090,7 @@ export default function AnnouncementsClient() {
         {/* Summary cards */}
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
           {([
-            ["all",       "Toutes",    "text-[#0B1B3D]"],
+            ["all",       "Toutes",    "text-[#463ACB]"],
             ["draft",     "Brouillons","text-slate-500"],
             ["scheduled", "Programmées","text-blue-600"],
             ["published", "Publiées",  "text-emerald-600"],
@@ -1209,7 +1209,7 @@ export default function AnnouncementsClient() {
                 <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-red-50">
                   <Megaphone size={22} className="text-red-400" />
                 </div>
-                <p className="font-bold text-[#0B1B3D]">Erreur de chargement</p>
+                <p className="font-bold text-[#463ACB]">Erreur de chargement</p>
                 <p className="mt-1 text-sm text-slate-400">Impossible de charger les annonces.</p>
                 <Button variant="secondary" className="mt-4" onClick={load}>Réessayer</Button>
               </div>
@@ -1287,7 +1287,7 @@ export default function AnnouncementsClient() {
                             <div className="min-w-0">
                               <div className="flex items-center gap-1.5">
                                 {a.pinned && <Pin size={11} className="shrink-0 text-[#FF6B35]" />}
-                                <p className="truncate font-semibold text-[#0B1B3D] max-w-[220px]">{a.title}</p>
+                                <p className="truncate font-semibold text-[#463ACB] max-w-[220px]">{a.title}</p>
                               </div>
                               <p className="mt-0.5 line-clamp-1 text-[11px] text-slate-400">
                                 {a.excerpt || stripHtml(a.content).slice(0, 80)}
@@ -1318,8 +1318,8 @@ export default function AnnouncementsClient() {
                         </Td>
                         <Td>
                           <div className="flex items-center gap-1">
-                            <button onClick={() => setPreviewAnn(a)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D] transition" title="Aperçu"><Eye size={13} /></button>
-                            <button onClick={() => openEdit(a)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D] transition" title="Modifier"><Pencil size={13} /></button>
+                            <button onClick={() => setPreviewAnn(a)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB] transition" title="Aperçu"><Eye size={13} /></button>
+                            <button onClick={() => openEdit(a)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB] transition" title="Modifier"><Pencil size={13} /></button>
                             <button onClick={() => handleDuplicate(a)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 transition" title="Dupliquer"><Copy size={13} /></button>
                             <button
                               onClick={() => handleTogglePin(a)}

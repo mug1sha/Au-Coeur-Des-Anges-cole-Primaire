@@ -21,7 +21,7 @@ export default function CTA() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-[14px] bg-[#0B1B3D] px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#102A43] hover:shadow-lg"
+              className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-[14px] bg-[#463ACB] px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#102A43] hover:shadow-lg"
             >
               Contactez-nous aujourd&apos;hui
               <ArrowRight size={17} />

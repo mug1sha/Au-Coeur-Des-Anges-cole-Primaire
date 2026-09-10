@@ -17,7 +17,7 @@ export default function NotFound() {
         <div className="relative h-12 w-12">
           <Image src="/images/logo.png" alt="Au Coeur Des Anges" fill className="object-contain" />
         </div>
-        <span className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+        <span className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
           Au Coeur Des Anges
         </span>
       </header>
@@ -27,7 +27,7 @@ export default function NotFound() {
         {/* Decorative number */}
         <div className="relative mb-8 select-none">
           <span
-            className="font-[family-name:var(--font-heading)] text-[160px] font-extrabold leading-none text-[#0B1B3D]/[0.06] sm:text-[220px]"
+            className="font-[family-name:var(--font-heading)] text-[160px] font-extrabold leading-none text-[#463ACB]/[0.06] sm:text-[220px]"
             aria-hidden="true"
           >
             404
@@ -39,10 +39,10 @@ export default function NotFound() {
           </div>
         </div>
 
-        <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#0B1B3D] sm:text-3xl">
+        <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#463ACB] sm:text-3xl">
           Oops, cette page est introuvable
         </h1>
-        <p className="mx-auto mt-4 max-w-md text-[#0B1B3D]/55">
+        <p className="mx-auto mt-4 max-w-md text-[#463ACB]/55">
           La page que vous cherchez n&apos;existe pas ou a été déplacée.
           Revenez à l&apos;accueil pour continuer.
         </p>
@@ -58,7 +58,7 @@ export default function NotFound() {
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-[14px] border-2 border-[#0B1B3D] bg-white px-6 py-3 text-sm font-bold text-[#0B1B3D] transition hover:bg-[#0B1B3D] hover:text-white"
+            className="inline-flex items-center justify-center gap-2 rounded-[14px] border-2 border-[#463ACB] bg-white px-6 py-3 text-sm font-bold text-[#463ACB] transition hover:bg-[#463ACB] hover:text-white"
           >
             Nous contacter
             <ArrowRight size={16} />
@@ -67,7 +67,7 @@ export default function NotFound() {
 
         {/* Quick links */}
         <div className="mt-12">
-          <p className="mb-4 text-sm font-semibold text-[#0B1B3D]/40">Pages populaires</p>
+          <p className="mb-4 text-sm font-semibold text-[#463ACB]/40">Pages populaires</p>
           <div className="flex flex-wrap justify-center gap-2">
             {[
               { label: "Nos Services", href: "/services" },
@@ -78,7 +78,7 @@ export default function NotFound() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-[#0B1B3D]/65 transition hover:border-[#FF6B35] hover:text-[#FF6B35]"
+                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-[#463ACB]/65 transition hover:border-[#FF6B35] hover:text-[#FF6B35]"
               >
                 {link.label}
               </Link>
@@ -88,7 +88,7 @@ export default function NotFound() {
       </main>
 
       {/* Footer */}
-      <footer className="px-6 py-5 text-center text-xs text-[#0B1B3D]/35">
+      <footer className="px-6 py-5 text-center text-xs text-[#463ACB]/35">
         © {new Date().getFullYear()} Au Coeur Des Anges. Tous droits réservés.
       </footer>
     </div>

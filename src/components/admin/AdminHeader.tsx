@@ -83,7 +83,7 @@ function ProfileDropdown() {
           {initials}
         </div>
         <div className="hidden flex-col items-start leading-none lg:flex">
-          <span className="max-w-[100px] truncate text-xs font-semibold text-[#0B1B3D]">{name}</span>
+          <span className="max-w-[100px] truncate text-xs font-semibold text-[#463ACB]">{name}</span>
           <span className="text-[10px] text-slate-400">{ROLE_LABELS[role] ?? role}</span>
         </div>
         <ChevronDown
@@ -97,7 +97,7 @@ function ProfileDropdown() {
         <div className="absolute right-0 top-full z-50 mt-2 w-60 rounded-[16px] border border-slate-200 bg-white shadow-xl">
           {/* User info header */}
           <div className="border-b border-slate-100 px-4 py-3">
-            <p className="truncate text-sm font-bold text-[#0B1B3D]">{name}</p>
+            <p className="truncate text-sm font-bold text-[#463ACB]">{name}</p>
             <p className="truncate text-xs text-slate-400">{email}</p>
             <p className="mt-1 inline-flex items-center rounded-full bg-[#FF6B35]/10 px-2 py-0.5 text-[10px] font-semibold text-[#FF6B35]">
               {ROLE_LABELS[role] ?? role}
@@ -181,7 +181,7 @@ function NotificationsButton() {
       {open && (
         <div className="absolute right-0 top-full z-50 mt-2 w-72 rounded-[16px] border border-slate-200 bg-white shadow-xl">
           <div className="border-b border-slate-100 px-4 py-3">
-            <p className="text-sm font-bold text-[#0B1B3D]">Notifications</p>
+            <p className="text-sm font-bold text-[#463ACB]">Notifications</p>
           </div>
           <ul>
             {MOCK_NOTIFS.map((n) => (
@@ -192,7 +192,7 @@ function NotificationsButton() {
                 {n.unread && <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#FF6B35]" />}
                 {!n.unread && <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-transparent" />}
                 <div className="min-w-0">
-                  <p className={`text-sm ${n.unread ? "font-semibold text-[#0B1B3D]" : "text-slate-600"}`}>
+                  <p className={`text-sm ${n.unread ? "font-semibold text-[#463ACB]" : "text-slate-600"}`}>
                     {n.title}
                   </p>
                   <p className="text-[11px] text-slate-400">{n.time}</p>
@@ -234,7 +234,7 @@ export default function AdminHeader({ onMenuClick }: { onMenuClick: () => void }
 
       {/* Title + breadcrumb */}
       <div className="min-w-0">
-        <h1 className="truncate font-[family-name:var(--font-heading)] text-[17px] font-bold text-[#0B1B3D] leading-tight">
+        <h1 className="truncate font-[family-name:var(--font-heading)] text-[17px] font-bold text-[#463ACB] leading-tight">
           {meta.title}
         </h1>
         <nav aria-label="Fil d'Ariane" className="hidden sm:block">
@@ -260,7 +260,7 @@ export default function AdminHeader({ onMenuClick }: { onMenuClick: () => void }
             type="search"
             placeholder="Rechercher…"
             aria-label="Recherche globale"
-            className="w-36 bg-transparent text-sm text-[#0B1B3D] outline-none placeholder:text-slate-400 lg:w-48"
+            className="w-36 bg-transparent text-sm text-[#463ACB] outline-none placeholder:text-slate-400 lg:w-48"
           />
         </div>
 

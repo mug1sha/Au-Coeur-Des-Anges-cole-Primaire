@@ -21,7 +21,7 @@ export function StatCard({ title, value, change, icon: Icon, iconBg = "bg-[#FF6B
       <div className="flex items-start justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">{title}</p>
-          <p className="mt-2 font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#0B1B3D]">
+          <p className="mt-2 font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#463ACB]">
             {typeof value === "number" ? value.toLocaleString("fr-FR") : value}
             {suffix && <span className="ml-1 text-sm font-medium text-slate-400">{suffix}</span>}
           </p>
@@ -68,7 +68,7 @@ type ButtonVariant = "primary" | "secondary" | "danger" | "ghost";
 
 const BTN_STYLES: Record<ButtonVariant, string> = {
   primary: "bg-[#FF6B35] text-white hover:bg-[#F95738] shadow-sm hover:shadow-md",
-  secondary: "border border-slate-200 bg-white text-[#0B1B3D] hover:bg-slate-50",
+  secondary: "border border-slate-200 bg-white text-[#463ACB] hover:bg-slate-50",
   danger: "bg-red-500 text-white hover:bg-red-600",
   ghost: "text-slate-600 hover:bg-slate-100",
 };
@@ -116,13 +116,13 @@ export function Input({ label, error, id, className = "", ...props }: InputProps
   return (
     <div className="w-full">
       {label && (
-        <label htmlFor={id} className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]">
+        <label htmlFor={id} className="mb-1.5 block text-xs font-semibold text-[#463ACB]">
           {label}
         </label>
       )}
       <input
         id={id}
-        className={`w-full rounded-xl border px-4 py-2.5 text-sm text-[#0B1B3D] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20 ${
+        className={`w-full rounded-xl border px-4 py-2.5 text-sm text-[#463ACB] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20 ${
           error ? "border-red-400 bg-red-50" : "border-slate-200 bg-white"
         } ${className}`}
         {...props}
@@ -143,10 +143,10 @@ interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement
 export function Textarea({ label, error, id, className = "", ...props }: TextareaProps) {
   return (
     <div className="w-full">
-      {label && <label htmlFor={id} className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]">{label}</label>}
+      {label && <label htmlFor={id} className="mb-1.5 block text-xs font-semibold text-[#463ACB]">{label}</label>}
       <textarea
         id={id}
-        className={`w-full rounded-xl border px-4 py-2.5 text-sm text-[#0B1B3D] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20 resize-none ${
+        className={`w-full rounded-xl border px-4 py-2.5 text-sm text-[#463ACB] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20 resize-none ${
           error ? "border-red-400 bg-red-50" : "border-slate-200 bg-white"
         } ${className}`}
         {...props}
@@ -168,10 +168,10 @@ interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
 export function Select({ label, error, id, options, className = "", ...props }: SelectProps) {
   return (
     <div className="w-full">
-      {label && <label htmlFor={id} className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]">{label}</label>}
+      {label && <label htmlFor={id} className="mb-1.5 block text-xs font-semibold text-[#463ACB]">{label}</label>}
       <select
         id={id}
-        className={`w-full rounded-xl border px-4 py-2.5 text-sm text-[#0B1B3D] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20 ${
+        className={`w-full rounded-xl border px-4 py-2.5 text-sm text-[#463ACB] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20 ${
           error ? "border-red-400 bg-red-50" : "border-slate-200 bg-white"
         } ${className}`}
         {...props}
@@ -225,7 +225,7 @@ export function Th({ children, className = "" }: { children: ReactNode; classNam
 
 export function Td({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <td className={`border-b border-slate-50 px-4 py-3.5 text-[#0B1B3D] ${className}`}>
+    <td className={`border-b border-slate-50 px-4 py-3.5 text-[#463ACB] ${className}`}>
       {children}
     </td>
   );
@@ -256,7 +256,7 @@ export function Pagination({ page, totalPages, total, pageSize, onChange }: Pagi
         >
           <ChevronLeft size={14} />
         </button>
-        <span className="flex h-8 items-center px-3 font-medium text-[#0B1B3D]">{page}</span>
+        <span className="flex h-8 items-center px-3 font-medium text-[#463ACB]">{page}</span>
         <button
           onClick={() => onChange(page + 1)}
           disabled={page >= totalPages}
@@ -283,7 +283,7 @@ export function EmptyState({ icon: Icon, title, description, action }: {
       <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-slate-100">
         <Icon size={24} className="text-slate-400" />
       </div>
-      <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">{title}</p>
+      <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">{title}</p>
       {description && <p className="mt-1 max-w-xs text-sm text-slate-400">{description}</p>}
       {action && <div className="mt-4">{action}</div>}
     </div>
@@ -313,7 +313,7 @@ export function ConfirmDialog({ open, title, description, confirmLabel = "Confir
             <AlertTriangle size={18} className="text-red-500" />
           </div>
           <div>
-            <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">{title}</p>
+            <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">{title}</p>
             {description && <p className="mt-1 text-sm text-slate-500">{description}</p>}
           </div>
         </div>
@@ -334,7 +334,7 @@ type ToastType = "success" | "error" | "info";
 interface ToastProps { message: string; type: ToastType; onClose: () => void; }
 
 export function Toast({ message, type, onClose }: ToastProps) {
-  const bg = type === "success" ? "bg-emerald-600" : type === "error" ? "bg-red-500" : "bg-[#0B1B3D]";
+  const bg = type === "success" ? "bg-emerald-600" : type === "error" ? "bg-red-500" : "bg-[#463ACB]";
   const Icon = type === "success" ? Check : type === "error" ? X : AlertTriangle;
   return (
     <div className={`fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-xl px-5 py-3.5 text-sm font-medium text-white shadow-xl ${bg}`}>
@@ -363,7 +363,7 @@ export function Modal({ open, onClose, title, children, width = "max-w-lg" }: Mo
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
       <div className={`w-full ${width} rounded-[20px] bg-white shadow-xl`}>
         <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4">
-          <h2 className="font-[family-name:var(--font-heading)] text-lg font-bold text-[#0B1B3D]">{title}</h2>
+          <h2 className="font-[family-name:var(--font-heading)] text-lg font-bold text-[#463ACB]">{title}</h2>
           <button onClick={onClose} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100"><X size={18} /></button>
         </div>
         <div className="p-6">{children}</div>
@@ -384,7 +384,7 @@ export function Toggle({ checked, onChange, label }: { checked: boolean; onChang
       >
         <div className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform duration-200 ${checked ? "translate-x-4" : "translate-x-0.5"}`} />
       </div>
-      {label && <span className="text-sm text-[#0B1B3D]">{label}</span>}
+      {label && <span className="text-sm text-[#463ACB]">{label}</span>}
     </label>
   );
 }
@@ -411,7 +411,7 @@ export function SearchInput({ value, onChange, placeholder = "Rechercher…" }: 
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pl-9 pr-4 text-sm text-[#0B1B3D] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
+        className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pl-9 pr-4 text-sm text-[#463ACB] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
       />
       <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" width={14} height={14} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
@@ -517,7 +517,7 @@ export function RichEditor({
 
   return (
     <div className="w-full">
-      {label && <label className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]">{label}</label>}
+      {label && <label className="mb-1.5 block text-xs font-semibold text-[#463ACB]">{label}</label>}
 
       <div
         className={`overflow-hidden rounded-xl border transition ${
@@ -566,7 +566,7 @@ export function RichEditor({
             }}
             onInput={(e) => onChange(e.currentTarget.innerHTML)}
             style={{ minHeight }}
-            className="rich-editor px-4 py-3 text-sm text-[#0B1B3D] outline-none"
+            className="rich-editor px-4 py-3 text-sm text-[#463ACB] outline-none"
           />
         </div>
       </div>
@@ -574,8 +574,8 @@ export function RichEditor({
       {error && <p className="mt-1 text-xs text-red-500">{error}</p>}
 
       <style>{`
-        .rich-editor h2 { font-size: 1.15rem; font-weight: 700; margin: 0.75rem 0 0.35rem; color: #0B1B3D; }
-        .rich-editor h3 { font-size: 1rem; font-weight: 600; margin: 0.6rem 0 0.3rem; color: #0B1B3D; }
+        .rich-editor h2 { font-size: 1.15rem; font-weight: 700; margin: 0.75rem 0 0.35rem; color: #463ACB; }
+        .rich-editor h3 { font-size: 1rem; font-weight: 600; margin: 0.6rem 0 0.3rem; color: #463ACB; }
         .rich-editor p  { margin: 0 0 0.5rem; }
         .rich-editor ul { list-style: disc; padding-left: 1.5rem; margin: 0.4rem 0; }
         .rich-editor ol { list-style: decimal; padding-left: 1.5rem; margin: 0.4rem 0; }

@@ -34,7 +34,7 @@ export default function Hero() {
           </HeroReveal>
 
           <HeroReveal delay={0.1}>
-            <h1 className="font-[family-name:var(--font-heading)] text-[42px] font-extrabold leading-[1.08] tracking-[-1px] text-[#0B1B3D] sm:text-5xl lg:text-[58px] xl:text-[64px]">
+            <h1 className="font-[family-name:var(--font-heading)] text-[42px] font-extrabold leading-[1.08] tracking-[-1px] text-[#463ACB] sm:text-5xl lg:text-[58px] xl:text-[64px]">
               Un environnement chaleureux pour{" "}
               <span className="text-[#FF6B35]">grandir avec amour</span>{" "}
               et apprendre avec joie.
@@ -42,7 +42,7 @@ export default function Hero() {
           </HeroReveal>
 
           <HeroReveal delay={0.2}>
-            <p className="mt-6 max-w-[570px] text-base leading-7 text-[#0B1B3D]/70 sm:text-lg">
+            <p className="mt-6 max-w-[570px] text-base leading-7 text-[#463ACB]/70 sm:text-lg">
               À Au Coeur Des Anges, nous offrons à vos enfants un cadre
               sécurisé, bienveillant et stimulant pour favoriser leur
               épanouissement et leur réussite.
@@ -60,7 +60,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="/gallery"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[14px] border-2 border-[#0B1B3D] bg-white px-6 py-3 text-sm font-bold text-[#0B1B3D] transition duration-200 hover:bg-[#0B1B3D] hover:text-white"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[14px] border-2 border-[#463ACB] bg-white px-6 py-3 text-sm font-bold text-[#463ACB] transition duration-200 hover:bg-[#463ACB] hover:text-white"
               >
                 Visiter la galerie
                 <Images size={17} />
@@ -69,7 +69,7 @@ export default function Hero() {
           </HeroReveal>
 
           <HeroReveal delay={0.4}>
-            <div className="mt-9 flex flex-wrap items-center gap-5 text-sm text-[#0B1B3D]/70">
+            <div className="mt-9 flex flex-wrap items-center gap-5 text-sm text-[#463ACB]/70">
               <div className="flex items-center gap-2">
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FF6B35]/10">
                   <Heart size={15} className="text-[#FF6B35]" />
@@ -107,7 +107,7 @@ export default function Hero() {
                 className="object-cover"
               />
             </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1B3D]/15 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#463ACB]/15 to-transparent" />
           </div>
 
           {/* Floating logo */}
@@ -126,7 +126,7 @@ export default function Hero() {
             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             className="absolute -right-2 top-[30px] hidden rotate-3 sm:block"
           >
-            <div className="text-right font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+            <div className="text-right font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
               <div className="text-sm">Petits pas,</div>
               <div className="text-lg text-[#FF6B35]">grands rêves</div>
               <Heart className="ml-auto mt-1 fill-[#FF6B35] text-[#FF6B35]" size={21} />

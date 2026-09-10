@@ -123,7 +123,7 @@ function ServiceForm({ value, errors, onChange, isEditing }: ServiceFormProps) {
       <div className="flex gap-3">
         {/* Icon picker */}
         <div className="shrink-0">
-          <label className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]">Icône</label>
+          <label className="mb-1.5 block text-xs font-semibold text-[#463ACB]">Icône</label>
           <Select
             id="svc-icon"
             value={value.icon}
@@ -256,7 +256,7 @@ function ServicePreview({ service, onClose }: { service: Service; onClose: () =>
           <div className="flex items-center gap-3">
             <span className="text-2xl" aria-hidden>{service.icon}</span>
             <div>
-              <h2 className="font-[family-name:var(--font-heading)] text-lg font-bold text-[#0B1B3D]">
+              <h2 className="font-[family-name:var(--font-heading)] text-lg font-bold text-[#463ACB]">
                 {service.title}
               </h2>
               <span className="font-mono text-xs text-slate-400">/{service.slug}</span>
@@ -279,7 +279,7 @@ function ServicePreview({ service, onClose }: { service: Service; onClose: () =>
           {/* Description */}
           <div>
             <p className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-1">Description</p>
-            <p className="text-sm text-[#0B1B3D] leading-relaxed">{service.description}</p>
+            <p className="text-sm text-[#463ACB] leading-relaxed">{service.description}</p>
           </div>
           {service.longDescription && (
             <div>
@@ -294,14 +294,14 @@ function ServicePreview({ service, onClose }: { service: Service; onClose: () =>
               <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1">
                 <Users size={11} /> Tranche d&apos;âge
               </div>
-              <p className="text-sm font-semibold text-[#0B1B3D]">{service.ageRange}</p>
+              <p className="text-sm font-semibold text-[#463ACB]">{service.ageRange}</p>
             </div>
             {service.price && (
               <div className="rounded-xl border border-slate-100 bg-slate-50 p-3">
                 <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1">
                   <Banknote size={11} /> Tarif
                 </div>
-                <p className="text-sm font-semibold text-[#0B1B3D]">{service.price}</p>
+                <p className="text-sm font-semibold text-[#463ACB]">{service.price}</p>
               </div>
             )}
             {service.schedule && (
@@ -309,14 +309,14 @@ function ServicePreview({ service, onClose }: { service: Service; onClose: () =>
                 <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1">
                   <Clock size={11} /> Horaires
                 </div>
-                <p className="text-sm font-semibold text-[#0B1B3D]">{service.schedule}</p>
+                <p className="text-sm font-semibold text-[#463ACB]">{service.schedule}</p>
               </div>
             )}
             <div className="rounded-xl border border-slate-100 bg-slate-50 p-3">
               <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1">
                 <Tag size={11} /> Ordre
               </div>
-              <p className="text-sm font-semibold text-[#0B1B3D]">#{service.order}</p>
+              <p className="text-sm font-semibold text-[#463ACB]">#{service.order}</p>
             </div>
           </div>
 
@@ -376,7 +376,7 @@ function ServiceCard({
             {service.icon}
           </div>
           <div>
-            <p className="font-[family-name:var(--font-heading)] text-sm font-bold text-[#0B1B3D] leading-tight">
+            <p className="font-[family-name:var(--font-heading)] text-sm font-bold text-[#463ACB] leading-tight">
               {service.title}
             </p>
             <span className="font-mono text-[10px] text-slate-400">/{service.slug}</span>
@@ -432,7 +432,7 @@ function ServiceCard({
 
         <button
           onClick={onPreview}
-          className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D] transition"
+          className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB] transition"
           aria-label="Aperçu"
           title="Aperçu"
         >
@@ -440,7 +440,7 @@ function ServiceCard({
         </button>
         <button
           onClick={onEdit}
-          className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D] transition"
+          className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB] transition"
           aria-label="Modifier"
           title="Modifier"
         >
@@ -814,7 +814,7 @@ export default function ServicesClient() {
 
         {/* ── STATUS SUMMARY CARDS ── */}
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {([["all", "Tous", "text-[#0B1B3D]", "bg-slate-100"], ["active", "Actifs", "text-emerald-700", "bg-emerald-50"], ["inactive", "Inactifs", "text-amber-700", "bg-amber-50"], ["archived", "Archivés", "text-slate-500", "bg-slate-100"]] as const).map(([key, label, textClass, bgClass]) => (
+          {([["all", "Tous", "text-[#463ACB]", "bg-slate-100"], ["active", "Actifs", "text-emerald-700", "bg-emerald-50"], ["inactive", "Inactifs", "text-amber-700", "bg-amber-50"], ["archived", "Archivés", "text-slate-500", "bg-slate-100"]] as const).map(([key, label, textClass, bgClass]) => (
             <button
               key={key}
               onClick={() => setStatusFilter(key as ServiceStatus | "all")}
@@ -876,7 +876,7 @@ export default function ServicesClient() {
                 <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-red-50">
                   <BookOpen size={22} className="text-red-400" />
                 </div>
-                <p className="font-bold text-[#0B1B3D]">Erreur de chargement</p>
+                <p className="font-bold text-[#463ACB]">Erreur de chargement</p>
                 <p className="mt-1 text-sm text-slate-400">Impossible de charger les services.</p>
                 <Button variant="secondary" className="mt-4" onClick={load}>Réessayer</Button>
               </div>
@@ -971,7 +971,7 @@ export default function ServicesClient() {
                               {s.icon}
                             </div>
                             <div className="min-w-0">
-                              <p className="font-semibold text-[#0B1B3D] truncate">{s.title}</p>
+                              <p className="font-semibold text-[#463ACB] truncate">{s.title}</p>
                               <p className="text-[11px] text-slate-400 truncate max-w-[220px]">{s.description}</p>
                             </div>
                           </div>
@@ -1013,10 +1013,10 @@ export default function ServicesClient() {
 
                         <Td>
                           <div className="flex items-center gap-1">
-                            <button onClick={() => setPreviewService(s)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D] transition" aria-label="Aperçu" title="Aperçu">
+                            <button onClick={() => setPreviewService(s)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB] transition" aria-label="Aperçu" title="Aperçu">
                               <Eye size={14} />
                             </button>
-                            <button onClick={() => openEdit(s)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D] transition" aria-label="Modifier" title="Modifier">
+                            <button onClick={() => openEdit(s)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB] transition" aria-label="Modifier" title="Modifier">
                               <Pencil size={14} />
                             </button>
                             {s.status !== "archived" ? (

@@ -17,13 +17,13 @@ export default function ServiceHero() {
             </span>
           </HeroReveal>
           <HeroReveal delay={0.1}>
-            <h1 className="font-[family-name:var(--font-heading)] text-[38px] font-extrabold leading-[1.1] tracking-tight text-[#0B1B3D] sm:text-5xl lg:text-[52px]">
+            <h1 className="font-[family-name:var(--font-heading)] text-[38px] font-extrabold leading-[1.1] tracking-tight text-[#463ACB] sm:text-5xl lg:text-[52px]">
               Des services pensés pour{" "}
               <span className="text-[#FF6B35]">accompagner chaque enfant.</span>
             </h1>
           </HeroReveal>
           <HeroReveal delay={0.2}>
-            <p className="mt-5 max-w-[540px] text-base leading-7 text-[#0B1B3D]/65 sm:text-lg">
+            <p className="mt-5 max-w-[540px] text-base leading-7 text-[#463ACB]/65 sm:text-lg">
               Découvrez nos programmes, nos activités et notre approche pour
               offrir à chaque enfant un environnement sécurisé, stimulant et
               bienveillant.
@@ -34,13 +34,13 @@ export default function ServiceHero() {
               <Link href="/contact" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[14px] bg-[#FF6B35] px-6 py-3 text-sm font-bold text-white shadow-md transition duration-200 hover:-translate-y-0.5 hover:bg-[#F95738] hover:shadow-xl">
                 Nous contacter <ArrowRight size={16} />
               </Link>
-              <Link href="/gallery" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[14px] border-2 border-[#0B1B3D] bg-white px-6 py-3 text-sm font-bold text-[#0B1B3D] transition duration-200 hover:bg-[#0B1B3D] hover:text-white">
+              <Link href="/gallery" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[14px] border-2 border-[#463ACB] bg-white px-6 py-3 text-sm font-bold text-[#463ACB] transition duration-200 hover:bg-[#463ACB] hover:text-white">
                 Découvrir la galerie <Images size={16} />
               </Link>
             </div>
           </HeroReveal>
           <HeroReveal delay={0.4}>
-            <div className="mt-8 flex flex-wrap gap-5 text-sm text-[#0B1B3D]/65">
+            <div className="mt-8 flex flex-wrap gap-5 text-sm text-[#463ACB]/65">
               <div className="flex items-center gap-2">
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FF6B35]/10">
                   <Heart size={14} className="text-[#FF6B35]" />
@@ -61,7 +61,7 @@ export default function ServiceHero() {
           <div className="absolute -left-3 top-3 z-10 h-20 w-20 rounded-tl-[60px] border-l-[5px] border-t-[5px] border-[#FF6B35] sm:h-28 sm:w-28" />
           <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border-[6px] border-[#FF6B35] bg-white shadow-2xl">
             <Image src="/images/school.jpg" alt="Nos services éducatifs" fill priority className="object-cover transition duration-700 hover:scale-[1.03]" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1B3D]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#463ACB]/20 to-transparent" />
           </div>
           <div className="absolute -bottom-5 -right-3 z-10 hidden sm:block">
             <Star className="fill-[#FF6B35] text-[#FF6B35]" size={28} />

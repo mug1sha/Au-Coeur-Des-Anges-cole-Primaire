@@ -48,7 +48,7 @@ export default function AdminLoginClient() {
   return (
     <div className="flex min-h-screen bg-[#F5F6FA]">
       {/* Left panel — branding */}
-      <div className="hidden lg:flex lg:w-1/2 flex-col items-center justify-center bg-[#0B1B3D] px-12 py-16">
+      <div className="hidden lg:flex lg:w-1/2 flex-col items-center justify-center bg-[#463ACB] px-12 py-16">
         <div className="max-w-sm text-center">
           <div className="relative mx-auto mb-8 h-24 w-24 overflow-hidden rounded-2xl shadow-xl">
             <Image src="/images/logo.png" alt="Au Coeur Des Anges" fill className="object-cover" />
@@ -74,13 +74,13 @@ export default function AdminLoginClient() {
             <div className="relative mb-4 h-16 w-16 overflow-hidden rounded-xl shadow">
               <Image src="/images/logo.png" alt="Au Coeur Des Anges" fill className="object-cover" />
             </div>
-            <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#0B1B3D]">
+            <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#463ACB]">
               Au Coeur Des Anges
             </h1>
           </div>
 
           <div className="rounded-[24px] border border-slate-200 bg-white p-8 shadow-sm">
-            <h2 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[#0B1B3D]">
+            <h2 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[#463ACB]">
               Connexion administrateur
             </h2>
             <p className="mt-1 text-sm text-slate-400">Entrez vos identifiants pour accéder au tableau de bord.</p>

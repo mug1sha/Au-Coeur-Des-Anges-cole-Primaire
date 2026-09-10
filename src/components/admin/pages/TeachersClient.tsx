@@ -60,7 +60,7 @@ const AVATAR_PALETTE = [
   { bg: "bg-rose-100",   text: "text-rose-700" },
   { bg: "bg-cyan-100",   text: "text-cyan-700" },
   { bg: "bg-[#FF6B35]/10", text: "text-[#FF6B35]" },
-  { bg: "bg-[#0B1B3D]/10", text: "text-[#0B1B3D]" },
+  { bg: "bg-[#463ACB]/10", text: "text-[#463ACB]" },
 ];
 
 function avatarStyle(id: string) {
@@ -190,7 +190,7 @@ function TeacherFormPanel({ value, errors, onChange, onAvatarUpload, avatarPrevi
           />
         </div>
         <div>
-          <p className="text-sm font-semibold text-[#0B1B3D]">Photo de profil</p>
+          <p className="text-sm font-semibold text-[#463ACB]">Photo de profil</p>
           <p className="mt-0.5 text-xs text-slate-400">JPG, PNG ou WebP · Max 2 Mo</p>
           <button
             type="button"
@@ -222,7 +222,7 @@ function TeacherFormPanel({ value, errors, onChange, onAvatarUpload, avatarPrevi
 
       {/* Subject */}
       <div>
-        <label className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]" htmlFor="t-subject">
+        <label className="mb-1.5 block text-xs font-semibold text-[#463ACB]" htmlFor="t-subject">
           Classe / Matière
         </label>
         <div className="flex gap-2">
@@ -232,7 +232,7 @@ function TeacherFormPanel({ value, errors, onChange, onAvatarUpload, avatarPrevi
             onChange={(e) => {
               if (e.target.value !== "Autre") onChange("subject", e.target.value);
             }}
-            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#0B1B3D] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
+            className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#463ACB] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
           >
             {SUBJECT_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
           </select>
@@ -321,7 +321,7 @@ function TeacherFormPanel({ value, errors, onChange, onAvatarUpload, avatarPrevi
           ]}
         />
         <div>
-          <label className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]">
+          <label className="mb-1.5 block text-xs font-semibold text-[#463ACB]">
             Visibilité publique
           </label>
           <div className="flex h-[42px] items-center">
@@ -362,7 +362,7 @@ function TeacherPreview({ teacher, onClose, onEdit }: {
       <div className="h-full w-full max-w-md overflow-y-auto bg-white shadow-2xl sm:rounded-l-[24px] sm:rounded-r-none animate-in slide-in-from-right duration-300">
         {/* Header */}
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-100 bg-white px-6 py-4">
-          <p className="text-sm font-semibold text-[#0B1B3D]">Profil de l&apos;enseignant(e)</p>
+          <p className="text-sm font-semibold text-[#463ACB]">Profil de l&apos;enseignant(e)</p>
           <button onClick={onClose} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100" aria-label="Fermer">
             <X size={18} />
           </button>
@@ -371,7 +371,7 @@ function TeacherPreview({ teacher, onClose, onEdit }: {
         {/* Profile header */}
         <div className="px-6 pt-8 pb-6 text-center border-b border-slate-100">
           <TeacherAvatar teacher={teacher} size="xl" className="mx-auto mb-4" />
-          <h2 className="font-[family-name:var(--font-heading)] text-xl font-extrabold text-[#0B1B3D]">
+          <h2 className="font-[family-name:var(--font-heading)] text-xl font-extrabold text-[#463ACB]">
             {teacher.name}
           </h2>
           <p className="mt-1 text-sm font-medium text-[#FF6B35]">{teacher.position}</p>
@@ -404,14 +404,14 @@ function TeacherPreview({ teacher, onClose, onEdit }: {
           <div className="grid grid-cols-3 gap-3">
             {teacher.experience != null && (
               <div className="rounded-[14px] border border-slate-100 bg-slate-50 p-3 text-center">
-                <p className="font-[family-name:var(--font-heading)] text-xl font-extrabold text-[#0B1B3D]">
+                <p className="font-[family-name:var(--font-heading)] text-xl font-extrabold text-[#463ACB]">
                   {teacher.experience}
                 </p>
                 <p className="text-[10px] text-slate-400">ans d&apos;exp.</p>
               </div>
             )}
             <div className="rounded-[14px] border border-slate-100 bg-slate-50 p-3 text-center col-span-2">
-              <p className="font-[family-name:var(--font-heading)] text-sm font-bold text-[#0B1B3D] leading-snug">
+              <p className="font-[family-name:var(--font-heading)] text-sm font-bold text-[#463ACB] leading-snug">
                 {teacher.subject}
               </p>
               <p className="text-[10px] text-slate-400">Classe / Matière</p>
@@ -522,7 +522,7 @@ function TeacherCard({
 
         {/* Name + position */}
         <div className="mt-3">
-          <h3 className="font-[family-name:var(--font-heading)] text-sm font-bold text-[#0B1B3D] leading-snug">
+          <h3 className="font-[family-name:var(--font-heading)] text-sm font-bold text-[#463ACB] leading-snug">
             {teacher.name}
           </h3>
           <p className="mt-0.5 text-xs font-medium text-[#FF6B35]">{teacher.position}</p>
@@ -533,13 +533,13 @@ function TeacherCard({
       {/* Stats bar */}
       <div className="mx-5 mb-4 grid grid-cols-2 divide-x divide-slate-100 rounded-xl border border-slate-100 bg-slate-50">
         <div className="px-3 py-2 text-center">
-          <p className="text-xs font-bold text-[#0B1B3D]">
+          <p className="text-xs font-bold text-[#463ACB]">
             {teacher.experience != null ? `${teacher.experience} ans` : "—"}
           </p>
           <p className="text-[10px] text-slate-400">Expérience</p>
         </div>
         <div className="px-3 py-2 text-center">
-          <p className="text-xs font-bold text-[#0B1B3D]">
+          <p className="text-xs font-bold text-[#463ACB]">
             {teacher.qualifications?.length ?? 0}
           </p>
           <p className="text-[10px] text-slate-400">Diplôme(s)</p>
@@ -571,7 +571,7 @@ function TeacherCard({
 
         <button
           onClick={onPreview}
-          className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D] transition"
+          className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB] transition"
           aria-label="Voir le profil"
           title="Voir le profil"
         >
@@ -579,7 +579,7 @@ function TeacherCard({
         </button>
         <button
           onClick={onEdit}
-          className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D] transition"
+          className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB] transition"
           aria-label="Modifier"
           title="Modifier"
         >
@@ -983,7 +983,7 @@ export default function TeachersClient() {
         {/* ── PAGE HEADER ── */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#0B1B3D]">
+            <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#463ACB]">
               Équipe pédagogique
             </h1>
             <p className="mt-1 text-sm text-slate-500">
@@ -999,7 +999,7 @@ export default function TeachersClient() {
         {/* ── SUMMARY CARDS ── */}
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
           {([
-            ["all",      "Tous",           "text-[#0B1B3D]"],
+            ["all",      "Tous",           "text-[#463ACB]"],
             ["active",   "Actifs",         "text-emerald-700"],
             ["inactive", "Inactifs",       "text-amber-700"],
             ["archived", "Archivés",       "text-slate-400"],
@@ -1120,7 +1120,7 @@ export default function TeachersClient() {
                 <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-red-50">
                   <GraduationCap size={22} className="text-red-400" />
                 </div>
-                <p className="font-bold text-[#0B1B3D]">Erreur de chargement</p>
+                <p className="font-bold text-[#463ACB]">Erreur de chargement</p>
                 <p className="mt-1 text-sm text-slate-400">Impossible de charger les enseignants.</p>
                 <Button variant="secondary" className="mt-4" onClick={load}>Réessayer</Button>
               </div>
@@ -1191,7 +1191,7 @@ export default function TeachersClient() {
                           <div className="flex items-center gap-3">
                             <TeacherAvatar teacher={t} size="sm" />
                             <div>
-                              <p className="font-semibold text-[#0B1B3D]">{t.name}</p>
+                              <p className="font-semibold text-[#463ACB]">{t.name}</p>
                               <p className="text-[11px] text-slate-400">{t.email}</p>
                             </div>
                           </div>
@@ -1251,10 +1251,10 @@ export default function TeachersClient() {
 
                         <Td>
                           <div className="flex items-center gap-1">
-                            <button onClick={() => setPreviewTeacher(t)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D] transition" aria-label="Profil" title="Voir le profil">
+                            <button onClick={() => setPreviewTeacher(t)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB] transition" aria-label="Profil" title="Voir le profil">
                               <Eye size={14} />
                             </button>
-                            <button onClick={() => openEdit(t)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D] transition" aria-label="Modifier" title="Modifier">
+                            <button onClick={() => openEdit(t)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB] transition" aria-label="Modifier" title="Modifier">
                               <Pencil size={14} />
                             </button>
                             {!isArchived ? (

@@ -34,10 +34,10 @@ export default function Testimonials() {
     <section className="bg-white px-5 py-20 md:px-8 lg:py-24">
       <div className="mx-auto max-w-[1200px]">
         <FadeUp className="text-center">
-          <h2 className="font-[family-name:var(--font-heading)] text-3xl font-extrabold text-[#0B1B3D] sm:text-4xl">
+          <h2 className="font-[family-name:var(--font-heading)] text-3xl font-extrabold text-[#463ACB] sm:text-4xl">
             Ce que disent les parents
           </h2>
-          <p className="mt-3 text-[#0B1B3D]/60">La confiance des parents est notre plus belle récompense.</p>
+          <p className="mt-3 text-[#463ACB]/60">La confiance des parents est notre plus belle récompense.</p>
         </FadeUp>
 
         {/* Mobile: single card with animated swap */}
@@ -61,12 +61,12 @@ export default function Testimonials() {
                   ))}
                 </div>
               </div>
-              <p className="mt-5 text-sm leading-6 text-[#0B1B3D]/70">
+              <p className="mt-5 text-sm leading-6 text-[#463ACB]/70">
                 &ldquo;{testimonials[active].text}&rdquo;
               </p>
               <div className="mt-5">
-                <p className="font-bold text-[#0B1B3D]">{testimonials[active].name}</p>
-                <p className="text-xs text-[#0B1B3D]/50">{testimonials[active].role}</p>
+                <p className="font-bold text-[#463ACB]">{testimonials[active].name}</p>
+                <p className="text-xs text-[#463ACB]/50">{testimonials[active].role}</p>
               </div>
             </motion.article>
           </AnimatePresence>
@@ -76,7 +76,7 @@ export default function Testimonials() {
             <button
               onClick={() => navigate(-1)}
               aria-label="Témoignage précédent"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-100 bg-white shadow-md transition hover:bg-[#0B1B3D] hover:text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-100 bg-white shadow-md transition hover:bg-[#463ACB] hover:text-white"
             >
               <ChevronLeft size={20} />
             </button>
@@ -86,14 +86,14 @@ export default function Testimonials() {
                   key={i}
                   onClick={() => setActive(i)}
                   aria-label={`Afficher le témoignage ${i + 1}`}
-                  className={`h-2 rounded-full transition-all duration-300 ${i === active ? "w-6 bg-[#FF6B35]" : "w-2 bg-[#0B1B3D]/15"}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${i === active ? "w-6 bg-[#FF6B35]" : "w-2 bg-[#463ACB]/15"}`}
                 />
               ))}
             </div>
             <button
               onClick={() => navigate(1)}
               aria-label="Témoignage suivant"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-100 bg-white shadow-md transition hover:bg-[#0B1B3D] hover:text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-100 bg-white shadow-md transition hover:bg-[#463ACB] hover:text-white"
             >
               <ChevronRight size={20} />
             </button>
@@ -105,7 +105,7 @@ export default function Testimonials() {
           <button
             onClick={() => navigate(-1)}
             aria-label="Témoignage précédent"
-            className="absolute -left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-100 bg-white shadow-md transition hover:bg-[#0B1B3D] hover:text-white"
+            className="absolute -left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-100 bg-white shadow-md transition hover:bg-[#463ACB] hover:text-white"
           >
             <ChevronLeft size={20} />
           </button>
@@ -139,12 +139,12 @@ export default function Testimonials() {
                     ))}
                   </div>
                 </div>
-                <p className="mt-5 text-sm leading-6 text-[#0B1B3D]/70">
+                <p className="mt-5 text-sm leading-6 text-[#463ACB]/70">
                   &ldquo;{testimonial.text}&rdquo;
                 </p>
                 <div className="mt-5">
-                  <p className="font-bold text-[#0B1B3D]">{testimonial.name}</p>
-                  <p className="text-xs text-[#0B1B3D]/50">{testimonial.role}</p>
+                  <p className="font-bold text-[#463ACB]">{testimonial.name}</p>
+                  <p className="text-xs text-[#463ACB]/50">{testimonial.role}</p>
                 </div>
               </motion.article>
             ))}
@@ -153,7 +153,7 @@ export default function Testimonials() {
           <button
             onClick={() => navigate(1)}
             aria-label="Témoignage suivant"
-            className="absolute -right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-100 bg-white shadow-md transition hover:bg-[#0B1B3D] hover:text-white"
+            className="absolute -right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-100 bg-white shadow-md transition hover:bg-[#463ACB] hover:text-white"
           >
             <ChevronRight size={20} />
           </button>
@@ -166,7 +166,7 @@ export default function Testimonials() {
               key={index}
               onClick={() => setActive(index)}
               aria-label={`Afficher le témoignage ${index + 1}`}
-              className={`h-2 rounded-full transition-all duration-300 ${index === active ? "w-6 bg-[#FF6B35]" : "w-2 bg-[#0B1B3D]/15"}`}
+              className={`h-2 rounded-full transition-all duration-300 ${index === active ? "w-6 bg-[#FF6B35]" : "w-2 bg-[#463ACB]/15"}`}
             />
           ))}
         </div>

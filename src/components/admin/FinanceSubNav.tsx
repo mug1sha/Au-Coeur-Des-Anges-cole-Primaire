@@ -45,7 +45,7 @@ export default function FinanceSubNav() {
             className={`flex shrink-0 items-center gap-2 rounded-[14px] px-4 py-2 text-sm font-medium transition-all duration-150 ${
               isActive
                 ? "bg-[#FF6B35] text-white shadow-sm"
-                : "text-slate-500 hover:bg-slate-50 hover:text-[#0B1B3D]"
+                : "text-slate-500 hover:bg-slate-50 hover:text-[#463ACB]"
             }`}
           >
             <Icon size={15} className="shrink-0" />

@@ -34,15 +34,15 @@ const services = [
   {
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10" aria-hidden="true">
-        <circle cx="24" cy="24" r="22" fill="#0B1B3D" opacity="0.1" />
-        <circle cx="24" cy="24" r="8" fill="none" stroke="#0B1B3D" strokeWidth="2.5" />
-        <path d="M24 16 L24 12 M24 36 L24 32 M16 24 L12 24 M36 24 L32 24" stroke="#0B1B3D" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="24" cy="24" r="22" fill="#463ACB" opacity="0.1" />
+        <circle cx="24" cy="24" r="8" fill="none" stroke="#463ACB" strokeWidth="2.5" />
+        <path d="M24 16 L24 12 M24 36 L24 32 M16 24 L12 24 M36 24 L32 24" stroke="#463ACB" strokeWidth="2" strokeLinecap="round" />
       </svg>
     ),
     title: "Activités sportives",
     description:
       "Éducation physique, jeux collectifs, éveil sportif et compétitions inter-écoles. Le sport comme vecteur de santé, de discipline et de cohésion.",
-    color: "#0B1B3D",
+    color: "#463ACB",
   },
   {
     icon: (
@@ -50,7 +50,7 @@ const services = [
         <circle cx="24" cy="24" r="22" fill="#FF6B35" opacity="0.1" />
         <circle cx="20" cy="20" r="6" fill="#FF6B35" opacity="0.4" />
         <circle cx="28" cy="20" r="6" fill="#0783BD" opacity="0.4" />
-        <circle cx="24" cy="28" r="6" fill="#0B1B3D" opacity="0.4" />
+        <circle cx="24" cy="28" r="6" fill="#463ACB" opacity="0.4" />
       </svg>
     ),
     title: "Activités artistiques et créatives",
@@ -64,7 +64,7 @@ const services = [
         <circle cx="24" cy="24" r="22" fill="#0783BD" opacity="0.1" />
         <circle cx="18" cy="22" r="5" fill="#0783BD" opacity="0.7" />
         <circle cx="30" cy="22" r="5" fill="#FF6B35" opacity="0.7" />
-        <path d="M18 27 C18 27 21 30 24 30 C27 30 30 27 30 27" stroke="#0B1B3D" strokeWidth="2" fill="none" />
+        <path d="M18 27 C18 27 21 30 24 30 C27 30 30 27 30 27" stroke="#463ACB" strokeWidth="2" fill="none" />
       </svg>
     ),
     title: "Développement des compétences sociales",
@@ -75,15 +75,15 @@ const services = [
   {
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10" aria-hidden="true">
-        <circle cx="24" cy="24" r="22" fill="#0B1B3D" opacity="0.1" />
-        <rect x="16" y="18" width="16" height="14" rx="2" fill="#0B1B3D" />
+        <circle cx="24" cy="24" r="22" fill="#463ACB" opacity="0.1" />
+        <rect x="16" y="18" width="16" height="14" rx="2" fill="#463ACB" />
         <path d="M20 24 L24 28 L28 24" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
     title: "Encadrement et sécurité",
     description:
       "Personnel qualifié, espaces sécurisés, protocoles de sécurité rigoureux. La sérénité des parents et la protection des enfants sont notre priorité absolue.",
-    color: "#0B1B3D",
+    color: "#463ACB",
   },
   {
     icon: (
@@ -91,7 +91,7 @@ const services = [
         <circle cx="24" cy="24" r="22" fill="#0783BD" opacity="0.1" />
         <circle cx="20" cy="20" r="5" fill="#0783BD" />
         <circle cx="28" cy="28" r="5" fill="#FF6B35" />
-        <path d="M24 16 L28 12 M24 32 L20 36" stroke="#0B1B3D" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M24 16 L28 12 M24 32 L20 36" stroke="#463ACB" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     ),
     title: "Accompagnement des parents",

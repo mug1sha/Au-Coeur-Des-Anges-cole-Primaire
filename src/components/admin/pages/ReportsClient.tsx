@@ -216,7 +216,7 @@ export default function ReportsClient() {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-center">
         <AlertCircle size={36} className="text-red-400" />
-        <p className="mt-3 font-bold text-[#0B1B3D]">Accès refusé</p>
+        <p className="mt-3 font-bold text-[#463ACB]">Accès refusé</p>
         <p className="mt-1 text-sm text-slate-400">
           Vous n&apos;avez pas les droits pour accéder aux rapports financiers.
         </p>
@@ -250,7 +250,7 @@ export default function ReportsClient() {
         {/* ── Page header ────────────────────────────────────────────────── */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#0B1B3D]">
+            <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#463ACB]">
               Rapports financiers
             </h1>
             <p className="mt-0.5 text-sm text-slate-500">
@@ -306,7 +306,7 @@ export default function ReportsClient() {
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               aria-label="Date de début"
-              className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-[#0B1B3D] outline-none focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
+              className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-[#463ACB] outline-none focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
             />
             <span className="text-xs text-slate-400">→</span>
             <input
@@ -314,7 +314,7 @@ export default function ReportsClient() {
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               aria-label="Date de fin"
-              className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-[#0B1B3D] outline-none focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
+              className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-[#463ACB] outline-none focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
             />
 
             {/* Advanced filters toggle */}
@@ -500,7 +500,7 @@ export default function ReportsClient() {
                 <div className="lg:col-span-2 rounded-[20px] border border-slate-100 bg-white p-5 shadow-sm">
                   <div className="mb-4 flex items-center justify-between">
                     <div>
-                      <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+                      <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
                         Tendances — 6 derniers mois
                       </p>
                       <p className="text-xs text-slate-400">Revenus vs Dépenses</p>
@@ -550,7 +550,7 @@ export default function ReportsClient() {
                 <div className="rounded-[20px] border border-slate-100 bg-white p-5 shadow-sm">
                   <div className="mb-4 flex items-start justify-between">
                     <div>
-                      <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+                      <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
                         Dépenses par catégorie
                       </p>
                       <p className="text-xs text-slate-400">Transactions complétées</p>
@@ -582,7 +582,7 @@ export default function ReportsClient() {
                                     className="h-2 w-2 rounded-full"
                                     style={{ background: cat.color }}
                                   />
-                                  <span className="font-medium text-[#0B1B3D] max-w-[110px] truncate">
+                                  <span className="font-medium text-[#463ACB] max-w-[110px] truncate">
                                     {cat.label}
                                   </span>
                                 </div>
@@ -608,7 +608,7 @@ export default function ReportsClient() {
               <div className="rounded-[20px] border border-slate-100 bg-white p-5 shadow-sm">
                 <div className="mb-4 flex items-center justify-between">
                   <div>
-                    <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+                    <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
                       Revenus par catégorie
                     </p>
                     <p className="text-xs text-slate-400">Transactions complétées</p>
@@ -634,7 +634,7 @@ export default function ReportsClient() {
                           className="rounded-[14px] border border-slate-100 bg-slate-50 p-3"
                         >
                           <div className="flex items-center justify-between">
-                            <p className="text-xs font-semibold text-[#0B1B3D]">{cat.label}</p>
+                            <p className="text-xs font-semibold text-[#463ACB]">{cat.label}</p>
                             <span className="rounded-full bg-blue-50 px-2 py-0.5 text-[10px] font-bold text-blue-600">
                               ×{cat.count}
                             </span>
@@ -661,7 +661,7 @@ export default function ReportsClient() {
         <Card>
           <CardHeader>
             <div>
-              <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+              <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
                 Récapitulatif par période
               </p>
               <p className="text-xs text-slate-400">
@@ -712,7 +712,7 @@ export default function ReportsClient() {
                   <tbody>
                     {periods.map((p) => (
                       <tr key={p.id} className="hover:bg-slate-50/50 transition">
-                        <td className="border-b border-slate-50 px-5 py-3 font-medium text-[#0B1B3D]">
+                        <td className="border-b border-slate-50 px-5 py-3 font-medium text-[#463ACB]">
                           {p.name}
                           <p className="text-[11px] text-slate-400">
                             {new Date(p.startDate).toLocaleDateString("fr-FR")} –{" "}
@@ -767,7 +767,7 @@ export default function ReportsClient() {
                 {periods.length === 0 && (
                   <div className="flex flex-col items-center py-12 text-center">
                     <BarChart3 size={32} className="text-slate-300" />
-                    <p className="mt-3 font-bold text-[#0B1B3D]">Aucune période comptable</p>
+                    <p className="mt-3 font-bold text-[#463ACB]">Aucune période comptable</p>
                     <p className="mt-1 text-sm text-slate-400">
                       Les périodes seront générées automatiquement.
                     </p>
@@ -780,7 +780,7 @@ export default function ReportsClient() {
 
         {/* ── Export architecture note ─────────────────────────────────────── */}
         <div className="rounded-[20px] border border-slate-100 bg-white p-5 shadow-sm">
-          <p className="mb-3 font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+          <p className="mb-3 font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
             Architecture d&apos;export
           </p>
           <div className="grid gap-3 sm:grid-cols-3">

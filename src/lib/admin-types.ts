@@ -225,7 +225,7 @@ export const EXPENSE_CATEGORY_LABELS: Record<ExpenseCategoryKey, string> = {
 
 export const EXPENSE_CATEGORY_COLORS: Record<ExpenseCategoryKey, string> = {
   salaires:       "#FF6B35",
-  fournitures:    "#0B1B3D",
+  fournitures:    "#463ACB",
   cantine:        "#22c55e",
   infrastructure: "#eab308",
   electricite:    "#8b5cf6",

@@ -32,10 +32,10 @@ export default function Highlights() {
                   <Icon size={22} />
                 </div>
                 <div>
-                  <h3 className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+                  <h3 className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
                     {item.title}
                   </h3>
-                  <p className="mt-1 text-sm leading-5 text-[#0B1B3D]/60">
+                  <p className="mt-1 text-sm leading-5 text-[#463ACB]/60">
                     {item.description}
                   </p>
                 </div>

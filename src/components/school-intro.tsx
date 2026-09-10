@@ -32,12 +32,12 @@ export default function SchoolIntro() {
             <span className="inline-flex rounded-full bg-[#FF6B35]/10 px-4 py-2 text-xs font-bold text-[#FF6B35]">
               Notre école
             </span>
-            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold leading-tight text-[#0B1B3D] sm:text-4xl">
+            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold leading-tight text-[#463ACB] sm:text-4xl">
               Grandir avec amour,
               <br />
               apprendre avec joie.
             </h2>
-            <p className="mt-5 leading-7 text-[#0B1B3D]/65">
+            <p className="mt-5 leading-7 text-[#463ACB]/65">
               Au Coeur Des Anges est une crèche et maternelle qui place
               l&apos;enfant au centre de tout. Nous croyons en une éducation
               bienveillante, ludique et personnalisée, permettant à chaque
@@ -54,7 +54,7 @@ export default function SchoolIntro() {
               </Link>
               <Link
                 href="/about"
-                className="group inline-flex min-h-11 items-center justify-center px-4 py-3 text-sm font-bold text-[#0B1B3D] transition hover:text-[#FF6B35]"
+                className="group inline-flex min-h-11 items-center justify-center px-4 py-3 text-sm font-bold text-[#463ACB] transition hover:text-[#FF6B35]"
               >
                 En savoir plus
                 <ArrowRight size={15} className="ml-2 transition-transform duration-200 group-hover:translate-x-1" />

@@ -34,7 +34,7 @@ const programs = [
       "Développement de l\u2019autonomie",
     ],
     bg: "bg-[#F0F7FF]",
-    badge: "bg-[#0B1B3D]/10 text-[#0B1B3D]",
+    badge: "bg-[#463ACB]/10 text-[#463ACB]",
   },
 ];
 
@@ -46,10 +46,10 @@ export default function ProgramsSection() {
           <span className="inline-flex rounded-full bg-[#FF6B35]/10 px-4 py-2 text-xs font-bold text-[#FF6B35]">
             Nos programmes éducatifs
           </span>
-          <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold text-[#0B1B3D] sm:text-4xl">
+          <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold text-[#463ACB] sm:text-4xl">
             Des parcours adaptés à chaque étape
           </h2>
-          <p className="mt-3 text-[#0B1B3D]/60">
+          <p className="mt-3 text-[#463ACB]/60">
             Des parcours adaptés aux différentes étapes du développement de
             votre enfant.
           </p>
@@ -70,7 +70,7 @@ export default function ProgramsSection() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1B3D]/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#463ACB]/40 to-transparent" />
                   <div className="absolute bottom-4 left-4 flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FF6B35] text-white shadow-lg">
                       <Icon size={20} />
@@ -85,12 +85,12 @@ export default function ProgramsSection() {
                 </div>
 
                 <div className={`${program.bg} p-7`}>
-                  <p className="text-sm leading-6 text-[#0B1B3D]/70">
+                  <p className="text-sm leading-6 text-[#463ACB]/70">
                     {program.description}
                   </p>
                   <ul className="mt-5 space-y-2.5">
                     {program.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-sm text-[#0B1B3D]/80">
+                      <li key={item} className="flex items-center gap-2 text-sm text-[#463ACB]/80">
                         <Check size={15} className="shrink-0 text-[#FF6B35]" />
                         {item}
                       </li>

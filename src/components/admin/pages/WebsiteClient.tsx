@@ -97,7 +97,7 @@ export default function WebsiteClient() {
           <Card>
             <CardHeader>
               <div>
-                <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">Identité de l&apos;école</p>
+                <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">Identité de l&apos;école</p>
                 <p className="text-xs text-slate-400">Nom, sous-titre et accroche</p>
               </div>
               <Globe size={18} className="text-[#FF6B35]" />
@@ -116,7 +116,7 @@ export default function WebsiteClient() {
           <Card>
             <CardHeader>
               <div>
-                <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">Informations de contact</p>
+                <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">Informations de contact</p>
                 <p className="text-xs text-slate-400">Affichées sur la page Contact</p>
               </div>
             </CardHeader>
@@ -142,7 +142,7 @@ export default function WebsiteClient() {
           <Card>
             <CardHeader>
               <div>
-                <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">Réseaux sociaux</p>
+                <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">Réseaux sociaux</p>
                 <p className="text-xs text-slate-400">Liens visibles dans le pied de page</p>
               </div>
             </CardHeader>
@@ -160,7 +160,7 @@ export default function WebsiteClient() {
           <Card>
             <CardHeader>
               <div>
-                <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">Horaires d&apos;ouverture</p>
+                <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">Horaires d&apos;ouverture</p>
                 <p className="text-xs text-slate-400">Affichés sur la page Contact</p>
               </div>
             </CardHeader>
@@ -172,7 +172,7 @@ export default function WebsiteClient() {
                   value={settings.closingTime} onChange={(e) => setField("closingTime", e.target.value)} />
               </div>
               <div>
-                <p className="mb-2 text-xs font-semibold text-[#0B1B3D]">Jours d&apos;ouverture</p>
+                <p className="mb-2 text-xs font-semibold text-[#463ACB]">Jours d&apos;ouverture</p>
                 <div className="flex flex-wrap gap-2">
                   {["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"].map((day) => (
                     <button

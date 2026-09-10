@@ -29,13 +29,13 @@ const values = [
   {
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-8 h-8" aria-hidden="true">
-        <path d="M24 14 C24 14 16 18 16 24 C16 28.4 19.6 32 24 32 C28.4 32 32 28.4 32 24 C32 18 24 14 24 14Z" fill="#0B1B3D" opacity="0.7" />
+        <path d="M24 14 C24 14 16 18 16 24 C16 28.4 19.6 32 24 32 C28.4 32 32 28.4 32 24 C32 18 24 14 24 14Z" fill="#463ACB" opacity="0.7" />
         <circle cx="24" cy="24" r="3" fill="white" />
       </svg>
     ),
     title: "Bienveillance",
     description: "L'ecoute, le soin et la douceur au quotidien.",
-    color: "#0B1B3D",
+    color: "#463ACB",
   },
   {
     icon: (
@@ -63,13 +63,13 @@ const values = [
   {
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-8 h-8" aria-hidden="true">
-        <path d="M24 10 L27 18 L35 19 L29 25 L30.5 33 L24 29 L17.5 33 L19 25 L13 19 L21 18 Z" fill="#0B1B3D" opacity="0.7" />
+        <path d="M24 10 L27 18 L35 19 L29 25 L30.5 33 L24 29 L17.5 33 L19 25 L13 19 L21 18 Z" fill="#463ACB" opacity="0.7" />
         <circle cx="24" cy="22" r="3" fill="white" opacity="0.8" />
       </svg>
     ),
     title: "Excellence",
     description: "Viser le meilleur de soi en permanence.",
-    color: "#0B1B3D",
+    color: "#463ACB",
   },
 ];
 

@@ -290,10 +290,10 @@ export default function RevenuesClient() {
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]" htmlFor="r-cat">Catégorie</label>
+              <label className="mb-1.5 block text-xs font-semibold text-[#463ACB]" htmlFor="r-cat">Catégorie</label>
               <select id="r-cat" value={form.category}
                 onChange={(e) => setField("category", e.target.value as RevenueCategory)}
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#0B1B3D] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20">
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#463ACB] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20">
                 {REV_CATS.map(([k, v]) => <option key={k} value={k}>{v}</option>)}
               </select>
             </div>
@@ -304,18 +304,18 @@ export default function RevenuesClient() {
 
           <div className="grid gap-4 sm:grid-cols-3">
             <div>
-              <label className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]" htmlFor="r-method">Mode de paiement</label>
+              <label className="mb-1.5 block text-xs font-semibold text-[#463ACB]" htmlFor="r-method">Mode de paiement</label>
               <select id="r-method" value={form.paymentMethod}
                 onChange={(e) => setField("paymentMethod", e.target.value as PaymentMethod)}
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#0B1B3D] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20">
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#463ACB] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20">
                 {Object.entries(METHOD_LABELS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
               </select>
             </div>
             <div>
-              <label className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]" htmlFor="r-status">Statut</label>
+              <label className="mb-1.5 block text-xs font-semibold text-[#463ACB]" htmlFor="r-status">Statut</label>
               <select id="r-status" value={form.status}
                 onChange={(e) => setField("status", e.target.value as TransactionStatus)}
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#0B1B3D] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20">
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#463ACB] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20">
                 <option value="completed">✅ Complété</option>
                 <option value="pending">⏳ En attente</option>
                 <option value="cancelled">❌ Annulé</option>
@@ -326,10 +326,10 @@ export default function RevenuesClient() {
           </div>
 
           <div>
-            <label className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]" htmlFor="r-notes">Notes</label>
+            <label className="mb-1.5 block text-xs font-semibold text-[#463ACB]" htmlFor="r-notes">Notes</label>
             <textarea id="r-notes" rows={2} placeholder="Notes complémentaires…"
               value={form.notes} onChange={(e) => setField("notes", e.target.value)}
-              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#0B1B3D] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20 resize-none" />
+              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#463ACB] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20 resize-none" />
           </div>
 
           <div className="flex items-start gap-2 rounded-xl border border-amber-100 bg-amber-50 px-4 py-2.5 text-xs text-amber-700">
@@ -349,7 +349,7 @@ export default function RevenuesClient() {
         {/* Header */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#0B1B3D]">Revenus</h1>
+            <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#463ACB]">Revenus</h1>
             <p className="mt-0.5 text-sm text-slate-500">Enregistrement et suivi des recettes</p>
           </div>
           <div className="flex gap-2 flex-wrap">
@@ -363,7 +363,7 @@ export default function RevenuesClient() {
           {[
             { label: "Complétés (affiché)", value: fmt(displayTotal), color: "text-emerald-700", bg: "bg-emerald-50 border-emerald-100" },
             { label: "En attente", value: fmt(displayPending), color: "text-amber-700", bg: "bg-amber-50 border-amber-100" },
-            { label: "Transactions", value: String(displayCount), color: "text-[#0B1B3D]", bg: "bg-white border-slate-100" },
+            { label: "Transactions", value: String(displayCount), color: "text-[#463ACB]", bg: "bg-white border-slate-100" },
             { label: "Résultats filtrés", value: String(filtered.length), color: "text-slate-500", bg: "bg-white border-slate-100" },
           ].map((kpi) => (
             <div key={kpi.label} className={`rounded-[16px] border p-4 shadow-sm ${kpi.bg}`}>
@@ -473,7 +473,7 @@ export default function RevenuesClient() {
                         <tr key={r.id} className={`group transition hover:bg-slate-50/40 ${r.status === "cancelled" ? "opacity-50" : ""}`}>
                           <Td>
                             <div>
-                              <p className="font-medium text-[#0B1B3D] max-w-[200px] truncate">{r.description}</p>
+                              <p className="font-medium text-[#463ACB] max-w-[200px] truncate">{r.description}</p>
                               {r.notes && <p className="text-[11px] text-slate-400 truncate max-w-[200px]">{r.notes}</p>}
                             </div>
                           </Td>
@@ -511,7 +511,7 @@ export default function RevenuesClient() {
                             <Td>
                               <div className="flex items-center gap-1">
                                 {canWrite && r.status !== "cancelled" && (
-                                  <button onClick={() => openEdit(r)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D] transition" title="Modifier">
+                                  <button onClick={() => openEdit(r)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB] transition" title="Modifier">
                                     <Pencil size={13} />
                                   </button>
                                 )}

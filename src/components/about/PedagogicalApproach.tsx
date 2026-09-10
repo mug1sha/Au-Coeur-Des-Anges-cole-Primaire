@@ -20,10 +20,10 @@ export default function PedagogicalApproach() {
             <span className="inline-flex rounded-full bg-[#FF6B35]/10 px-4 py-2 text-xs font-bold text-[#FF6B35]">
               Pédagogie
             </span>
-            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold leading-tight text-[#0B1B3D] sm:text-4xl">
+            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold leading-tight text-[#463ACB] sm:text-4xl">
               Notre approche pédagogique
             </h2>
-            <p className="mt-5 leading-7 text-[#0B1B3D]/65">
+            <p className="mt-5 leading-7 text-[#463ACB]/65">
               Notre pédagogie s&apos;appuie sur les dernières recherches en sciences de l&apos;éducation.
               Nous privilégions une approche globale qui prend en compte le développement cognitif,
               émotionnel et social de chaque enfant.
@@ -31,7 +31,7 @@ export default function PedagogicalApproach() {
             <StaggerContainer className="mt-7 space-y-3">
               {approaches.map((item) => (
                 <StaggerItem key={item}>
-                  <div className="flex items-center gap-3 text-[#0B1B3D]/80">
+                  <div className="flex items-center gap-3 text-[#463ACB]/80">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#FF6B35]">
                       <Check size={12} className="text-white" />
                     </span>
@@ -47,7 +47,7 @@ export default function PedagogicalApproach() {
           <div className="relative">
             <div className="relative aspect-[1/1] overflow-hidden rounded-[28px] shadow-xl">
               <Image src="/images/maternelle.jpg" alt="Notre approche pédagogique" fill className="object-cover transition duration-700 hover:scale-[1.03]" />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0B1B3D]/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#463ACB]/10 to-transparent" />
             </div>
             <div className="absolute -right-4 -top-4 hidden h-20 w-20 rounded-full border-[5px] border-[#FF6B35]/25 sm:block" />
             <div className="absolute -bottom-4 -left-4 h-16 w-16 rounded-full bg-[#FF6B35]/10" />

@@ -16,10 +16,10 @@ export default function OurValues() {
           <span className="inline-flex rounded-full bg-[#FF6B35]/10 px-4 py-2 text-xs font-bold text-[#FF6B35]">
             Nos valeurs
           </span>
-          <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold text-[#0B1B3D] sm:text-4xl">
+          <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold text-[#463ACB] sm:text-4xl">
             Ce en quoi nous croyons
           </h2>
-          <p className="mt-3 text-[#0B1B3D]/60">Des valeurs qui guident chaque décision, chaque interaction, chaque journée.</p>
+          <p className="mt-3 text-[#463ACB]/60">Des valeurs qui guident chaque décision, chaque interaction, chaque journée.</p>
         </FadeUp>
 
         <StaggerContainer className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -31,8 +31,8 @@ export default function OurValues() {
                   <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full ${value.iconBg} transition duration-300 group-hover:scale-110`}>
                     <Icon size={22} className={value.iconColor} />
                   </div>
-                  <h3 className="font-[family-name:var(--font-heading)] text-lg font-extrabold text-[#0B1B3D]">{value.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-[#0B1B3D]/60">{value.description}</p>
+                  <h3 className="font-[family-name:var(--font-heading)] text-lg font-extrabold text-[#463ACB]">{value.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#463ACB]/60">{value.description}</p>
                 </div>
               </StaggerItem>
             );

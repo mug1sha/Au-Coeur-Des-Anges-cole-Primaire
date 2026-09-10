@@ -304,10 +304,10 @@ export default function ExpensesClient() {
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]" htmlFor="e-cat">Catégorie</label>
+              <label className="mb-1.5 block text-xs font-semibold text-[#463ACB]" htmlFor="e-cat">Catégorie</label>
               <select id="e-cat" value={form.category}
                 onChange={(e) => setField("category", e.target.value as ExpenseCategoryKey)}
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#0B1B3D] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20">
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#463ACB] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20">
                 {EXP_CATS.map(([k, v]) => <option key={k} value={k}>{v}</option>)}
               </select>
             </div>
@@ -318,18 +318,18 @@ export default function ExpensesClient() {
 
           <div className="grid gap-4 sm:grid-cols-3">
             <div>
-              <label className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]" htmlFor="e-method">Mode</label>
+              <label className="mb-1.5 block text-xs font-semibold text-[#463ACB]" htmlFor="e-method">Mode</label>
               <select id="e-method" value={form.paymentMethod}
                 onChange={(e) => setField("paymentMethod", e.target.value as PaymentMethod)}
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#0B1B3D] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20">
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#463ACB] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20">
                 {Object.entries(METHOD_LABELS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
               </select>
             </div>
             <div>
-              <label className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]" htmlFor="e-status">Statut</label>
+              <label className="mb-1.5 block text-xs font-semibold text-[#463ACB]" htmlFor="e-status">Statut</label>
               <select id="e-status" value={form.status}
                 onChange={(e) => setField("status", e.target.value as TransactionStatus)}
-                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#0B1B3D] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20">
+                className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#463ACB] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20">
                 <option value="completed">✅ Complété</option>
                 <option value="pending">⏳ En attente</option>
                 <option value="cancelled">❌ Annulé</option>
@@ -341,7 +341,7 @@ export default function ExpensesClient() {
 
           {/* Receipt upload */}
           <div>
-            <p className="mb-1.5 text-xs font-semibold text-[#0B1B3D]">Reçu / Justificatif</p>
+            <p className="mb-1.5 text-xs font-semibold text-[#463ACB]">Reçu / Justificatif</p>
             <div className={`flex items-center gap-3 rounded-xl border border-dashed p-3 transition ${form.receiptUrl ? "border-emerald-300 bg-emerald-50" : "border-slate-200 hover:border-[#FF6B35]/30"}`}>
               {form.receiptUrl ? (
                 <>
@@ -374,10 +374,10 @@ export default function ExpensesClient() {
           </div>
 
           <div>
-            <label className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]" htmlFor="e-notes">Notes</label>
+            <label className="mb-1.5 block text-xs font-semibold text-[#463ACB]" htmlFor="e-notes">Notes</label>
             <textarea id="e-notes" rows={2}
               value={form.notes} onChange={(e) => setField("notes", e.target.value)}
-              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#0B1B3D] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20 resize-none" />
+              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-[#463ACB] outline-none transition focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20 resize-none" />
           </div>
         </div>
         <div className="mt-5 flex gap-3">
@@ -392,7 +392,7 @@ export default function ExpensesClient() {
         {/* Header */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#0B1B3D]">Dépenses</h1>
+            <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#463ACB]">Dépenses</h1>
             <p className="mt-0.5 text-sm text-slate-500">Suivi des sorties de caisse et dépenses opérationnelles</p>
           </div>
           <div className="flex gap-2 flex-wrap">
@@ -406,7 +406,7 @@ export default function ExpensesClient() {
           {[
             { label: "Total complétées", value: fmt(displayTotal), color: "text-red-700", bg: "bg-red-50 border-red-100" },
             { label: "En attente",       value: fmt(displayPending), color: "text-amber-700", bg: "bg-amber-50 border-amber-100" },
-            { label: "Transactions",     value: String(filtered.filter((e) => e.status !== "cancelled").length), color: "text-[#0B1B3D]", bg: "bg-white border-slate-100" },
+            { label: "Transactions",     value: String(filtered.filter((e) => e.status !== "cancelled").length), color: "text-[#463ACB]", bg: "bg-white border-slate-100" },
             { label: "Avec justificatif",value: String(filtered.filter((e) => e.receiptUrl).length), color: "text-emerald-700", bg: "bg-emerald-50 border-emerald-100" },
           ].map((kpi) => (
             <div key={kpi.label} className={`rounded-[16px] border p-4 shadow-sm ${kpi.bg}`}>
@@ -422,7 +422,7 @@ export default function ExpensesClient() {
             {catBreakdown.map(([cat, amount]) => (
               <div key={cat} className="flex items-center gap-2 rounded-xl border border-slate-100 bg-white px-3 py-2 shadow-sm text-xs">
                 <CatDot cat={cat} />
-                <span className="font-medium text-[#0B1B3D]">{EXPENSE_CATEGORY_LABELS[cat]}</span>
+                <span className="font-medium text-[#463ACB]">{EXPENSE_CATEGORY_LABELS[cat]}</span>
                 <span className="text-slate-400">{fmt(amount)}</span>
               </div>
             ))}
@@ -524,7 +524,7 @@ export default function ExpensesClient() {
                       return (
                         <tr key={e.id} className={`group transition hover:bg-slate-50/40 ${e.status === "cancelled" ? "opacity-50" : ""}`}>
                           <Td>
-                            <p className="font-medium text-[#0B1B3D] max-w-[180px] truncate">{e.description}</p>
+                            <p className="font-medium text-[#463ACB] max-w-[180px] truncate">{e.description}</p>
                             {e.notes && <p className="text-[11px] text-slate-400 truncate max-w-[180px]">{e.notes}</p>}
                           </Td>
                           <Td>
@@ -537,7 +537,7 @@ export default function ExpensesClient() {
                           <Td>
                             <div className="flex items-center gap-1.5">
                               <CatDot cat={e.category} />
-                              <span className="text-xs font-medium text-[#0B1B3D]">{EXPENSE_CATEGORY_LABELS[e.category]}</span>
+                              <span className="text-xs font-medium text-[#463ACB]">{EXPENSE_CATEGORY_LABELS[e.category]}</span>
                             </div>
                           </Td>
                           <Td className="text-sm text-slate-500">{e.vendor ?? "—"}</Td>
@@ -570,7 +570,7 @@ export default function ExpensesClient() {
                             <Td>
                               <div className="flex items-center gap-1">
                                 {canWrite && e.status !== "cancelled" && (
-                                  <button onClick={() => openEdit(e)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D] transition" title="Modifier">
+                                  <button onClick={() => openEdit(e)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB] transition" title="Modifier">
                                     <Pencil size={13} />
                                   </button>
                                 )}

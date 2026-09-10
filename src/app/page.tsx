@@ -9,7 +9,7 @@ import Footer from "@/components/footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-[#0B1B3D] overflow-x-hidden">
+    <main className="min-h-screen bg-white text-[#463ACB] overflow-x-hidden">
       <Navbar />
 
       <Hero />

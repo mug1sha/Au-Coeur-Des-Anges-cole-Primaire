@@ -4,7 +4,7 @@ import { ArrowRight, Heart } from "lucide-react";
 export default function AboutCTA() {
   return (
     <section className="px-5 py-16 md:px-8">
-      <div className="mx-auto max-w-[1200px] overflow-hidden rounded-[24px] bg-[#0B1B3D] px-6 py-10 text-white sm:px-10">
+      <div className="mx-auto max-w-[1200px] overflow-hidden rounded-[24px] bg-[#463ACB] px-6 py-10 text-white sm:px-10">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
           <div className="flex items-start gap-4">
             <Heart className="mt-1 hidden shrink-0 fill-[#FF6B35] text-[#FF6B35] md:block" size={28} />

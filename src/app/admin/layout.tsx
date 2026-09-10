@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
-      <body className={`${inter.variable} ${nunito.variable} font-[family-name:var(--font-body)] bg-[#F5F6FA] text-[#0B1B3D]`}>
+      <body className={`${inter.variable} ${nunito.variable} font-[family-name:var(--font-body)] bg-[#F5F6FA] text-[#463ACB]`}>
         <AdminShell>{children}</AdminShell>
       </body>
     </html>

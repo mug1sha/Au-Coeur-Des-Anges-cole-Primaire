@@ -165,7 +165,7 @@ function SidebarContent({
         </div>
         {!collapsed && (
           <div className="min-w-0">
-            <p className="truncate font-[family-name:var(--font-heading)] text-sm font-bold text-[#0B1B3D]">
+            <p className="truncate font-[family-name:var(--font-heading)] text-sm font-bold text-[#463ACB]">
               Au Coeur Des Anges
             </p>
             <p className="text-[10px] text-slate-400">Administration</p>
@@ -204,7 +204,7 @@ function SidebarContent({
                   className={`mx-2 mb-0.5 flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition duration-150 ${
                     active
                       ? "bg-[#FF6B35]/10 text-[#FF6B35]"
-                      : "text-slate-600 hover:bg-slate-100 hover:text-[#0B1B3D]"
+                      : "text-slate-600 hover:bg-slate-100 hover:text-[#463ACB]"
                   } ${collapsed ? "justify-center" : ""}`}
                 >
                   <Icon size={18} className="shrink-0" />
@@ -228,7 +228,7 @@ function SidebarContent({
               {initials}
             </div>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-semibold text-[#0B1B3D]">
+              <p className="truncate text-sm font-semibold text-[#463ACB]">
                 {session?.name ?? "Admin"}
               </p>
               <p className="truncate text-xs text-slate-400">{session?.role ?? "admin"}</p>

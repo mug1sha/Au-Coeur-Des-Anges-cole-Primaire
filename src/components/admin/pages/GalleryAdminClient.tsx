@@ -285,7 +285,7 @@ export default function GalleryAdminClient() {
               return (
                 <div key={cat} className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs">
                   <Badge variant={CATEGORY_BADGE[cat]}>{CATEGORY_LABELS[cat]}</Badge>
-                  <span className="font-semibold text-[#0B1B3D]">{count}</span>
+                  <span className="font-semibold text-[#463ACB]">{count}</span>
                 </div>
               );
             })}

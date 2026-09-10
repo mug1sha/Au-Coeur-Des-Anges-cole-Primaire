@@ -35,11 +35,11 @@ const steps = [
     number: "03",
     title: "Pratiquer",
     description: "Mise en situation, exercices concrets et projets pour ancrer les apprentissages dans la réalité.",
-    color: "#0B1B3D",
+    color: "#463ACB",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" aria-hidden="true">
-        <circle cx="20" cy="20" r="10" fill="#0B1B3D" opacity="0.15" />
-        <path d="M16 20 L19 23 L25 17" stroke="#0B1B3D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="20" cy="20" r="10" fill="#463ACB" opacity="0.15" />
+        <path d="M16 20 L19 23 L25 17" stroke="#463ACB" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },

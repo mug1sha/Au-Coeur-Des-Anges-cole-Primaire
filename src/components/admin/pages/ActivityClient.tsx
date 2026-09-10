@@ -153,12 +153,12 @@ export default function ActivityClient() {
                     <tr key={log.id}>
                       <Td>
                         <div>
-                          <p className="text-xs font-medium text-[#0B1B3D]">{relative(log.createdAt)}</p>
+                          <p className="text-xs font-medium text-[#463ACB]">{relative(log.createdAt)}</p>
                           <p className="text-[10px] text-slate-400">{formatDateTime(log.createdAt)}</p>
                         </div>
                       </Td>
                       <Td>
-                        <p className="font-medium text-sm text-[#0B1B3D]">{log.userName}</p>
+                        <p className="font-medium text-sm text-[#463ACB]">{log.userName}</p>
                       </Td>
                       <Td>
                         <span className="text-xs text-slate-500">{ROLE_LABELS[log.userRole]}</span>
@@ -170,7 +170,7 @@ export default function ActivityClient() {
                       </Td>
                       <Td>
                         <div>
-                          <span className="text-xs font-medium text-[#0B1B3D]">
+                          <span className="text-xs font-medium text-[#463ACB]">
                             {RESOURCE_LABELS[log.resource] ?? log.resource}
                           </span>
                           {log.resourceId && (

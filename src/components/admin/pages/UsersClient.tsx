@@ -234,7 +234,7 @@ export default function UsersClient() {
                             {initials(u.name)}
                           </div>
                           <div>
-                            <p className="font-semibold text-[#0B1B3D]">{u.name}</p>
+                            <p className="font-semibold text-[#463ACB]">{u.name}</p>
                             <p className="text-xs text-slate-400">{u.email}</p>
                           </div>
                         </div>
@@ -253,7 +253,7 @@ export default function UsersClient() {
                         {u.lastLogin ? new Date(u.lastLogin).toLocaleString("fr-FR", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }) : "—"}
                       </Td>
                       <Td>
-                        <button onClick={() => openEdit(u)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#0B1B3D]" aria-label="Modifier">
+                        <button onClick={() => openEdit(u)} className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-[#463ACB]" aria-label="Modifier">
                           <Pencil size={14} />
                         </button>
                       </Td>

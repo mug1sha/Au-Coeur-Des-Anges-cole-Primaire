@@ -33,10 +33,10 @@ export default function Programs() {
           <span className="inline-flex rounded-full bg-[#FF6B35]/10 px-4 py-2 text-xs font-bold text-[#FF6B35]">
             Nos programmes
           </span>
-          <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold text-[#0B1B3D] sm:text-4xl">
+          <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-extrabold text-[#463ACB] sm:text-4xl">
             Des parcours adaptés à chaque âge
           </h2>
-          <p className="mt-3 text-[#0B1B3D]/60">Deux étapes essentielles pour bien grandir.</p>
+          <p className="mt-3 text-[#463ACB]/60">Deux étapes essentielles pour bien grandir.</p>
         </FadeUp>
 
         <StaggerContainer className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -57,14 +57,14 @@ export default function Programs() {
                     <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#FF6B35] text-white">
                       <Icon size={21} />
                     </div>
-                    <h3 className="mt-5 font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#0B1B3D]">
+                    <h3 className="mt-5 font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#463ACB]">
                       {program.title}
                     </h3>
                     <p className="mt-1 text-sm font-bold text-[#FF6B35]">{program.age}</p>
-                    <p className="mt-4 text-sm leading-6 text-[#0B1B3D]/65">{program.description}</p>
+                    <p className="mt-4 text-sm leading-6 text-[#463ACB]/65">{program.description}</p>
                     <ul className="mt-5 space-y-2.5">
                       {program.items.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-[#0B1B3D]/80">
+                        <li key={item} className="flex items-start gap-2 text-sm text-[#463ACB]/80">
                           <Check size={16} className="mt-0.5 shrink-0 text-[#FF6B35]" />
                           {item}
                         </li>
@@ -72,7 +72,7 @@ export default function Programs() {
                     </ul>
                     <Link
                       href="/services"
-                      className="group/link mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#0B1B3D] transition hover:text-[#FF6B35]"
+                      className="group/link mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#463ACB] transition hover:text-[#FF6B35]"
                     >
                       En savoir plus
                       <ArrowRight size={15} className="transition-transform duration-200 group-hover/link:translate-x-1" />

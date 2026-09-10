@@ -91,7 +91,7 @@ export async function getDashboardStats(): Promise<DashboardStats> {
     comparisonByMonth,
     expenseByCategory: [
       { category: "Salaires", amount: 980_000, color: "#FF6B35" },
-      { category: "Fournitures", amount: 320_000, color: "#0B1B3D" },
+      { category: "Fournitures", amount: 320_000, color: "#463ACB" },
       { category: "Cantine", amount: 280_000, color: "#22c55e" },
       { category: "Infrastructure", amount: 200_000, color: "#eab308" },
       { category: "Transport", amount: 150_000, color: "#8b5cf6" },

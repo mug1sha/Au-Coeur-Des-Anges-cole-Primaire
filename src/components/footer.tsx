@@ -31,7 +31,7 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="mt-8 bg-[#012dcc] text-white">
+    <footer className="mt-8 bg-[#463ACB] text-white">
       <div className="mx-auto max-w-[1200px] px-5 py-14 md:px-8">
         <StaggerContainer className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_1fr_0.8fr]">
 

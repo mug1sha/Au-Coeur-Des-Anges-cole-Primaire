@@ -47,7 +47,7 @@ export default function ContactSection() {
   };
 
   const inputClass = (field: keyof typeof initialForm) =>
-    `w-full rounded-[12px] border px-4 py-3 text-sm text-[#0B1B3D] outline-none transition-all duration-200 focus:ring-2 focus:ring-[#FF6B35]/30 focus:border-[#FF6B35] ${
+    `w-full rounded-[12px] border px-4 py-3 text-sm text-[#463ACB] outline-none transition-all duration-200 focus:ring-2 focus:ring-[#FF6B35]/30 focus:border-[#FF6B35] ${
       errors[field] ? "border-red-400 bg-red-50" : "border-slate-200 bg-white"
     }`;
 
@@ -59,7 +59,7 @@ export default function ContactSection() {
           {/* LEFT */}
           <FadeLeft>
             <div className="space-y-6">
-              <div className="rounded-[24px] bg-[#0B1B3D] p-7 text-white">
+              <div className="rounded-[24px] bg-[#463ACB] p-7 text-white">
                 <h2 className="font-[family-name:var(--font-heading)] text-xl font-extrabold">Informations de contact</h2>
                 <StaggerContainer className="mt-6 space-y-5">
                   {contactInfo.map((item) => {
@@ -102,13 +102,13 @@ export default function ContactSection() {
                 <div className="flex aspect-[4/3] items-center justify-center bg-slate-100">
                   <div className="p-6 text-center">
                     <MapPin size={32} className="mx-auto mb-3 text-[#FF6B35]" />
-                    <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">Localisation de l&apos;école</p>
-                    <p className="mt-1 text-sm text-[#0B1B3D]/55">Kigali, Rwanda</p>
+                    <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">Localisation de l&apos;école</p>
+                    <p className="mt-1 text-sm text-[#463ACB]/55">Kigali, Rwanda</p>
                   </div>
                 </div>
                 <div className="p-4">
                   <a href="https://maps.google.com/?q=Kigali,Rwanda" target="_blank" rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 rounded-[12px] border border-slate-200 px-4 py-2.5 text-sm font-semibold text-[#0B1B3D] transition hover:border-[#FF6B35] hover:text-[#FF6B35]">
+                    className="flex items-center justify-center gap-2 rounded-[12px] border border-slate-200 px-4 py-2.5 text-sm font-semibold text-[#463ACB] transition hover:border-[#FF6B35] hover:text-[#FF6B35]">
                     Obtenir l&apos;itinéraire <ArrowRight size={14} />
                   </a>
                 </div>
@@ -119,8 +119,8 @@ export default function ContactSection() {
           {/* RIGHT: FORM */}
           <FadeRight>
             <div className="rounded-[24px] border border-slate-100 bg-white p-7 shadow-[0_8px_40px_rgba(11,27,61,0.06)] sm:p-8">
-              <h2 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#0B1B3D]">Envoyer un message</h2>
-              <p className="mt-2 text-sm text-[#0B1B3D]/55">Remplissez le formulaire ci-dessous, nous vous répondrons rapidement.</p>
+              <h2 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#463ACB]">Envoyer un message</h2>
+              <p className="mt-2 text-sm text-[#463ACB]/55">Remplissez le formulaire ci-dessous, nous vous répondrons rapidement.</p>
 
               {state === "success" ? (
                 <motion.div
@@ -131,30 +131,30 @@ export default function ContactSection() {
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-100">
                     <Check size={26} className="text-green-600" />
                   </div>
-                  <p className="font-[family-name:var(--font-heading)] text-lg font-bold text-[#0B1B3D]">Message bien reçu !</p>
-                  <p className="text-sm text-[#0B1B3D]/60">Merci pour votre message. Notre équipe vous contactera très prochainement.</p>
+                  <p className="font-[family-name:var(--font-heading)] text-lg font-bold text-[#463ACB]">Message bien reçu !</p>
+                  <p className="text-sm text-[#463ACB]/60">Merci pour votre message. Notre équipe vous contactera très prochainement.</p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate className="mt-7 space-y-5">
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="nom" className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]">Nom complet <span className="text-[#FF6B35]">*</span></label>
+                      <label htmlFor="nom" className="mb-1.5 block text-xs font-semibold text-[#463ACB]">Nom complet <span className="text-[#FF6B35]">*</span></label>
                       <input id="nom" name="nom" type="text" value={form.nom} onChange={handleChange} placeholder="Votre nom" className={inputClass("nom")} />
                       {errors.nom && <p role="alert" className="mt-1 flex items-center gap-1 text-xs text-red-500"><AlertCircle size={12} /> {errors.nom}</p>}
                     </div>
                     <div>
-                      <label htmlFor="email" className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]">E-mail <span className="text-[#FF6B35]">*</span></label>
+                      <label htmlFor="email" className="mb-1.5 block text-xs font-semibold text-[#463ACB]">E-mail <span className="text-[#FF6B35]">*</span></label>
                       <input id="email" name="email" type="email" value={form.email} onChange={handleChange} placeholder="votre@email.com" className={inputClass("email")} />
                       {errors.email && <p role="alert" className="mt-1 flex items-center gap-1 text-xs text-red-500"><AlertCircle size={12} /> {errors.email}</p>}
                     </div>
                   </div>
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="telephone" className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]">Téléphone</label>
+                      <label htmlFor="telephone" className="mb-1.5 block text-xs font-semibold text-[#463ACB]">Téléphone</label>
                       <input id="telephone" name="telephone" type="tel" value={form.telephone} onChange={handleChange} placeholder="+250 XXX XXX XXX" className={inputClass("telephone")} />
                     </div>
                     <div>
-                      <label htmlFor="service" className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]">Service souhaité</label>
+                      <label htmlFor="service" className="mb-1.5 block text-xs font-semibold text-[#463ACB]">Service souhaité</label>
                       <select id="service" name="service" value={form.service} onChange={handleChange} className={inputClass("service")}>
                         <option value="">Sélectionnez…</option>
                         <option value="creche">Crèche</option>
@@ -166,16 +166,16 @@ export default function ContactSection() {
                   </div>
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="enfant" className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]">Nom de l&apos;enfant</label>
+                      <label htmlFor="enfant" className="mb-1.5 block text-xs font-semibold text-[#463ACB]">Nom de l&apos;enfant</label>
                       <input id="enfant" name="enfant" type="text" value={form.enfant} onChange={handleChange} placeholder="Prénom de l'enfant" className={inputClass("enfant")} />
                     </div>
                     <div>
-                      <label htmlFor="age" className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]">Âge de l&apos;enfant</label>
+                      <label htmlFor="age" className="mb-1.5 block text-xs font-semibold text-[#463ACB]">Âge de l&apos;enfant</label>
                       <input id="age" name="age" type="text" value={form.age} onChange={handleChange} placeholder="Ex : 2 ans" className={inputClass("age")} />
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="message" className="mb-1.5 block text-xs font-semibold text-[#0B1B3D]">Message <span className="text-[#FF6B35]">*</span></label>
+                    <label htmlFor="message" className="mb-1.5 block text-xs font-semibold text-[#463ACB]">Message <span className="text-[#FF6B35]">*</span></label>
                     <textarea id="message" name="message" rows={5} value={form.message} onChange={handleChange} placeholder="Votre message…" className={`${inputClass("message")} resize-none`} />
                     {errors.message && <p role="alert" className="mt-1 flex items-center gap-1 text-xs text-red-500"><AlertCircle size={12} /> {errors.message}</p>}
                   </div>

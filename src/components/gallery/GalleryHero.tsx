@@ -69,9 +69,9 @@ export default function GalleryHero() {
         </AnimatePresence>
 
         {/* Dark gradient overlay — ensures text is always readable */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1B3D]/85 via-[#0B1B3D]/60 to-[#0B1B3D]/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#463ACB]/85 via-[#463ACB]/60 to-[#463ACB]/30" />
         {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0B1B3D]/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#463ACB]/60 to-transparent" />
       </div>
 
       {/* ── CONTENT ── */}

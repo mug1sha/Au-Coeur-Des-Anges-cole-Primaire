@@ -157,7 +157,7 @@ export default function AccountingClient() {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-center">
         <AlertCircle size={36} className="text-red-400" />
-        <p className="mt-3 font-bold text-[#0B1B3D]">Accès refusé</p>
+        <p className="mt-3 font-bold text-[#463ACB]">Accès refusé</p>
         <p className="mt-1 text-sm text-slate-400">
           Vous n&apos;avez pas les permissions pour accéder aux données comptables.
         </p>
@@ -186,7 +186,7 @@ export default function AccountingClient() {
         {/* ── Page header ────────────────────────────────────────────────── */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#0B1B3D]">
+            <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#463ACB]">
               Comptabilité
             </h1>
             <p className="mt-0.5 text-sm text-slate-500">
@@ -203,7 +203,7 @@ export default function AccountingClient() {
                   type="date"
                   value={startDate}
                   onChange={(e) => setStartDate(e.target.value)}
-                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-[#0B1B3D] outline-none focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-[#463ACB] outline-none focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
                 />
               </div>
               <span className="text-xs text-slate-400">→</span>
@@ -214,7 +214,7 @@ export default function AccountingClient() {
                   type="date"
                   value={endDate}
                   onChange={(e) => setEndDate(e.target.value)}
-                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-[#0B1B3D] outline-none focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-[#463ACB] outline-none focus:border-[#FF6B35] focus:ring-2 focus:ring-[#FF6B35]/20"
                 />
               </div>
             </div>
@@ -346,7 +346,7 @@ export default function AccountingClient() {
               <div className="lg:col-span-2 rounded-[20px] border border-slate-100 bg-white p-5 shadow-sm">
                 <div className="mb-4 flex items-center justify-between">
                   <div>
-                    <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+                    <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
                       Tendances financières
                     </p>
                     <p className="text-xs text-slate-400">6 derniers mois — Revenus vs Dépenses</p>
@@ -392,7 +392,7 @@ export default function AccountingClient() {
               {/* Expense distribution */}
               <div className="rounded-[20px] border border-slate-100 bg-white p-5 shadow-sm">
                 <div className="mb-4">
-                  <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+                  <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
                     Répartition des dépenses
                   </p>
                   <p className="text-xs text-slate-400">Par catégorie (complétées)</p>
@@ -419,7 +419,7 @@ export default function AccountingClient() {
                                   className="inline-block h-2 w-2 rounded-full"
                                   style={{ background: cat.color }}
                                 />
-                                <span className="font-medium text-[#0B1B3D] truncate max-w-[110px]">
+                                <span className="font-medium text-[#463ACB] truncate max-w-[110px]">
                                   {cat.label}
                                 </span>
                               </div>
@@ -445,7 +445,7 @@ export default function AccountingClient() {
             {/* ── Profitability bar ───────────────────────────────────────── */}
             <div className="rounded-[20px] border border-slate-100 bg-white p-5 shadow-sm">
               <div className="mb-3 flex items-center justify-between">
-                <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+                <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
                   Ratio dépenses / revenus
                 </p>
                 <span
@@ -511,7 +511,7 @@ export default function AccountingClient() {
             {/* ── Revenue breakdown ───────────────────────────────────────── */}
             {summary.revenueByCategory.length > 0 && (
               <div className="rounded-[20px] border border-slate-100 bg-white p-5 shadow-sm">
-                <p className="mb-4 font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+                <p className="mb-4 font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
                   Revenus par catégorie
                 </p>
                 <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -528,7 +528,7 @@ export default function AccountingClient() {
                           className="rounded-[14px] border border-slate-100 bg-slate-50 p-3"
                         >
                           <div className="flex items-center justify-between">
-                            <p className="text-xs font-semibold text-[#0B1B3D]">{cat.label}</p>
+                            <p className="text-xs font-semibold text-[#463ACB]">{cat.label}</p>
                             <span className="rounded-full bg-blue-50 px-2 py-0.5 text-[10px] font-bold text-blue-600">
                               ×{cat.count}
                             </span>
@@ -563,7 +563,7 @@ export default function AccountingClient() {
               <CardBody>
                 <div className="flex flex-col items-center py-12 text-center">
                   <Calculator size={32} className="text-slate-300" />
-                  <p className="mt-3 font-bold text-[#0B1B3D]">Aucune période comptable</p>
+                  <p className="mt-3 font-bold text-[#463ACB]">Aucune période comptable</p>
                   <p className="mt-1 text-sm text-slate-400">
                     Les périodes seront générées automatiquement.
                   </p>
@@ -578,7 +578,7 @@ export default function AccountingClient() {
                   <CardHeader>
                     <div>
                       <div className="flex items-center gap-2">
-                        <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+                        <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
                           {openPeriod.name}
                         </p>
                         <Badge variant="success">En cours</Badge>
@@ -659,7 +659,7 @@ export default function AccountingClient() {
                       <Lock size={14} className="shrink-0 text-slate-300" />
                       <div>
                         <div className="flex items-center gap-2">
-                          <p className="font-semibold text-[#0B1B3D]">{p.name}</p>
+                          <p className="font-semibold text-[#463ACB]">{p.name}</p>
                           <Badge variant="neutral">Clôturé</Badge>
                         </div>
                         <p className="text-xs text-slate-400">

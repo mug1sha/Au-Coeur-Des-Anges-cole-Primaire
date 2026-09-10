@@ -140,7 +140,7 @@ function AnnouncementModal({ ann, onClose }: { ann: Announcement; onClose: () =>
           {/* Title */}
           <h2
             id="ann-modal-title"
-            className="font-[family-name:var(--font-heading)] text-2xl font-extrabold leading-snug text-[#0B1B3D]"
+            className="font-[family-name:var(--font-heading)] text-2xl font-extrabold leading-snug text-[#463ACB]"
           >
             {ann.title}
           </h2>
@@ -176,8 +176,8 @@ function AnnouncementModal({ ann, onClose }: { ann: Announcement; onClose: () =>
 
       {/* Scoped styles for rich content */}
       <style>{`
-        .ann-content h2 { font-size: 1.15rem; font-weight: 700; margin: 1rem 0 0.4rem; color: #0B1B3D; }
-        .ann-content h3 { font-size: 1rem; font-weight: 600; margin: 0.8rem 0 0.3rem; color: #0B1B3D; }
+        .ann-content h2 { font-size: 1.15rem; font-weight: 700; margin: 1rem 0 0.4rem; color: #463ACB; }
+        .ann-content h3 { font-size: 1rem; font-weight: 600; margin: 0.8rem 0 0.3rem; color: #463ACB; }
         .ann-content p  { margin-bottom: 0.6rem; }
         .ann-content ul { list-style: disc; padding-left: 1.4rem; margin: 0.5rem 0; }
         .ann-content ol { list-style: decimal; padding-left: 1.4rem; margin: 0.5rem 0; }
@@ -245,7 +245,7 @@ function AnnouncementCard({
         </div>
 
         {/* Title */}
-        <h3 className="mt-2.5 font-[family-name:var(--font-heading)] text-base font-bold leading-snug text-[#0B1B3D] group-hover:text-[#FF6B35] transition-colors line-clamp-2">
+        <h3 className="mt-2.5 font-[family-name:var(--font-heading)] text-base font-bold leading-snug text-[#463ACB] group-hover:text-[#FF6B35] transition-colors line-clamp-2">
           {ann.title}
         </h3>
 
@@ -307,7 +307,7 @@ function PinnedBanner({ ann, onClick }: { ann: Announcement; onClick: () => void
           <CatPill category={ann.category} />
         </div>
 
-        <h2 className="font-[family-name:var(--font-heading)] text-xl font-extrabold leading-snug text-[#0B1B3D] group-hover:text-[#FF6B35] transition-colors md:text-2xl">
+        <h2 className="font-[family-name:var(--font-heading)] text-xl font-extrabold leading-snug text-[#463ACB] group-hover:text-[#FF6B35] transition-colors md:text-2xl">
           {ann.title}
         </h2>
 
@@ -369,7 +369,7 @@ export default function AnnouncementsPublicClient({ initialAnnouncements }: Prop
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden bg-[#0B1B3D] pb-24 pt-28">
+      <section className="relative overflow-hidden bg-[#463ACB] pb-24 pt-28">
         {/* Organic shape */}
         <div aria-hidden className="pointer-events-none absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full bg-[#FF6B35]/10 blur-3xl" />
         <div aria-hidden className="pointer-events-none absolute -bottom-20 -left-20 h-[300px] w-[300px] rounded-full bg-[#FF6B35]/10 blur-3xl" />
@@ -479,7 +479,7 @@ export default function AnnouncementsPublicClient({ initialAnnouncements }: Prop
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-slate-100">
               <Megaphone size={26} className="text-slate-300" aria-hidden />
             </div>
-            <p className="font-[family-name:var(--font-heading)] text-lg font-bold text-[#0B1B3D]">
+            <p className="font-[family-name:var(--font-heading)] text-lg font-bold text-[#463ACB]">
               Aucune annonce pour le moment
             </p>
             <p className="mt-2 max-w-xs text-sm text-slate-400">
@@ -491,7 +491,7 @@ export default function AnnouncementsPublicClient({ initialAnnouncements }: Prop
             <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-slate-100">
               <Search size={22} className="text-slate-300" aria-hidden />
             </div>
-            <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+            <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
               Aucun résultat
             </p>
             <p className="mt-1 text-sm text-slate-400">Essayez un autre terme de recherche.</p>

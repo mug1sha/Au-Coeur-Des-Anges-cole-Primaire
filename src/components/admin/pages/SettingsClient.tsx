@@ -67,7 +67,7 @@ export default function SettingsClient() {
           <CardHeader>
             <div className="flex items-center gap-2">
               <Settings size={18} className="text-[#FF6B35]" />
-              <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">Informations de l&apos;école</p>
+              <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">Informations de l&apos;école</p>
             </div>
           </CardHeader>
           <CardBody className="space-y-4">
@@ -101,7 +101,7 @@ export default function SettingsClient() {
           <CardHeader>
             <div className="flex items-center gap-2">
               <Calendar size={18} className="text-[#FF6B35]" />
-              <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">Année scolaire</p>
+              <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">Année scolaire</p>
             </div>
           </CardHeader>
           <CardBody className="space-y-4">
@@ -124,7 +124,7 @@ export default function SettingsClient() {
           <CardHeader>
             <div className="flex items-center gap-2">
               <Clock size={18} className="text-[#FF6B35]" />
-              <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">Horaires d&apos;ouverture</p>
+              <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">Horaires d&apos;ouverture</p>
             </div>
           </CardHeader>
           <CardBody className="space-y-4">
@@ -135,7 +135,7 @@ export default function SettingsClient() {
                 value={settings.closingTime} onChange={(e) => setField("closingTime", e.target.value)} />
             </div>
             <div>
-              <p className="mb-2 text-xs font-semibold text-[#0B1B3D]">Jours d&apos;ouverture</p>
+              <p className="mb-2 text-xs font-semibold text-[#463ACB]">Jours d&apos;ouverture</p>
               <div className="flex flex-wrap gap-2">
                 {["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"].map((day) => (
                   <button
@@ -166,7 +166,7 @@ export default function SettingsClient() {
           <CardHeader>
             <div className="flex items-center gap-2">
               <Globe size={18} className="text-[#FF6B35]" />
-              <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">Réseaux & communication</p>
+              <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">Réseaux & communication</p>
             </div>
           </CardHeader>
           <CardBody className="space-y-4">
@@ -189,7 +189,7 @@ export default function SettingsClient() {
           <CardHeader>
             <div className="flex items-center gap-2">
               <Bell size={18} className="text-[#FF6B35]" />
-              <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">Notifications administrateur</p>
+              <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">Notifications administrateur</p>
             </div>
           </CardHeader>
           <CardBody className="space-y-3">
@@ -216,14 +216,14 @@ export default function SettingsClient() {
           <CardHeader>
             <div className="flex items-center gap-2">
               <Shield size={18} className="text-[#FF6B35]" />
-              <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">Sécurité</p>
+              <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">Sécurité</p>
             </div>
           </CardHeader>
           <CardBody>
             <div className="space-y-3">
               <div className="flex items-center justify-between rounded-xl border border-slate-100 p-4">
                 <div>
-                  <p className="text-sm font-medium text-[#0B1B3D]">Changer le mot de passe administrateur</p>
+                  <p className="text-sm font-medium text-[#463ACB]">Changer le mot de passe administrateur</p>
                   <p className="text-xs text-slate-400">Dernière modification : il y a 30 jours</p>
                 </div>
                 <Button variant="secondary" size="sm" onClick={() => show("Changement de mot de passe (backend requis).", "info")}>
@@ -232,7 +232,7 @@ export default function SettingsClient() {
               </div>
               <div className="flex items-center justify-between rounded-xl border border-slate-100 p-4">
                 <div>
-                  <p className="text-sm font-medium text-[#0B1B3D]">Sessions actives</p>
+                  <p className="text-sm font-medium text-[#463ACB]">Sessions actives</p>
                   <p className="text-xs text-slate-400">1 session active en ce moment</p>
                 </div>
                 <Button variant="secondary" size="sm" onClick={() => show("Révocation des sessions (backend requis).", "info")}>

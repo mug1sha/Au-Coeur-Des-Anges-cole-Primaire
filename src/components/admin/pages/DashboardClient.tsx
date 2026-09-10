@@ -76,7 +76,7 @@ function KpiCard({ label, value, change, icon: Icon, accent, iconColor, href, su
       </div>
 
       <div className="mt-4">
-        <p className="font-[family-name:var(--font-heading)] text-2xl font-extrabold leading-none text-[#0B1B3D]">
+        <p className="font-[family-name:var(--font-heading)] text-2xl font-extrabold leading-none text-[#463ACB]">
           {typeof value === "number" ? value.toLocaleString("fr-FR") : value}
           {suffix && <span className="ml-1 text-sm font-medium text-slate-400">{suffix}</span>}
         </p>
@@ -251,7 +251,7 @@ function DonutChart({ data }: { data: { category: string; amount: number; color:
           {arcs}
           {/* Center text */}
           <text x="50" y="47" textAnchor="middle" fontSize="9" fill="#94a3b8" fontWeight="500">Total</text>
-          <text x="50" y="58" textAnchor="middle" fontSize="8" fill="#0B1B3D" fontWeight="700">
+          <text x="50" y="58" textAnchor="middle" fontSize="8" fill="#463ACB" fontWeight="700">
             {total >= 1_000_000 ? `${(total / 1_000_000).toFixed(1)}M` : `${(total / 1_000).toFixed(0)}k`}
           </text>
         </svg>
@@ -265,7 +265,7 @@ function DonutChart({ data }: { data: { category: string; amount: number; color:
             <div key={d.category} className="flex items-center gap-1.5 min-w-0">
               <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: d.color }} />
               <span className="truncate text-[11px] text-slate-500">{d.category}</span>
-              <span className="ml-auto shrink-0 text-[11px] font-semibold text-[#0B1B3D]">{pct}%</span>
+              <span className="ml-auto shrink-0 text-[11px] font-semibold text-[#463ACB]">{pct}%</span>
             </div>
           );
         })}
@@ -365,7 +365,7 @@ export default function DashboardClient() {
       {/* ── GREETING ── */}
       <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#0B1B3D] md:text-3xl">
+          <h1 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[#463ACB] md:text-3xl">
             {greeting()}, {adminName} 👋
           </h1>
           <p className="mt-0.5 flex items-center gap-1.5 text-sm capitalize text-slate-400">
@@ -445,7 +445,7 @@ export default function DashboardClient() {
         <Card className="lg:col-span-2">
           <CardHeader>
             <div>
-              <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+              <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
                 Revenus vs Dépenses
               </p>
               <p className="text-xs text-slate-400">Activité financière mensuelle — 6 derniers mois</p>
@@ -468,7 +468,7 @@ export default function DashboardClient() {
         <Card>
           <CardHeader>
             <div>
-              <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+              <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
                 Dépenses par catégorie
               </p>
               <p className="text-xs text-slate-400">Répartition du mois en cours</p>
@@ -485,7 +485,7 @@ export default function DashboardClient() {
             <div className="mt-4 border-t border-slate-100 pt-4">
               <div className="flex justify-between text-xs">
                 <span className="text-slate-400">Total dépenses</span>
-                <span className="font-bold text-[#0B1B3D]">
+                <span className="font-bold text-[#463ACB]">
                   {fmtCurrency(stats.expenseByCategory.reduce((s, d) => s + d.amount, 0))}
                 </span>
               </div>
@@ -501,7 +501,7 @@ export default function DashboardClient() {
         <Card className="lg:col-span-2">
           <CardHeader>
             <div>
-              <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+              <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
                 Transactions récentes
               </p>
               <p className="text-xs text-slate-400">Derniers mouvements financiers</p>
@@ -535,7 +535,7 @@ export default function DashboardClient() {
                   >
                     <td className="whitespace-nowrap px-5 py-3 text-xs text-slate-400">{fmtDate(tx.date)}</td>
                     <td className="px-5 py-3">
-                      <p className="max-w-[200px] truncate text-sm font-medium text-[#0B1B3D]">{tx.description}</p>
+                      <p className="max-w-[200px] truncate text-sm font-medium text-[#463ACB]">{tx.description}</p>
                     </td>
                     <td className="px-5 py-3">
                       <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${tx.type === "revenue" ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-600"}`}>
@@ -545,7 +545,7 @@ export default function DashboardClient() {
                     <td className="px-5 py-3">
                       <Badge variant="neutral">{tx.category}</Badge>
                     </td>
-                    <td className={`whitespace-nowrap px-5 py-3 text-right text-sm font-bold ${tx.type === "revenue" ? "text-emerald-700" : "text-[#0B1B3D]"}`}>
+                    <td className={`whitespace-nowrap px-5 py-3 text-right text-sm font-bold ${tx.type === "revenue" ? "text-emerald-700" : "text-[#463ACB]"}`}>
                       {tx.type === "revenue" ? "+" : "−"} {fmtCurrency(tx.amount)}
                     </td>
                     <td className="px-5 py-3">
@@ -567,7 +567,7 @@ export default function DashboardClient() {
                   {tx.type === "revenue" ? <TrendingUp size={14} className="text-emerald-600" /> : <TrendingDown size={14} className="text-red-500" />}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-medium text-[#0B1B3D]">{tx.description}</p>
+                  <p className="truncate text-sm font-medium text-[#463ACB]">{tx.description}</p>
                   <p className="text-xs text-slate-400">{fmtDate(tx.date)} · {tx.category}</p>
                 </div>
                 <div className="text-right">
@@ -589,7 +589,7 @@ export default function DashboardClient() {
           {/* Recent Announcements */}
           <Card>
             <CardHeader>
-              <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+              <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
                 Annonces récentes
               </p>
               <Link href="/admin/announcements" className="flex items-center gap-1 text-xs font-medium text-[#FF6B35] hover:underline">
@@ -605,7 +605,7 @@ export default function DashboardClient() {
                   >
                     <div className="flex items-start justify-between gap-2">
                       <div className="min-w-0">
-                        <p className="truncate text-sm font-semibold text-[#0B1B3D]">{ann.title}</p>
+                        <p className="truncate text-sm font-semibold text-[#463ACB]">{ann.title}</p>
                         <div className="mt-1 flex flex-wrap items-center gap-1.5">
                           <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-500">
                             {ann.category}
@@ -626,7 +626,7 @@ export default function DashboardClient() {
           {/* Quick Actions */}
           <Card>
             <CardHeader>
-              <p className="font-[family-name:var(--font-heading)] font-bold text-[#0B1B3D]">
+              <p className="font-[family-name:var(--font-heading)] font-bold text-[#463ACB]">
                 Actions rapides
               </p>
             </CardHeader>
@@ -642,7 +642,7 @@ export default function DashboardClient() {
                   <Link
                     key={action.href}
                     href={action.href}
-                    className="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-[#0B1B3D]"
+                    className="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-[#463ACB]"
                   >
                     <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition group-hover:scale-105 ${action.color}`}>
                       <Icon size={14} />
