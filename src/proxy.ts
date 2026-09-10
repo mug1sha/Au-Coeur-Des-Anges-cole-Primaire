@@ -1,7 +1,6 @@
 /**
  * Next.js Middleware (proxy.ts) — Admin Route Protection
- * In Next.js 16+, this file is the middleware entry point (replaces middleware.ts).
- * Validates Supabase session server-side before serving any /admin/* route.
+ * Uses getUser() (not getSession()) for reliable server-side auth check.
  */
 
 import { NextRequest, NextResponse } from "next/server";
@@ -16,21 +15,22 @@ export async function proxy(request: NextRequest) {
     return NextResponse.next({ request });
   }
 
-  // Allow the login page — but redirect to dashboard if already logged in
+  const { supabase, supabaseResponse } = createMiddlewareClient(request);
+
+  // IMPORTANT: Always call getUser() to refresh the session token if needed.
+  // getSession() can return stale data — getUser() validates with Supabase server.
+  const { data: { user } } = await supabase.auth.getUser();
+
+  // Allow login page — redirect to dashboard if already logged in
   if (PUBLIC_ADMIN_ROUTES.some((r) => pathname.startsWith(r))) {
-    const { supabase, supabaseResponse } = createMiddlewareClient(request);
-    const { data: { session } } = await supabase.auth.getSession();
-    if (session) {
+    if (user) {
       return NextResponse.redirect(new URL("/admin", request.url));
     }
     return supabaseResponse;
   }
 
-  // All other /admin/* routes require a valid Supabase session
-  const { supabase, supabaseResponse } = createMiddlewareClient(request);
-  const { data: { session } } = await supabase.auth.getSession();
-
-  if (!session) {
+  // All other /admin/* routes require valid session
+  if (!user) {
     const loginUrl = new URL("/admin/login", request.url);
     loginUrl.searchParams.set("redirectTo", pathname);
     return NextResponse.redirect(loginUrl);

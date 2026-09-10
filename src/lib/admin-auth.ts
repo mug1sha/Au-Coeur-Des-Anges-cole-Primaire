@@ -1,6 +1,7 @@
 /**
  * Admin authentication layer — backed by Supabase Auth.
- * Client-side helpers only. All real auth happens via /api/auth/* routes.
+ * Signs in via the BROWSER Supabase client so the session cookie
+ * is set correctly by @supabase/ssr in the browser context.
  */
 
 import { createClient } from "@/lib/supabase/client";
@@ -25,54 +26,67 @@ export interface AdminLoginResult {
 }
 
 // ─────────────────────────────────────────────
-// LOGIN — calls /api/auth/login
+// LOGIN — signs in via browser client directly
+// so the session cookie is set in the browser
 // ─────────────────────────────────────────────
 export async function adminLogin(
   email: string,
   password: string,
   _remember = false
 ): Promise<AdminLoginResult> {
-  const res = await fetch("/api/auth/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
+  const supabase = createClient();
+
+  // Step 1: sign in — this sets the session cookie via @supabase/ssr
+  const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+    email,
+    password,
   });
 
-  const data = await res.json();
+  if (authError || !authData.session) {
+    return { success: false, error: "Identifiants incorrects." };
+  }
 
-  if (!res.ok) {
-    return { success: false, error: data.error ?? "Identifiants incorrects." };
+  // Step 2: fetch the profile to get role
+  const { data: profile, error: profileError } = await supabase
+    .from("profiles")
+    .select("id, name, email, role, active")
+    .eq("id", authData.user.id)
+    .single();
+
+  if (profileError || !profile) {
+    await supabase.auth.signOut();
+    return { success: false, error: "Profil introuvable. Contactez l'administrateur." };
+  }
+
+  if (!profile.active) {
+    await supabase.auth.signOut();
+    return { success: false, error: "Ce compte est désactivé." };
   }
 
   return {
     success: true,
     session: {
-      userId: data.user.id,
-      name: data.user.name,
-      email: data.user.email,
-      role: data.user.role,
-      token: data.access_token,
-      expiresAt: Date.now() + 8 * 60 * 60 * 1000,
+      userId: profile.id,
+      name: profile.name,
+      email: profile.email,
+      role: profile.role as UserRole,
+      token: authData.session.access_token,
+      expiresAt: new Date(authData.session.expires_at! * 1000).getTime(),
     },
   };
 }
 
 // ─────────────────────────────────────────────
-// LOGOUT — calls /api/auth/logout
+// LOGOUT
 // ─────────────────────────────────────────────
 export async function adminLogout(): Promise<void> {
-  await fetch("/api/auth/logout", { method: "POST" });
+  const supabase = createClient();
+  await supabase.auth.signOut();
 }
 
 // ─────────────────────────────────────────────
-// SESSION CHECK — reads from Supabase client
+// SESSION CHECK
 // ─────────────────────────────────────────────
-export function isAdminAuthenticated(): boolean {
-  // Optimistic check — real guard is in middleware.ts server-side
-  if (typeof window === "undefined") return false;
-  return !!document.cookie.includes("sb-aubdtgbewzdntilhenos-auth-token");
-}
-
 export async function getAdminSession(): Promise<AdminSession | null> {
   const supabase = createClient();
   const { data: { session } } = await supabase.auth.getSession();
@@ -118,6 +132,7 @@ export async function verifyAdminSession(
   return { valid: true, session };
 }
 
-// Legacy stubs kept for backwards compat with any component still importing them
+// Legacy stubs
+export function isAdminAuthenticated(): boolean { return false; }
 export function setAdminSession(_s: AdminSession, _r = false) {}
 export function clearAdminSession() {}
