@@ -29,6 +29,11 @@ export const ROLE_PERMISSIONS: Record<UserRole, string[]> = {
   content_manager: ["dashboard", "services", "teachers", "announcements", "gallery", "website"],
 };
 
+export function hasPermission(role: UserRole, resource: string): boolean {
+  const perms = ROLE_PERMISSIONS[role] ?? [];
+  return perms.includes("*") || perms.includes(resource);
+}
+
 // ─────────────────────────────────────────────
 // TEACHERS
 // ─────────────────────────────────────────────

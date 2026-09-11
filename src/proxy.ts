@@ -6,7 +6,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createMiddlewareClient } from "@/lib/supabase/middleware";
 
-const PUBLIC_ADMIN_ROUTES = ["/admin/login"];
+const PUBLIC_ADMIN_ROUTES = ["/admin/login", "/admin/reset-password"];
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -17,22 +17,40 @@ export async function proxy(request: NextRequest) {
 
   const { supabase, supabaseResponse } = createMiddlewareClient(request);
 
-  // IMPORTANT: Always call getUser() to refresh the session token if needed.
-  // getSession() can return stale data — getUser() validates with Supabase server.
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-  // Allow login page — redirect to dashboard if already logged in
   if (PUBLIC_ADMIN_ROUTES.some((r) => pathname.startsWith(r))) {
     if (user) {
-      return NextResponse.redirect(new URL("/admin", request.url));
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("active")
+        .eq("id", user.id)
+        .single();
+      if (profile?.active) {
+        return NextResponse.redirect(new URL("/admin", request.url));
+      }
     }
     return supabaseResponse;
   }
 
-  // All other /admin/* routes require valid session
   if (!user) {
     const loginUrl = new URL("/admin/login", request.url);
     loginUrl.searchParams.set("redirectTo", pathname);
+    return NextResponse.redirect(loginUrl);
+  }
+
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("active")
+    .eq("id", user.id)
+    .single();
+
+  if (!profile?.active) {
+    await supabase.auth.signOut();
+    const loginUrl = new URL("/admin/login", request.url);
+    loginUrl.searchParams.set("reason", "inactive");
     return NextResponse.redirect(loginUrl);
   }
 

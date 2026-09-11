@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import { Upload, Trash2, Image as ImageIcon, Filter, ShieldAlert } from "lucide-react";
-import { getGalleryImages, deleteGalleryImage } from "@/lib/admin-data";
+import { getGalleryImages, deleteGalleryImage, uploadAdminFile, createGalleryImage } from "@/lib/admin-data";
 import type { GalleryImage, GalleryCategory } from "@/lib/admin-types";
 import { ROLE_PERMISSIONS } from "@/lib/admin-types";
 import { useAdminSession } from "@/lib/AdminSessionContext";
@@ -37,6 +37,7 @@ export default function GalleryAdminClient() {
   const [deleteTarget, setDeleteTarget] = useState<GalleryImage | null>(null);
   const [deleting, setDeleting] = useState(false);
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [uploading, setUploading] = useState(false);
   const { show, ToastComponent } = useToast();
 
   const PAGE_SIZE = 12;
@@ -50,14 +51,23 @@ export default function GalleryAdminClient() {
 
   const load = useCallback(async () => {
     setLoading(true);
-    const res = await getGalleryImages({ page, pageSize: PAGE_SIZE, search });
-    const filtered = category === "all"
-      ? res.data
-      : res.data.filter((img) => img.category === category);
-    setImages(filtered);
-    setTotal(res.total);
-    setLoading(false);
-  }, [page, search, category]);
+    try {
+      const res = await getGalleryImages({
+        page,
+        pageSize: PAGE_SIZE,
+        search,
+        category: category === "all" ? undefined : category,
+      });
+      setImages(res.data);
+      setTotal(res.total);
+    } catch {
+      show("Impossible de charger la galerie.", "error");
+      setImages([]);
+      setTotal(0);
+    } finally {
+      setLoading(false);
+    }
+  }, [page, search, category, show]);
 
   // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { load(); }, [load]);
@@ -78,7 +88,36 @@ export default function GalleryAdminClient() {
     setSelected(new Set());
   }
 
-  async function handleDelete() {
+  async function handleFiles(files: FileList | null) {
+    if (!files?.length) return;
+    setUploading(true);
+    const cat = category === "all" ? "activites" : category;
+    let ok = 0;
+    try {
+      for (const file of Array.from(files)) {
+        if (!file.type.startsWith("image/")) {
+          show(`${file.name} n'est pas une image.`, "error");
+          continue;
+        }
+        const uploaded = await uploadAdminFile(file, "gallery");
+        await createGalleryImage({
+          src: uploaded.persistUrl ?? uploaded.url,
+          alt: file.name.replace(/\.[^.]+$/, "").slice(0, 120) || "Photo de l'école",
+          category: cat,
+          size: file.size,
+        });
+        ok += 1;
+      }
+      if (ok) {
+        show(`${ok} image(s) importée(s).`, "success");
+        load();
+      }
+    } catch (err) {
+      show(err instanceof Error ? err.message : "Erreur lors de l'import.", "error");
+    } finally {
+      setUploading(false);
+    }
+  }
     if (!deleteTarget) return;
     setDeleting(true);
     try {

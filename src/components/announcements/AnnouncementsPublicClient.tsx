@@ -331,19 +331,79 @@ function PinnedBanner({ ann, onClick }: { ann: Announcement; onClick: () => void
 // ─────────────────────────────────────────────
 interface Props {
   initialAnnouncements: Announcement[];
+  /** Total published announcements in the DB (from SSR count). */
+  initialTotal?: number;
+  /** Number of items loaded in the first SSR pass. */
+  pageSize?: number;
 }
 
-export default function AnnouncementsPublicClient({ initialAnnouncements }: Props) {
+export default function AnnouncementsPublicClient({
+  initialAnnouncements,
+  initialTotal = initialAnnouncements.length,
+  pageSize = 12,
+}: Props) {
+  const [announcements, setAnnouncements] = useState<Announcement[]>(initialAnnouncements);
+  const [total, setTotal] = useState(initialTotal);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [loadMoreError, setLoadMoreError] = useState(false);
   const [search, setSearch] = useState("");
   const [catFilter, setCatFilter] = useState<AnnouncementCategory | "all">("all");
   const [selected, setSelected] = useState<Announcement | null>(null);
 
+  // Whether there are more pages to load from the server
+  const hasMore = announcements.length < total;
+
+  async function loadMore() {
+    setLoadingMore(true);
+    setLoadMoreError(false);
+    try {
+      const nextPage = currentPage + 1;
+      const params = new URLSearchParams({
+        public: "true",
+        page:   String(nextPage),
+        limit:  String(pageSize),
+      });
+      const res = await fetch(`/api/announcements?${params}`, {
+        credentials: "include",
+      });
+      if (!res.ok) throw new Error("Erreur réseau");
+      const json = await res.json() as {
+        data: Record<string, unknown>[];
+        total: number;
+        hasMore: boolean;
+      };
+      // Map snake_case → camelCase
+      const newItems: Announcement[] = (json.data ?? []).map((row) => ({
+        id:          row.id as string,
+        title:       row.title as string,
+        content:     row.content as string,
+        excerpt:     row.excerpt as string | undefined,
+        category:    row.category as Announcement["category"],
+        coverImage:  (row.cover_image ?? row.coverImage) as string | undefined,
+        status:      row.status as Announcement["status"],
+        publishedAt: (row.published_at ?? row.publishedAt) as string | undefined,
+        expiresAt:   (row.expires_at ?? row.expiresAt) as string | undefined,
+        pinned:      row.pinned as boolean,
+        author:      row.author as string,
+        createdAt:   (row.created_at ?? row.createdAt) as string,
+        updatedAt:   (row.updated_at ?? row.updatedAt) as string,
+      }));
+      setAnnouncements((prev) => [...prev, ...newItems]);
+      setTotal(json.total ?? total);
+      setCurrentPage(nextPage);
+    } catch {
+      setLoadMoreError(true);
+    } finally {
+      setLoadingMore(false);
+    }
+  }
+
   // Separate pinned from rest
-  const pinned = initialAnnouncements.find((a) => a.pinned);
-  const rest = initialAnnouncements.filter((a) => !a.pinned);
+  const pinned = announcements.find((a) => a.pinned);
 
   // All for filter counting (pinned included)
-  const all = initialAnnouncements;
+  const all = announcements;
 
   const filtered = useMemo(() => {
     const pool = catFilter === "all" ? all : all.filter((a) => a.category === catFilter);
@@ -436,7 +496,7 @@ export default function AnnouncementsPublicClient({ initialAnnouncements }: Prop
                 : "border-slate-200 bg-white text-slate-600 hover:border-[#FF6B35]/30 hover:text-[#FF6B35]"
             }`}
           >
-            Toutes ({categoriesWithCount.all})
+            Toutes ({total})
           </button>
           {(Object.keys(ANNOUNCEMENT_CATEGORY_LABELS) as AnnouncementCategory[]).map((k) => {
             if (!categoriesWithCount[k]) return null;
@@ -503,16 +563,57 @@ export default function AnnouncementsPublicClient({ initialAnnouncements }: Prop
             </button>
           </div>
         ) : (
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((ann, i) => (
-              <AnnouncementCard
-                key={ann.id}
-                ann={ann}
-                index={i}
-                onClick={() => setSelected(ann)}
-              />
-            ))}
-          </div>
+          <>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {filtered.map((ann, i) => (
+                <AnnouncementCard
+                  key={ann.id}
+                  ann={ann}
+                  index={i}
+                  onClick={() => setSelected(ann)}
+                />
+              ))}
+            </div>
+
+            {/* Load more — shown when there are server-side pages remaining
+                and no search/category filter is active (filtered view works
+                on already-loaded data; load more fetches the next DB page). */}
+            {hasMore && !search && catFilter === "all" && (
+              <div className="mt-10 flex flex-col items-center gap-3">
+                {loadMoreError && (
+                  <p className="text-sm text-red-500">
+                    Erreur de chargement.{" "}
+                    <button onClick={loadMore} className="font-semibold underline">
+                      Réessayer
+                    </button>
+                  </p>
+                )}
+                <button
+                  onClick={loadMore}
+                  disabled={loadingMore}
+                  aria-busy={loadingMore}
+                  className="inline-flex min-h-11 items-center gap-2 rounded-[14px] border-2 border-[#463ACB] bg-white px-6 py-2.5 text-sm font-bold text-[#463ACB] transition duration-200 hover:bg-[#463ACB] hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  {loadingMore ? (
+                    <>
+                      <span
+                        aria-hidden
+                        className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent"
+                      />
+                      Chargement…
+                    </>
+                  ) : (
+                    <>
+                      Charger plus d&apos;annonces
+                      <span className="text-xs opacity-60">
+                        ({announcements.length} / {total})
+                      </span>
+                    </>
+                  )}
+                </button>
+              </div>
+            )}
+          </>
         )}
       </section>
 

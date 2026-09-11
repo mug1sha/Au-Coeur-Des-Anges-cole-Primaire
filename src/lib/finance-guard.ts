@@ -46,11 +46,15 @@ export function checkFinancePermission(
   if (!session) {
     return { allowed: false, reason: "Non authentifié." };
   }
-  const allowed = FINANCE_ROLES[session.role] ?? [];
+  return checkFinanceRole(session.role, action);
+}
+
+export function checkFinanceRole(role: UserRole, action: FinanceAction): PermissionResult {
+  const allowed = FINANCE_ROLES[role] ?? [];
   if (!allowed.includes(action)) {
     return {
       allowed: false,
-      reason: `Le rôle "${session.role}" ne peut pas effectuer l'action "${action}" sur les données financières.`,
+      reason: `Le rôle "${role}" ne peut pas effectuer l'action "${action}" sur les données financières.`,
     };
   }
   return { allowed: true };

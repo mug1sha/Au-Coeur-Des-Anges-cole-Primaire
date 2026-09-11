@@ -28,8 +28,7 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
-import { verifyAdminSession } from "@/lib/admin-auth";
-import { checkFinancePermission } from "@/lib/finance-guard";
+import { requireAuth, isNextResponse } from "@/lib/supabase/auth-guard";
 import {
   getRevenues, getExpenses, getFinanceSummary,
 } from "@/lib/admin-data";
@@ -70,16 +69,9 @@ export async function GET(
   req: NextRequest,
   context: { params: Promise<{ type: string }> }
 ) {
-  // Auth
-  const token = req.headers.get("Authorization")?.replace("Bearer ", "") ?? "";
-  const auth = await verifyAdminSession(token, "finance");
-  if (!auth.valid) {
-    return NextResponse.json({ error: "Non autorisé." }, { status: 401 });
-  }
-  const permCheck = checkFinancePermission(auth.session ?? null, "read");
-  if (!permCheck.allowed) {
-    return NextResponse.json({ error: permCheck.reason }, { status: 403 });
-  }
+  // Auth — server-side JWT validation via getUser()
+  const auth = await requireAuth("finance");
+  if (isNextResponse(auth)) return auth;
 
   const { type } = await context.params;
   const exportType = type as ExportType;
@@ -174,7 +166,7 @@ async function buildCsv(
   }
 
   else if (type === "summary") {
-    const summary = await getFinanceSummary(opts.startDate, opts.endDate);
+    const summary = await getFinanceSummary({ startDate: opts.startDate, endDate: opts.endDate });
     lines.push(row(["Indicateur", "Montant (RWF)"]));
     lines.push(row(["Total revenus", summary.totalRevenue]));
     lines.push(row(["Total dépenses", summary.totalExpenses]));
@@ -217,7 +209,7 @@ async function buildPdfBlueprint(
   opts: { startDate?: string; endDate?: string; category?: string; status?: string }
 ) {
   const summary = type === "summary" || type === "transactions"
-    ? await getFinanceSummary(opts.startDate, opts.endDate)
+    ? await getFinanceSummary({ startDate: opts.startDate, endDate: opts.endDate })
     : null;
 
   const now = new Date();

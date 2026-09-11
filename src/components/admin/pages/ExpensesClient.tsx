@@ -16,6 +16,14 @@ import {
   ChevronDown, X, Info, CheckCircle2, Clock, Ban,
   Receipt, Paperclip,
 } from "lucide-react";
+
+function receiptHref(url?: string) {
+  if (!url) return "#";
+  if (url.startsWith("receipts/")) {
+    return `/api/finance/receipts?path=${encodeURIComponent(url.slice("receipts/".length))}`;
+  }
+  return url;
+}
 import {
   getExpenses, createExpense, updateExpense, deleteExpense, addAuditLog,
 } from "@/lib/admin-data";
@@ -159,11 +167,11 @@ export default function ExpensesClient() {
     try {
       const fd = new FormData();
       fd.append("file", file);
-      fd.append("category", "general");
+      fd.append("type", "receipt");
       const res = await fetch("/api/upload", { method: "POST", body: fd });
       const json = await res.json();
-      if (!res.ok || !json.url) { show(json.error ?? "Échec du téléchargement.", "error"); return; }
-      setField("receiptUrl", json.url);
+      if (!res.ok || !(json.persistUrl || json.url)) { show(json.error ?? "Échec du téléchargement.", "error"); return; }
+      setField("receiptUrl", json.persistUrl ?? json.url);
       show("Reçu téléchargé.", "success");
     } catch { show("Erreur réseau.", "error"); }
     finally { setReceiptUploading(false); }
@@ -346,7 +354,7 @@ export default function ExpensesClient() {
               {form.receiptUrl ? (
                 <>
                   <Paperclip size={16} className="text-emerald-600 shrink-0" />
-                  <a href={form.receiptUrl} target="_blank" rel="noopener noreferrer"
+                  <a href={receiptHref(form.receiptUrl)} target="_blank" rel="noopener noreferrer"
                     className="flex-1 truncate text-sm text-emerald-700 hover:underline">
                     {form.receiptUrl.split("/").pop()}
                   </a>
@@ -554,7 +562,7 @@ export default function ExpensesClient() {
                           </Td>
                           <Td>
                             {e.receiptUrl ? (
-                              <a href={e.receiptUrl} target="_blank" rel="noopener noreferrer"
+                              <a href={receiptHref(e.receiptUrl)} target="_blank" rel="noopener noreferrer"
                                 className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-xs font-medium text-emerald-700 bg-emerald-50 hover:bg-emerald-100 transition">
                                 <Paperclip size={11} /> Voir
                               </a>

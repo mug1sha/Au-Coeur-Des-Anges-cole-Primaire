@@ -5,7 +5,7 @@
  */
 
 import { createClient } from "@/lib/supabase/client";
-import { ROLE_PERMISSIONS, type UserRole } from "./admin-types";
+import { hasPermission, type UserRole } from "./admin-types";
 
 // ─────────────────────────────────────────────
 // TYPES
@@ -70,7 +70,7 @@ export async function adminLogin(
       name: profile.name,
       email: profile.email,
       role: profile.role as UserRole,
-      token: authData.session.access_token,
+      token: "",
       expiresAt: new Date(authData.session.expires_at! * 1000).getTime(),
     },
   };
@@ -105,7 +105,7 @@ export async function getAdminSession(): Promise<AdminSession | null> {
     name: profile.name,
     email: profile.email,
     role: profile.role as UserRole,
-    token: session.access_token,
+    token: "",
     expiresAt: new Date(session.expires_at! * 1000).getTime(),
   };
 }
@@ -113,10 +113,7 @@ export async function getAdminSession(): Promise<AdminSession | null> {
 // ─────────────────────────────────────────────
 // PERMISSION HELPERS
 // ─────────────────────────────────────────────
-export function hasPermission(role: UserRole, resource: string): boolean {
-  const perms = ROLE_PERMISSIONS[role] ?? [];
-  return perms.includes("*") || perms.includes(resource);
-}
+export { hasPermission };
 
 export function canAccess(session: AdminSession | null, resource: string): boolean {
   if (!session) return false;

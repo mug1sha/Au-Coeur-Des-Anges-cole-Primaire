@@ -12,21 +12,27 @@ export interface AuthedUser {
 /**
  * Verifies the session and optionally checks role permission.
  * Returns the user or a 401/403 NextResponse.
+ *
+ * SECURITY: uses getUser() (not getSession()) to validate the JWT
+ * server-side against Supabase Auth — prevents stale/manipulated tokens.
  */
 export async function requireAuth(
   resource?: string
 ): Promise<{ user: AuthedUser } | NextResponse> {
   const supabase = await createClient();
-  const { data: { session } } = await supabase.auth.getSession();
 
-  if (!session) {
+  // getUser() validates the JWT against the Supabase server on every call.
+  // This prevents stale/manipulated session tokens from being accepted.
+  const { data: { user }, error: userError } = await supabase.auth.getUser();
+
+  if (userError || !user) {
     return NextResponse.json({ error: "Non authentifié." }, { status: 401 });
   }
 
   const { data: profile } = await supabase
     .from("profiles")
     .select("id, name, email, role, active")
-    .eq("id", session.user.id)
+    .eq("id", user.id)
     .single();
 
   if (!profile || !profile.active) {

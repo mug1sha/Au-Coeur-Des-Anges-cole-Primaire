@@ -2,33 +2,39 @@ import { createServerClient } from "@supabase/ssr";
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
 
+function requirePublicEnv() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (!url || !anon) {
+    throw new Error("Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY");
+  }
+  return { url, anon };
+}
+
 /**
  * Server client — reads session from cookies.
  * Use in Server Components and API Route handlers.
  */
 export async function createClient() {
   const cookieStore = await cookies();
+  const { url, anon } = requirePublicEnv();
 
-  return createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll() {
-          return cookieStore.getAll();
-        },
-        setAll(cookiesToSet) {
-          try {
-            cookiesToSet.forEach(({ name, value, options }) =>
-              cookieStore.set(name, value, options)
-            );
-          } catch {
-            // setAll called from a Server Component — safe to ignore
-          }
-        },
+  return createServerClient(url, anon, {
+    cookies: {
+      getAll() {
+        return cookieStore.getAll();
       },
-    }
-  );
+      setAll(cookiesToSet) {
+        try {
+          cookiesToSet.forEach(({ name, value, options }) =>
+            cookieStore.set(name, value, options)
+          );
+        } catch {
+          // setAll called from a Server Component — safe to ignore
+        }
+      },
+    },
+  });
 }
 
 /**
@@ -36,14 +42,15 @@ export async function createClient() {
  * Use ONLY in trusted server-side code (API routes, never browser).
  */
 export function createAdminClient() {
-  return createSupabaseClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-    {
-      auth: {
-        autoRefreshToken: false,
-        persistSession: false,
-      },
-    }
-  );
+  const { url } = requirePublicEnv();
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!serviceKey) {
+    throw new Error("Missing SUPABASE_SERVICE_ROLE_KEY");
+  }
+  return createSupabaseClient(url, serviceKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+  });
 }

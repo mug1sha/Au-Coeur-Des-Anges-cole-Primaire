@@ -104,6 +104,7 @@ export default function Hero() {
                 alt="Enfants de Au Coeur Des Anges"
                 fill
                 priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </motion.div>
@@ -116,6 +117,7 @@ export default function Hero() {
               src="/images/logo.png"
               alt="Logo Au Coeur Des Anges"
               fill
+              sizes="(max-width: 640px) 112px, 144px"
               className="rounded-full object-contain p-2"
             />
           </div>

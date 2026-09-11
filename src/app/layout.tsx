@@ -2,14 +2,20 @@ import type { Metadata } from "next";
 import { Inter, Nunito } from "next/font/google";
 import "./globals.css";
 
+// Load only the weights actually used in the design.
+// display: "swap" prevents invisible text during font load (avoids FOIT).
 const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600"],
 });
 
 const nunito = Nunito({
   variable: "--font-heading",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["700", "800"],
 });
 
 export const metadata: Metadata = {

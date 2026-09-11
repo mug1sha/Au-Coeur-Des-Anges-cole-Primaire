@@ -7,6 +7,7 @@ export async function POST() {
     await supabase.auth.signOut();
     return NextResponse.json({ success: true });
   } catch {
+    // Do not expose internal error details — always return a safe message
     return NextResponse.json({ error: "Erreur lors de la déconnexion." }, { status: 500 });
   }
 }
